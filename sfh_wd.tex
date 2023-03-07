@@ -182,21 +182,23 @@ stellar populations~\citep{2011MNRAS.417...93R, 2017ASPC..509...25L}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The mathematical construction of a WDLF is straightforward: stars
-were formed in a distribution of mass~($\mathcal{M}_i$), described by the initial
+The physical picutre of getting a population of isolated WDs is
+straightforward: the progenitor stars formed in their birth clusters
+following a distribution of mass~($\mathcal{M}_i$) described by the initial
 mass function~(IMF, $\phi$). Then, they spend their lifetime carrying out
-nuclear burning~($t_{\mathrm{MS}}$), and the time they spend depends mainly on
-their mass. Towards the end stage of stellar evolution stars shed most of the
-atmosphere, which is modelled by the initial-final mass relation~(IFMR,
-$\zeta$). Once they have become WDs, all that is left is to know how long it has
-been cooling~($t_{\mathrm{cool}}$) in order to reach the current
-luminosity~($M_\mathrm{bol}$). The heavy-duty of these computations
-are coming from interpolation of pre-computed lookup tables. The important
-part of this work is to carefully interpolate and integrate over the model
-grids, because they are both susceptible to significant rounding errors given
-the huge dynamic ranges the variables cover. For example, in the case of a simple
-starburst of $\mathcal{O}(10^6)$\,yrs, it requires a relative error
-tolerance of $10^{-10}$ in order to integrate properly for an old population.
+nuclear burning~($t_{\mathrm{MS}}$), and the time they spend depends mainly
+on their mass. Towards the end stage of stellar evolution, stars loses most
+of the atmosphere, modelled by the initial-final mass relation~(IFMR,
+$\zeta$). Once they have become WDs, all that is left is to know how long it
+has been cooling~($t_{\mathrm{cool}}$) in order to reach the current
+luminosity~($M_\mathrm{bol}$). Most of the computations to account for these
+physical processes are coming from the interpolations of pre-computed lookup
+tables. Particular care is needed to interpolate and integrate over the
+model grids, because they are both susceptible to significant rounding
+errors given the huge dynamic ranges the variables cover. For example, in
+the case of a simple starburst of $\mathcal{O}(10^6)$\,yrs, it requires a
+relative error tolerance of $10^{-10}$ in order to integrate properly for
+an old population.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The integral for a WDLF when parameterised with bolometric magnitude (as
@@ -238,9 +240,11 @@ The IFMR takes a simple form of
     \mathcal{M}_f = \zeta(\mathcal{M}_i),
 \end{equation}
 although there is evidence that more metal-rich stars lose more
-envelope~\citep{2007ApJ...671..761K}, there is insufficient empirical data to
-derive an IFMR at metallicity much lower or higher than solar abundance.
+envelope~\citep{2007ApJ...671..761K}, there is insufficient empirical data
+to derive an IFMR at metallicity much lower or higher than solar abundance.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Retrieving Star Formation History from a WD population}
 
 \citep{1990ApJ...352..605N}
@@ -252,26 +256,51 @@ derive an IFMR at metallicity much lower or higher than solar abundance.
 \citep{2019ApJ...878L..11I}
 
 
-\subsection{WDLF Inversion of a Statistical Sample}
-With the inversion algorithm, it is possible to resolve the SFH in high time resolution~\citep{2013MNRAS.434.1549R}. However, it is prone to amplify noise into enhanced star formation upon the inversion~\citep{2014ApJ...791...92T}. This is due to the large number of degenerate solutions that can
-yield the WDLF agree to within the uncertainty.
-
+\subsection{WDLF Inversion}
+With a mathematical inversion method, it is possible to retrieve the SFH of a
+stellar population~\citep{2013MNRAS.434.1549R}. However, it is prone to amplify
+noise into enhanced star formation~\citep{2014ApJ...791...92T}. This is due to
+the large number of degenerate solutions that can yield the WDLF agree to
+within the uncertainty. Some forms of explicit regularization are necessary
+to ensure smoothness in the solution. For example, \citet{2013MNRAS.434.1549R}
+defines a convergence criteria (section~\textsection 2.1.4)
+as a $1\%$ change in the best fit $\Chi^2$, beyond which they consider the
+improvement as overfitting.
 
 \subsection{Forward modelling of WDLFs}
+Another option to work on a statistical sample is to match a theoretical
+WDLF based on a guess input SFH. However, a direct implementation to
+derive a non-parametric SFH is extremely computationally heavy. In view of
+this, we look into various astronomomical fitting techniques and found that
+it is possible to follow the mathetical construction of full spectrum
+fitting of galactic spectra, and the use of partial CMD to derive the SFH
+of a stellar population~\citep{2006A&A...459..783C}, to speed up the
+modelling significantly. In both of these methods, they derive various
+physical properties, e.g.\ SFH and metallicity, of the stellar populsation.
+In the case of WDLF inversion in this
+work, SFH is the only independent variable (function).
 
-
-
-\section{A New method}
-Historically, all the luminosity functions of the solar neighbourhood were reported
-in the bolometric magnitudes. Essentially, all works were reporting the
-WD-Bolometric-LF. To address the problem of degeneracy in the solution, we explore
-the use of colour information from the luminosity function, where we are using
-the WDLF in multiple filters . 
-
+Full spectrum fitting works by comparing the observed spectrum agianst a
+combination of basis model spectra of a set of precomupted simple stellar
+poulation. Because of the large possible number of degenerate solutions and
+noise can significantly alter the solution, regularisation is necessary
+to avoid errorenously amplified solutions. For example, pPXF implements
+an explicit regularisation parameter, which can be interpreted as a
+convergence criteria as in \citet{2013MNRAS.434.1549R}. Alternatively, a
+Markov chain Monte-Carlo method can be used to mitigate ``overfitting''
+(e.g.\ Prospector).
+This automatically comes with the statistics of the solutions.
 
 \subsection{Partial WDLFs}
-Inspired by the partial CMD designed in~\citep{2006A&A...459..783C}, we use partial WDLFs as building
-blocks of the fitting models.
+In order to apply the fitting method to compute the SFH from WDLFs, we
+introduce partial WDLF~(pWDLF). It is inspired by the partial CMD designed
+in~\citep{2006A&A...459..783C}, we use these pWDLFs as basis models
+for fitting. Similar to both of these methods, the word \textit{partial} 
+refers to a view of the system over a small time range. In the context of
+this work, a pWDLF corresponds to a WDLF from a stellar population with
+an intense star formation at the given time and with no star formation 
+before or after that.
+
 
 
 
@@ -338,7 +367,12 @@ When the function is properly smoothed and weighted, the parametrisation with lu
 
 
 
-\section{Conclusions}
+\section{Conclusions and Future Work}
+Historically, all the luminosity functions of the solar neighbourhood were reported
+in the bolometric magnitudes. Essentially, all works were reporting the
+WD-Bolometric-LF. To address the problem of degeneracy in the solution, we explore
+the use of colour information from the luminosity function, where we are using
+the WDLF in multiple filters . 
 
 
 
