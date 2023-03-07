@@ -66,7 +66,7 @@
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
-\title[Galactic SFH from Gaia eDR3 WDLFs]{First Glimpse of the Galactic Star Formation History from the Gaia eDR3 White Dwarf Luminosity Functions}
+\title[Galactic SFH from Gaia GCNS WDLF]{A new method to retrieve the star formation history from a white dwarf luminosity function -- an application to the $Gaia$ catalogue of nearby stars}
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
@@ -301,19 +301,48 @@ this work, a pWDLF corresponds to a WDLF from a stellar population with
 an intense star formation at the given time and with no star formation 
 before or after that.
 
-
-
-
 \subsection{Model Fitting}
+The likelihood function to be maximized is essentially minimizing the
+$\chi^2$ between the observed and the reconstructed WDLFs weighted by the
+variance from the observed WDLF:
+\begin{equation}
+\chi^2 = \left(n(M_\mathrm{bol}) - n_\mathrm{obs}\right)^2 / \sigma_n^2
+\end{equation}
+where $n(M_\mathrm{bol}$ is the reconstructed WDLF, $n_\mathrm{obs}$
+is the observed WDLF, and $\sigma_n$ is the standard deviation in
+$n_\mathrm{obs}$.  The weight to each pWDLF in reconstructing the WDLF
+is directly proportional to the SFH, if the set of pWDLFs was computed
+using the same normalising factor from the IMF and IFMR. This can be
+written as
 
-\subsubsection{Bolometric Luminosity/Magnitude}
-The likelihood function to be maximized is essentially minimising the $\chi^2$ between
-the observed and the measured WDLFs weighted by the variance.
+\begin{equation}
+    n(M_\mathrm{bol}) = \sum_i w_i \times n_i(t, M_\mathrm{bol})    
+\end{equation}
 
-When the function is properly smoothed and weighted, the parametrisation with luminosity and magnitude should give identical results.
+where the $w_i$ is the weight function to the pWDLF $n_i$ with a
+burst of star formation at time $t$.
 
+When the function is properly smoothed and weighted, the
+parameterisation with luminosity and magnitude should give identical
+results agreed to within rounding errors coming from the interpolation
+over the model grid covering a large dynamic range of values.
+
+Upon deriving a SFH with a WDLF, the most important unsolved problem is
+``How much information can we obtain?''. We address two of these parameters
+in this work: (i) the resolution of the signal in the magnitude space or a
+WDLF, and (ii) the time resolution of the signal in the SFH. Any attempt
+in retrieving signal at finer intervals is essentially amplifying noise.
 
 \subsection{Effect of magnitude bin size}
+Isolated WDs follows a narrow distribution of surface gravity with
+$\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}, as the GCNS
+WDs are assumed to be DA with $\log(g) = 8.0$. However, the information
+blurring in the magnitude is not mainly affected by the intrinsic
+distribution of the WD surface gravity. Rather, it is the limitation of
+photometric fitting in obtaining the surface gravity. As found in 
+\citet{2019ApJ...871..169G} the photometric method leads to a spread of
+0.147 $M_\odot$ in the fitted mass
+
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{figures/fig_02_two_bursts_wdlf.png}
@@ -322,9 +351,6 @@ When the function is properly smoothed and weighted, the parametrisation with lu
 \end{figure}
 
 \subsection{Effect of time bin size}
-
-\subsection{Effect of choice of models}
-
 
 
 \section{Application to the early Gaia Data Release 3}
@@ -351,10 +377,6 @@ When the function is properly smoothed and weighted, the parametrisation with lu
     \caption{Caption}
     \label{fig:sfh_mag_bin_05}
 \end{figure*}
-
-
-
-\subsection{Comparison with WDLF inversions}
 
 
 
