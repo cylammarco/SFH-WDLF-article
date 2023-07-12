@@ -60,6 +60,15 @@
 \newcommand{\msun}{\mathcal{M}_{\sun}}
 \newcommand{\orcid}[1]{\href{https://orcid.org/#1}{\includesvg[width=10pt]{orcid}}}
 
+\newcommand{\dummyfig}[1]{
+  \centering
+  \fbox{
+    \begin{minipage}[c][0.25\textheight][c]{\columnwidth}
+      \centering{#1}
+    \end{minipage}
+  }
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
@@ -91,7 +100,12 @@ $^{1}$School of Physics and Astronomy, Tel Aviv University, Tel Aviv, Israel 699
 
 % Abstract of the paper
 \begin{abstract}
-
+With the state-of-the-art Gaia astrometry, the number of confirmed white dwarfs
+has reached a few hundred thousands. We have reached the era that small features
+in the Galactic white dwarf luminosity function (WDLF) can be resolved. We
+demonstration how we can apply Markov chain Monte Carlo sampling on a set of
+pre-computed partial-WDLFs to derive the star formation history of their progenitor
+stellar population.
 
 \end{abstract}
 
@@ -264,7 +278,7 @@ the large number of degenerate solutions that can yield the WDLF agree to
 within the uncertainty. Some forms of explicit regularization are necessary
 to ensure smoothness in the solution. For example, \citet{2013MNRAS.434.1549R}
 defines a convergence criteria (section~\textsection 2.1.4)
-as a $1\%$ change in the best fit $\Chi^2$, beyond which they consider the
+as a $1\%$ change in the best fit $\chi^2$, beyond which they consider the
 improvement as overfitting.
 
 \subsection{Forward modelling of WDLFs}
@@ -301,6 +315,8 @@ this work, a pWDLF corresponds to a WDLF from a stellar population with
 an intense star formation at the given time and with no star formation 
 before or after that.
 
+\section{Star Formation History from Partial WDLFs fitting}
+
 \subsection{Model Fitting}
 The likelihood function to be maximized is essentially minimizing the
 $\chi^2$ between the observed and the reconstructed WDLFs weighted by the
@@ -327,54 +343,79 @@ parameterisation with luminosity and magnitude should give identical
 results agreed to within rounding errors coming from the interpolation
 over the model grid covering a large dynamic range of values.
 
-Upon deriving a SFH with a WDLF, the most important unsolved problem is
-``How much information can we obtain?''. We address two of these parameters
-in this work: (i) the resolution of the signal in the magnitude space or a
-WDLF, and (ii) the time resolution of the signal in the SFH. Any attempt
-in retrieving signal at finer intervals is essentially amplifying noise.
+\subsection{Test case - noiseless}
 
-\subsection{Effect of magnitude bin size}
-Isolated WDs follows a narrow distribution of surface gravity with
+We demonstrate the performance of the use of pWDLF in three scenarios:
+(i)~one burst, (ii)~two bursts, and (iii)~decaying star formation history.
+
+\begin{figure}
+  \dummyfig{Noiseless SFH recovery} 
+  \caption{The recovered SFH and reconstructed SFH of a mock stellar population with a (i)~one burst, (ii)~two bursts, and (iii)~decaying star formation history.}
+  \label{fig:dummy1}
+\end{figure}
+
+
+\subsection{Test case - with added noise}
+
+\subsubsection*{One burst}
+\subsubsection*{Two bursts}
+\subsubsection*{Decaying star formation history}
+
+\begin{figure}
+  \dummyfig{Added noise SFH recovery} 
+  \caption{The recovered SFH and reconstructed SFH of a mock stellar population with a (i)~one burst, (ii)~two bursts, and (iii)~decaying star formation history.}
+  \label{fig:dummy2}
+\end{figure}
+
+
+\section{Application to the early Gaia Data Release 3}
+
+Upon deriving a SFH with a WDLF, one of the most important unsolved problems
+is ``How much information can we obtain?''. We address in this work on
+how, as a first step, to achieve an optimal sampling in the magnitude
+space to extract as much information from a WDLF as possible while keeping
+the amplification of noise to the minimum. Any attempt in retrieving a signal
+at finer intervals than the resolution of the data is essentially amplifying
+noise.
+
+
+[talk about the GCNS]
+
+\subsection{Magnitude bin size}
+Isolated WDs follow a narrow distribution of surface gravity with
 $\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}, as the GCNS
 WDs are assumed to be DA with $\log(g) = 8.0$. However, the information
 blurring in the magnitude is not mainly affected by the intrinsic
 distribution of the WD surface gravity. Rather, it is the limitation of
 photometric fitting in obtaining the surface gravity. As found in 
 \citet{2019ApJ...871..169G} the photometric method leads to a spread of
-0.147 $M_\odot$ in the fitted mass
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\columnwidth]{figures/fig_02_two_bursts_wdlf.png}
-    \caption{Caption}
-    \label{fig:two_burst_compare_bin}
-\end{figure}
-
-\subsection{Effect of time bin size}
+0.147 $M_\odot$ in the fitted mass. 
 
 
-\section{Application to the early Gaia Data Release 3}
-
-\subsection{Optimal magnitude bin for a given magnitude resolution}
+\subsection{Magnitude resolution}
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_03_mbol_sigma.png}
     \caption{Caption}
-    \label{fig:my_label}
+    \label{fig:mbol_sigma}
 \end{figure}
 
-\subsection{Optimal time bin for a given magnitude resolution}
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_04_magnitude_resoltuion.png}
     \caption{Caption}
-    \label{fig:my_label}
+    \label{fig:magnitude_resolution}
 \end{figure}
 
+\begin{figure}
+    \includegraphics[width=\columnwidth]{figures/fig_05_basis_pwdlf.png}
+    \caption{The set of partial WDLF (basis functions) that the peaks are separated by the magnitude resolution as found in Fig~\ref{fig:magnitude_resolution}.}
+    \label{fig:basis_pwdlf}
+\end{figure}
 
 \subsection{Star Formation History}
 
 \begin{figure*}
-    \includegraphics[width=\textwidth]{figures/fig_05_gcns_reconstructed_wdlf_optimal_resolution_bin_optimal.png}
-    \caption{Caption}
+    \includegraphics[width=\textwidth]{figures/fig_06_gcns_reconstructed_wdlf_optimal_resolution_bin_optimal.png}
+    \caption{Top: The weights of the pWDLFs found from MCMC sampling finished with a least-squares minimisation. Bottom: the reconstructed WDLF using the pWDLFs.}
     \label{fig:sfh_mag_bin_05}
 \end{figure*}
 
@@ -382,6 +423,11 @@ photometric fitting in obtaining the surface gravity. As found in
 
 \subsection{Comparison with previous studies}
 
+\begin{figure}
+  \dummyfig{Comparison} 
+  \caption{Compared against previous works. red hue dashed lines show the SFH based on WD. blue hur dotted lines show the SFH found using other stellar populations.}
+  \label{fig:dummy3}
+\end{figure}
 
 
 \section{Conclusions and Future Work}
