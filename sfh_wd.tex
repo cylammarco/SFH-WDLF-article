@@ -315,7 +315,7 @@ this work, a pWDLF corresponds to a WDLF from a stellar population with
 an intense star formation at the given time and with no star formation 
 before or after that.
 
-\section{Star Formation History from Partial WDLFs fitting}
+\section{SFH from fitting pWDLFs}
 
 \subsection{Model Fitting}
 The likelihood function to be maximized is essentially minimizing the
@@ -354,16 +354,16 @@ Section~\ref{sec:magnitude_bin_size}).
 \subsubsection*{Decaying star formation history}
 
 \begin{figure}
-  \dummyfig{Exponentially Decaying SFH} 
-  \caption{The recovered SFH and reconstructed SFH of a mock stellar population with a (i)~one burst, (ii)~two bursts, and (iii)~decaying star formation history.}
-  \label{fig:dummy1}
+  \includegraphics[width=\columnwidth]{figures/fig_01_exponential_decay_wdlf.png}
+  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar populations with exponentially increasing star formation rates. Each population has an exponential constant of 3\,Gyr, the SFHs were truncated at a look-back time of 2, 4, 6, 8, and 10\,Gyr.}
+  \label{fig:exponential_sfh}
 \end{figure}
 
 \subsubsection*{Two bursts}
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{figures/fig_02_two_bursts_wdlf.png} 
-  \caption{The recovered SFH and reconstructed SFH of a mock stellar population with a dual-burst star formation history.}
+  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar populations with a dual-burst SFH, and the second set has an inverse profile of the first set.}
   \label{fig:dual_burst_sfh}
 \end{figure}
 
