@@ -196,7 +196,7 @@ stellar populations~\citep{2011MNRAS.417...93R, 2017ASPC..509...25L}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The physical picutre of getting a population of isolated WDs is
+The physical picture of getting a population of isolated WDs is
 straightforward: the progenitor stars formed in their birth clusters
 following a distribution of mass~($\mathcal{M}_i$) described by the initial
 mass function~(IMF, $\phi$). Then, they spend their lifetime carrying out
@@ -346,7 +346,10 @@ over the model grid covering a large dynamic range of values.
 \subsection{Test case - noiseless}
 
 We demonstrate the performance of the use of pWDLF in three scenarios:
-(i)~two bursts, and (ii)~decaying star formation history.
+(i)~two bursts, and (ii)~decaying star formation history. The bin size
+in both time (number of pWDLFs) and magnitude (number of data points in
+a WDLF) are determined from the empirical Gaia EDR3 data (see
+Section~\ref{sec:magnitude_bin_size}).
 
 \subsubsection*{Decaying star formation history}
 
@@ -365,20 +368,33 @@ We demonstrate the performance of the use of pWDLF in three scenarios:
 \end{figure}
 
 
-\section{Application to the early Gaia Data Release 3}
+\section{Application to the Early Gaia Data Release 3}
+The Early Data Release 3~(EDR3) of Gaia relies on 34 months of
+observations and represents an improvement on all fronts over DR2,
+with parallax measurements being now on average 20-30 per cent more
+accurate and proper motion measurements twice as accurate as in the
+previous DRs~\citep{2021A&A...649A...1G, 2021A&A...649A...2L}.
+The Gaia Catalogue of Nearby Stars~(GCNS) contains 331\,312 objects within
+100\,pc of the Sun, of which 21\,848 are white dwarfs~\citep{2021A&A...649A...6G}. 
+However, this sample is not completeness corrected. The incompleteness
+is primarily at the brightest and the faintest absolute magnitudes
+where the astrometric solutions are the least reliable due their
+small number count intrinsic faintness. Furthermore, bright WDs are rare,
+they are found only at larger distances, there are very few of them in
+the local 100\,pc. Although this does not affect the completeness, this
+introduces large uncertainty into the statistics due to the small
+number count.
 
-Upon deriving a SFH with a WDLF, one of the most important unsolved problems
+\subsection{Magnitude bin size}
+\label{sec:magnitude_bin_size}
+Upon deriving a SFH from a WDLF, one of the most important unsolved problems
 is ``How much information can we obtain?''. We address in this work on
-how, as a first step, to achieve an optimal sampling in the magnitude
+how, as a first step, to achieve the maximal sampling in the magnitude
 space to extract as much information from a WDLF as possible while keeping
 the amplification of noise to the minimum. Any attempt in retrieving a signal
 at finer intervals than the resolution of the data is essentially amplifying
 noise.
 
-
-[talk about the GCNS]
-
-\subsection{Magnitude bin size}
 Isolated WDs follow a narrow distribution of surface gravity with
 $\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}, as the GCNS
 WDs are assumed to be DA with $\log(g) = 8.0$. However, the information
