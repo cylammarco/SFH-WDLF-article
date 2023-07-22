@@ -264,7 +264,7 @@ to derive an IFMR at metallicity much lower or higher than solar abundance.
 a WDLF is more sensitive to the time-dependency of the SFR than to the changes
 in the IMF. They have attributed the broad bump at $M_{\mathrm{bol}} \approx 10$
 to a recent burst of star formation happened at a look back time of 0.3\,Gyr.
-After a long iterlude, \citet{2011MNRAS.417...93R} adopted the Richardson-Lucy
+After a long iterlude, \citet{2013MNRAS.434.1549R} adopted the Richardson-Lucy
 deconvolution method to retrieve the SFH from a WDLF. Their ``image'' are the
 two-dimensional histograms in the progenitor mass -- formation time plane and 
 the WD mass -- luminosity plane. They have recovered a SFH in good agreement 
@@ -361,10 +361,10 @@ We demonstrate the performance of the use of pWDLF in two scenarios:
 (i)~exponentially increasing star formation rates at five truncation
 ages, and (ii)~two bursts where the broad and weak burst is fixed in
 time while the strong narrow burst are superposed at five different
-ages, as well as one inverse profile. The bin size in both time (number
-of pWDLFs) and magnitude (number of data points in a WDLF) are the set
-used in analyzing the empirical Gaia EDR3 data (see 
-Section~\ref{sec:magnitude_bin_size}).
+ages, as well as one with all these profiles combined. The bin size
+in both time (number of pWDLFs) and magnitude (number of data points
+in a WDLF) are the set used in analyzing the empirical Gaia EDR3
+data~(see Section~\ref{sec:magnitude_bin_size}).
 
 \subsubsection*{Exponentially increasing SFR with a truncation}
 
@@ -414,26 +414,28 @@ space of one full-width at half maximum~(FWHM). Assuming the noise is Gaussian,
 one FWHM is equivalent to $2.355$ standard deviations ($\sigma$). Thus, the
 optimal sampling rate is $1.1775\sigma$ at the given magnitude.
 
-The information blurring in the magnitude is not mainly affected by the
-accuracy in fitting the WD surface gravity, rather, it is limited by assuming
-a fixed surface gravity of $\log(g) = 8.0$ for the entire population of
-WDs, as is the case in the GCNS sample. Therefore, the uncertainty in the
-bolometric magnitude is not the $\sigma$ of the smoothing kernel. Instead,
-the dispersion of the bolometric magnitudes comes from the assumption of
-$\log(g) = 8.0$ in the photometric fitting governs how much information is
-lost. Isolated WDs follow a narrow distribution of surface gravity with
-$\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}. 
-\citet{2014ApJ...791...92T} reported that photometric fitting leads to a
-dispersion of $0.404$ in the $\log(g)$, which is the combined effect of the 
-intrinsic dispersion and the precision. We refitted the entire GCNS WD samples
-at $\log(g) = 8.0 \pm 0.404$ to access to obtain the central two standard
-deviations of the fitted bolometric magnitudes. We then define the dispersion
-as half the difference between those two fitted values. The use of WDLF
-relies on the assumption that WD at the same luminosity has highly similar
-properties, based on such an underlying requirement, we measure the median
-of these dispersions and fit it with a spline as a function of bolometric
-magnitudes~(see Fig.~\ref{fig:mbol_sigma} and Table X in the appendix to
-reconstruct the spline).
+In the case of the GCNS sample, the information blurring in the magnitude is
+not primarily affected by the accuracy in fitting the WD surface gravity,
+rather, it is limited by assuming a fixed surface gravity of $\log(g) = 8.0$
+for the entire population of WDs. Therefore, the uncertainty in the
+bolometric magnitude is not corresponding to the dispersion of the smoothing
+kernel. Instead, the dispersion of the bolometric magnitudes comes from the
+assumption of $\log(g) = 8.0$ in the photometric fitting governs how much
+information is smoothed and lost. Isolated WDs follow a narrow distribution
+of surface gravity with $\log(g)=7.998 \pm 0.011$ for
+DA~\citep{2021MNRAS.507.4646K}. \citet{2014ApJ...796..128G} reported that
+photometric fitting leads to a dispersion of $0.404$ in the $\log(g)$, which
+is the combined effect of the intrinsic dispersion and the precision. We
+refitted the entire GCNS WD samples at $\log(g) = 8.0 \pm 0.404$ to obtain
+the central two standard deviations of the fitted bolometric magnitudes. We
+then define the dispersion as half the difference between
+those two fitted values. The use of WDLF relies on the assumption that WD
+at the same luminosity has highly similar properties. Based on such an
+underlying assumption, we measure the median of these dispersions and fit
+it with a spline as a function of bolometric magnitudes~(see
+Fig.~\ref{fig:mbol_sigma} and Table X in the appendix to reconstruct the
+spline) to get the average uncertainty as a function of the bolometric
+magnitude.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_03_mbol_sigma.png}
@@ -441,9 +443,14 @@ reconstruct the spline).
     \label{fig:mbol_sigma}
 \end{figure}
 
-The WDLFs with short burst of star formation are strongly peaked at one
+The WDLFs with short burst of star formation are strongly peaked at a single
 magnitude (see, for example, the set of pWDLFs in Fig.~\ref{fig:basis_pwdlf}).
-Thus, locating the peak of the WDLFsFrom the dispersions and 
+Thus, adding the monotonically cooling nature of WDs, there is a one-to-one
+mapping of the age of the pouluation and the peak magnitude (see middle panel
+of Fig.~\ref{fig:magnitude_resolution}. Relating these two relations, we know
+the time resolution in which we can construct the set of the basis pWDLFs that
+would allow the extraction the star formation history at the maximum sampling
+rate without the amplification of noise.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_04_magnitude_resoltuion.png}
