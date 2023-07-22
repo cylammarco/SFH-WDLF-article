@@ -260,9 +260,17 @@ to derive an IFMR at metallicity much lower or higher than solar abundance.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Retrieving Star Formation History from a WD population}
-
-\citep{1990ApJ...352..605N}
-\citep{1992ApJ...386..539W}
+\citet{1990ApJ...352..605N} was the pioneer in studying how the shape of
+a WDLF is more sensitive to the time-dependency of the SFR than to the changes
+in the IMF. They have attributed the broad bump at $M_{\mathrm{bol}} \approx 10$
+to a recent burst of star formation happened at a look back time of 0.3\,Gyr.
+After a long iterlude, \citet{2011MNRAS.417...93R} adopted the Richardson-Lucy
+deconvolution method to retrieve the SFH from a WDLF. Their ``image'' are the
+two-dimensional histograms in the progenitor mass -- formation time plane and 
+the WD mass -- luminosity plane. They have recovered a SFH in good agreement 
+with other works, including the peak at 0.3\,Gyr, and an enhanced star 
+formation peaking at around 2\,Gyr, a lull at 6 \,Gyr and a broad strong star 
+formation showing the combined thin and thick disks between 7 and 10\,Gyr.
 
 \subsection{Spectroscopic Volume Complete Sample}
 
@@ -277,7 +285,7 @@ noise into enhanced star formation~\citep{2014ApJ...791...92T}. This is due to
 the large number of degenerate solutions that can yield the WDLF agree to
 within the uncertainty. Some forms of explicit regularization are necessary
 to ensure smoothness in the solution. For example, \citet{2013MNRAS.434.1549R}
-defines a convergence criteria (section~\textsection 2.1.4)
+defines a convergence criterion (section~\textsection 2.1.4)
 as a $1\%$ change in the best fit $\chi^2$, beyond which they consider the
 improvement as overfitting.
 
@@ -286,7 +294,7 @@ Another option to work on a statistical sample is to match a theoretical
 WDLF based on a guess input SFH. However, a direct implementation to
 derive a non-parametric SFH is extremely computationally heavy. In view of
 this, we look into various astronomomical fitting techniques and found that
-it is possible to follow the mathetical construction of full spectrum
+it is possible to follow the mathematical construction of full spectrum
 fitting of galactic spectra, and the use of partial CMD to derive the SFH
 of a stellar population~\citep{2006A&A...459..783C}, to speed up the
 modelling significantly. In both of these methods, they derive various
@@ -314,6 +322,10 @@ refers to a view of the system over a small time range. In the context of
 this work, a pWDLF corresponds to a WDLF from a stellar population with
 an intense star formation at the given time and with no star formation 
 before or after that.
+
+\citet{2008ApJ...682L.109I} noted that at $M_{\mathrm{bol}} < 13$, the
+shape of a WDLF is almost independent of the star formation rate.
+
 
 \section{SFH from fitting pWDLFs}
 
@@ -345,19 +357,16 @@ over the model grid covering a large dynamic range of values.
 
 \subsection{Test case - noiseless}
 
-We demonstrate the performance of the use of pWDLF in three scenarios:
-(i)~two bursts, and (ii)~decaying star formation history. The bin size
-in both time (number of pWDLFs) and magnitude (number of data points in
-a WDLF) are determined from the empirical Gaia EDR3 data (see
+We demonstrate the performance of the use of pWDLF in two scenarios:
+(i)~exponentially increasing star formation rates at five truncation
+ages, and (ii)~two bursts where the broad and weak burst is fixed in
+time while the strong narrow burst are superposed at five different
+ages, as well as one inverse profile. The bin size in both time (number
+of pWDLFs) and magnitude (number of data points in a WDLF) are the set
+used in analyzing the empirical Gaia EDR3 data (see 
 Section~\ref{sec:magnitude_bin_size}).
 
-\subsubsection*{Decaying star formation history}
-
-\begin{figure}
-  \includegraphics[width=\columnwidth]{figures/fig_01_exponential_decay_wdlf.png}
-  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar populations with exponentially increasing star formation rates. Each population has an exponential constant of 3\,Gyr, the SFHs were truncated at a look-back time of 2, 4, 6, 8, and 10\,Gyr.}
-  \label{fig:exponential_sfh}
-\end{figure}
+\subsubsection*{Exponentially increasing SFR with a truncation}
 
 \subsubsection*{Two bursts}
 
@@ -367,6 +376,11 @@ Section~\ref{sec:magnitude_bin_size}).
   \label{fig:dual_burst_sfh}
 \end{figure}
 
+\begin{figure}
+  \includegraphics[width=\columnwidth]{figures/fig_01_exponential_decay_wdlf.png}
+  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar populations with exponentially increasing star formation rates. Each population has an exponential constant of 3\,Gyr, the SFHs were truncated at a look-back time of 2, 4, 6, 8, and 10\,Gyr.}
+  \label{fig:exponential_sfh}
+\end{figure}
 
 \section{Application to the Early Gaia Data Release 3}
 The Early Data Release 3~(EDR3) of Gaia relies on 34 months of
@@ -387,30 +401,49 @@ number count.
 
 \subsection{Magnitude bin size}
 \label{sec:magnitude_bin_size}
-Upon deriving a SFH from a WDLF, one of the most important unsolved problems
-is ``How much information can we obtain?''. We address in this work on
+Upon deriving an SFH from a WDLF, one of the most important unsolved problems
+is ``How much information can we obtain?''. We address in this work 
 how, as a first step, to achieve the maximal sampling in the magnitude
 space to extract as much information from a WDLF as possible while keeping
 the amplification of noise to the minimum. Any attempt in retrieving a signal
 at finer intervals than the resolution of the data is essentially amplifying
-noise.
+noise. From the uncertainties in the photometric fitting for the bolometric
+magnitudes, we can determine the precision with which we can sample the WDLF.
+At the Nyquist sampling rate, there should be two sampling points in the
+space of one full-width at half maximum~(FWHM). Assuming the noise is Gaussian,
+one FWHM is equivalent to $2.355$ standard deviations ($\sigma$). Thus, the
+optimal sampling rate is $1.1775\sigma$ at the given magnitude.
 
-Isolated WDs follow a narrow distribution of surface gravity with
-$\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}, as the GCNS
-WDs are assumed to be DA with $\log(g) = 8.0$. However, the information
-blurring in the magnitude is not mainly affected by the intrinsic
-distribution of the WD surface gravity. Rather, it is the limitation of
-photometric fitting in obtaining the surface gravity. As found in 
-\citet{2019ApJ...871..169G} the photometric method leads to a spread of
-0.147 $M_\odot$ in the fitted mass. 
+The information blurring in the magnitude is not mainly affected by the
+accuracy in fitting the WD surface gravity, rather, it is limited by assuming
+a fixed surface gravity of $\log(g) = 8.0$ for the entire population of
+WDs, as is the case in the GCNS sample. Therefore, the uncertainty in the
+bolometric magnitude is not the $\sigma$ of the smoothing kernel. Instead,
+the dispersion of the bolometric magnitudes comes from the assumption of
+$\log(g) = 8.0$ in the photometric fitting governs how much information is
+lost. Isolated WDs follow a narrow distribution of surface gravity with
+$\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}. 
+\citet{2014ApJ...791...92T} reported that photometric fitting leads to a
+dispersion of $0.404$ in the $\log(g)$, which is the combined effect of the 
+intrinsic dispersion and the precision. We refitted the entire GCNS WD samples
+at $\log(g) = 8.0 \pm 0.404$ to access to obtain the central two standard
+deviations of the fitted bolometric magnitudes. We then define the dispersion
+as half the difference between those two fitted values. The use of WDLF
+relies on the assumption that WD at the same luminosity has highly similar
+properties, based on such an underlying requirement, we measure the median
+of these dispersions and fit it with a spline as a function of bolometric
+magnitudes~(see Fig.~\ref{fig:mbol_sigma} and Table X in the appendix to
+reconstruct the spline).
 
-
-\subsection{Magnitude resolution}
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_03_mbol_sigma.png}
     \caption{Caption}
     \label{fig:mbol_sigma}
 \end{figure}
+
+The WDLFs with short burst of star formation are strongly peaked at one
+magnitude (see, for example, the set of pWDLFs in Fig.~\ref{fig:basis_pwdlf}).
+Thus, locating the peak of the WDLFsFrom the dispersions and 
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_04_magnitude_resoltuion.png}
