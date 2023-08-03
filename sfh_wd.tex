@@ -425,17 +425,25 @@ information is smoothed and lost. Isolated WDs follow a narrow distribution
 of surface gravity with $\log(g)=7.998 \pm 0.011$ for
 DA~\citep{2021MNRAS.507.4646K}. \citet{2014ApJ...796..128G} reported that
 photometric fitting leads to a dispersion of $0.404$ in the $\log(g)$, which
-is the combined effect of the intrinsic dispersion and the precision. We
-refitted the entire GCNS WD samples at $\log(g) = 8.0 \pm 0.404$ to obtain
-the central two standard deviations of the fitted bolometric magnitudes. We
-then define the dispersion as half the difference between
-those two fitted values. The use of WDLF relies on the assumption that WD
-at the same luminosity has highly similar properties. Based on such an
-underlying assumption, we measure the median of these dispersions and fit
-it with a spline as a function of bolometric magnitudes~(see
-Fig.~\ref{fig:mbol_sigma} and Table X in the appendix to reconstruct the
-spline) to get the average uncertainty as a function of the bolometric
-magnitude.
+is the combined effect of the intrinsic dispersion and the precision. 
+The synthetic photometry also comes with uncertainties, we estimate the
+model uncertainty using the FWHM of the residuals in the SDSS filters
+reported in \citet{2006AJ....132.1221H}. We take the mean FWHM of in
+$u$, $g$ and $r$ as that of a proxy-$G_{BP}$, $u$, $g$, $r$, $i$ and $z$ as 
+proxy-$G$, and $r$, $i$ and $z$ as proxy-$G_{RP}$. Dividing by $2.355$
+gives us the dispersion that is added to the Gaia magnitude uncertainty
+in quadrature. The values used are found to be $\sigma_{G_{BP}}=0.0529$,
+$\sigma_{G}=0.0462$ and $\sigma{G_{RP}}=0.0343$\,mag. We refitted the entire 
+GCNS WD samples at $\log(g) = 8.0 \pm 0.404$ to obtain the central two
+standard deviations of the fitted bolometric magnitudes. We then define the
+dispersion as half the difference between those two fitted values. The use
+of WDLF relies on the assumption that WD at the same luminosity has highly
+similar properties. Based on such an underlying assumption, we measure the
+mean of these dispersions weighted by the $1/\mathrm{V}_{\mathrm{max}}$ as
+provided in the GCNS WD catalogue. Then they are fitted with a spline as a
+function of bolometric magnitudes~(see Fig.~\ref{fig:mbol_sigma} and
+Table X in the appendix to reconstruct the spline) to get the average 
+uncertainty as a function of the bolometric magnitude.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_03_mbol_sigma.png}
@@ -475,6 +483,17 @@ rate without the amplification of noise.
 
 
 \subsection{Comparison with previous studies}
+
+WDs:
+Rowell 13, Tremblay 13, Elena's 23
+
+CMD:
+Cigoni 10
+
+Subgiant:
+Mao 12
+
+
 
 \begin{figure}
   \dummyfig{Comparison} 
