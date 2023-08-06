@@ -19,7 +19,7 @@
 %    Beta testing only - never publicly released
 %    First version: a simple (ish) template for creating an MNRAS paper
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Basic setup. Most papers should leave these options alone.
 \documentclass[fleqn,usenatbib]{mnras}
 
@@ -49,7 +49,7 @@
 \usepackage{amsmath}	% Advanced maths commands
 % \usepackage{amssymb}	% Extra maths symbols
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
 \usepackage{svg}
@@ -69,9 +69,9 @@
   }
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Title of the paper, and the short title which is used in the headers.
 % Keep the title short and informative.
@@ -79,8 +79,11 @@
 
 % The list of authors, and the short list which is used in the headers.
 % If you need two or more lines of authors, add an extra line using \newauthor
+%\author[M. C. Lam et al.]{
+%M. C. Lam$^{1\,\orcid{0000-0002-9347-2298}}$\thanks{Contact e-mail: \href{mailto:lam@mail.tau.ac.il}{lam@tau.ac.il}}
+%\\
 \author[M. C. Lam et al.]{
-M. C. Lam$^{1\,\orcid{0000-0002-9347-2298}}$\thanks{Contact e-mail: \href{mailto:lam@tau.ac.il}{lam@tau.ac.il}}
+M. C. Lam$^{1}$\thanks{Contact e-mail: \href{mailto:lam@mail.tau.ac.il}{lam@tau.ac.il}}
 \\
 % List of institutions
 $^{1}$School of Physics and Astronomy, Tel Aviv University, Tel Aviv, Israel 69978
@@ -97,6 +100,8 @@ $^{1}$School of Physics and Astronomy, Tel Aviv University, Tel Aviv, Israel 699
 \label{firstpage}
 \pagerange{\pageref{firstpage}--\pageref{lastpage}}
 \maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Abstract of the paper
 \begin{abstract}
@@ -115,9 +120,9 @@ stellar population.
 keyword1 -- keyword2 -- keyword3
 \end{keywords}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -272,12 +277,14 @@ with other works, including the peak at 0.3\,Gyr, and an enhanced star
 formation peaking at around 2\,Gyr, a lull at 6 \,Gyr and a broad strong star 
 formation showing the combined thin and thick disks between 7 and 10\,Gyr.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Spectroscopic Volume Complete Sample}
 
 \citep{2014ApJ...791...92T}
 \citep{2019ApJ...878L..11I}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{WDLF Inversion}
 With a mathematical inversion method, it is possible to retrieve the SFH of a
 stellar population~\citep{2013MNRAS.434.1549R}. However, it is prone to amplify
@@ -289,159 +296,196 @@ defines a convergence criterion (section~\textsection 2.1.4)
 as a $1\%$ change in the best fit $\chi^2$, beyond which they consider the
 improvement as overfitting.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forward modelling of WDLFs}
 Another option to work on a statistical sample is to match a theoretical
-WDLF based on a guess input SFH. However, a direct implementation to
-derive a non-parametric SFH is extremely computationally heavy. In view of
-this, we look into various astronomomical fitting techniques and found that
-it is possible to follow the mathematical construction of full spectrum
-fitting of galactic spectra, and the use of partial CMD to derive the SFH
-of a stellar population~\citep{2006A&A...459..783C}, to speed up the
-modelling significantly. In both of these methods, they derive various
-physical properties, e.g.\ SFH and metallicity, of the stellar populsation.
-In the case of WDLF inversion in this
+WDLF based on a guess input SFH. However, a direct implementation to derive a
+non-parametric SFH is extremely computationally heavy. In view of this, we look
+into various astronomomical fitting techniques and found that it is possible to
+follow the mathematical construction of full spectrum fitting of galactic
+spectra, and the use of partial CMD to derive the SFH of a stellar
+population~\citep{2006A&A...459..783C}, to speed up the modelling significantly.
+In both of these methods, they derive various physical properties, e.g.\ SFH and
+metallicity, of the stellar populsation. In the case of WDLF inversion in this
 work, SFH is the only independent variable (function).
 
 Full spectrum fitting works by comparing the observed spectrum agianst a
 combination of basis model spectra of a set of precomupted simple stellar
 poulation. Because of the large possible number of degenerate solutions and
-noise can significantly alter the solution, regularisation is necessary
-to avoid errorenously amplified solutions. For example, pPXF implements
-an explicit regularisation parameter, which can be interpreted as a
-convergence criteria as in \citet{2013MNRAS.434.1549R}. Alternatively, a
-Markov chain Monte-Carlo method can be used to mitigate ``overfitting''
-(e.g.\ Prospector).
-This automatically comes with the statistics of the solutions.
+noise can significantly alter the solution, regularisation is necessary to
+avoid errorenously amplified solutions. For example, pPXF implements an explicit
+regularisation parameter, which can be interpreted as a convergence criteria as
+in \citet{2013MNRAS.434.1549R}. Alternatively, a Markov chain Monte-Carlo method
+can be used to mitigate ``overfitting'' (e.g.\ Prospector). This automatically
+comes with the statistics of the solutions.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Partial WDLFs}
-In order to apply the fitting method to compute the SFH from WDLFs, we
-introduce partial WDLF~(pWDLF). It is inspired by the partial CMD designed
+In order to apply the fitting method to compute the SFH from WDLFs, we introduce
+partial WDLF~(pWDLF). It is inspired by the partial CMD designed
 in~\citep{2006A&A...459..783C}, we use these pWDLFs as basis models
 for fitting. Similar to both of these methods, the word \textit{partial} 
-refers to a view of the system over a small time range. In the context of
-this work, a pWDLF corresponds to a WDLF from a stellar population with
-an intense star formation at the given time and with no star formation 
-before or after that.
+refers to a view of the system over a small time range. In the context of this
+work, a pWDLF corresponds to a WDLF from a stellar population with an intense
+star formation at the given time and with no star formation before or after
+that.
 
-\citet{2008ApJ...682L.109I} noted that at $M_{\mathrm{bol}} < 13$, the
-shape of a WDLF is almost independent of the star formation rate.
+\citet{2008ApJ...682L.109I} noted that at $M_{\mathrm{bol}} < 13$, the shape of
+a WDLF is almost independent of the star formation rate. This was agrued
+against by R11, and from our set of pWDLFs that it is obvious their statement
+only holds if the WD samples do not extend into magnitudes fainter than
+$\approx14.5$\,mag and it does not apply to short bursts of star formations.
+And we shall see in the next section that the peak magnitude of a pWDLF is the
+determining feature.
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{SFH from fitting pWDLFs}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Model Fitting}
-The likelihood function to be maximized is essentially minimizing the
-$\chi^2$ between the observed and the reconstructed WDLFs weighted by the
-variance from the observed WDLF:
+\label{sec:model_fitting}
+The likelihood function to be maximized is essentially minimizing the $\chi^2$
+between the observed and the reconstructed WDLFs weighted by the variance from
+the observed WDLF:
 \begin{equation}
 \chi^2 = \left(n(M_\mathrm{bol}) - n_\mathrm{obs}\right)^2 / \sigma_n^2
 \end{equation}
-where $n(M_\mathrm{bol}$ is the reconstructed WDLF, $n_\mathrm{obs}$
-is the observed WDLF, and $\sigma_n$ is the standard deviation in
-$n_\mathrm{obs}$.  The weight to each pWDLF in reconstructing the WDLF
-is directly proportional to the SFH, if the set of pWDLFs was computed
-using the same normalising factor from the IMF and IFMR. This can be
-written as
+where $n(M_\mathrm{bol}$ is the reconstructed WDLF, $n_\mathrm{obs}$ is the
+observed WDLF, and $\sigma_n$ is the standard deviation in $n_\mathrm{obs}$.
+The weight to each pWDLF in reconstructing the WDLF is directly proportional to
+the SFH, if the set of pWDLFs was computed using the same normalising factor
+from the IMF and IFMR. This can be written as
 
 \begin{equation}
     n(M_\mathrm{bol}) = \sum_i w_i \times n_i(t, M_\mathrm{bol})    
 \end{equation}
 
-where the $w_i$ is the weight function to the pWDLF $n_i$ with a
-burst of star formation at time $t$.
+where the $w_i$ is the weight function to the pWDLF $n_i$ with a burst of star
+formation at time $t$.
 
-When the function is properly smoothed and weighted, the
-parameterisation with luminosity and magnitude should give identical
-results agreed to within rounding errors coming from the interpolation
-over the model grid covering a large dynamic range of values.
+When the function is properly smoothed and weighted, the parameterisation with
+luminosity and magnitude should give identical results agreed to within
+rounding errors coming from the interpolation over the model grid covering a
+large dynamic range of values.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Test case - noiseless}
 
 We demonstrate the performance of the use of pWDLF in two scenarios:
-(i)~exponentially increasing star formation rates at five truncation
-ages, and (ii)~two bursts where the broad and weak burst is fixed in
-time while the strong narrow burst are superposed at five different
-ages, as well as one with all these profiles combined. The bin size
-in both time (number of pWDLFs) and magnitude (number of data points
-in a WDLF) are the set used in analyzing the empirical Gaia EDR3
-data~(see Section~\ref{sec:magnitude_bin_size}).
+(i)~exponentially increasing star formation rates at five truncation ages, and
+(ii)~two bursts where the broad and weak burst is fixed in time while the strong
+narrow burst are superposed at five different ages, as well as one with all
+these profiles combined. The bin size in both time (number of pWDLFs) and
+magnitude (number of data points in a WDLF) are the set used in analyzing the
+empirical Gaia EDR3 data~(see Section~\ref{sec:magnitude_bin_size}).
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Exponentially increasing SFR with a truncation}
-
-\subsubsection*{Two bursts}
-
-\begin{figure}
-  \includegraphics[width=\columnwidth]{figures/fig_02_two_bursts_wdlf.png} 
-  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar populations with a dual-burst SFH, and the second set has an inverse profile of the first set.}
-  \label{fig:dual_burst_sfh}
-\end{figure}
+This set of unrealistic SFH is to test the capability of the MCMC method in
+recovering slowly varying trend as well as rapidly trucated features in the SFH.
+The five input SFHs have an exponentially increasing SFH peaked at a look back
+time of $2$, $4$, $6$, $8$ and $10$\,Gyr, where the exponential constant is
+$3$\,Gyr. We can see excellent agreement in the recovered SFH. Although, there
+are some correlated errors at a few magnitude bins, most notably at around $6$,
+$9$ and $>11$\,mag. All but two bins in the purple curve have discrepencies
+within two standard deviations from the input values. 
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{figures/fig_01_exponential_decay_wdlf.png}
-  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar populations with exponentially increasing star formation rates. Each population has an exponential constant of 3\,Gyr, the SFHs were truncated at a look-back time of 2, 4, 6, 8, and 10\,Gyr.}
+  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar
+  populations with exponentially increasing star formation rates. Each
+  population has an exponential constant of 3\,Gyr, the SFHs were truncated at
+  a look-back time of 2, 4, 6, 8, and 10\,Gyr.}
   \label{fig:exponential_sfh}
 \end{figure}
 
-\section{Application to the Early Gaia Data Release 3}
-The Early Data Release 3~(EDR3) of Gaia relies on 34 months of
-observations and represents an improvement on all fronts over DR2,
-with parallax measurements being now on average 20-30 per cent more
-accurate and proper motion measurements twice as accurate as in the
-previous DRs~\citep{2021A&A...649A...1G, 2021A&A...649A...2L}.
-The Gaia Catalogue of Nearby Stars~(GCNS) contains 331\,312 objects within
-100\,pc of the Sun, of which 21\,848 are white dwarfs~\citep{2021A&A...649A...6G}. 
-However, this sample is not completeness corrected. The incompleteness
-is primarily at the brightest and the faintest absolute magnitudes
-where the astrometric solutions are the least reliable due their
-small number count intrinsic faintness. Furthermore, bright WDs are rare,
-they are found only at larger distances, there are very few of them in
-the local 100\,pc. Although this does not affect the completeness, this
-introduces large uncertainty into the statistics due to the small
-number count.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection*{Bursts}
+This set of WDLFs is to demonstrate that the method can retrieve sharp and
+broad features whether they are distinctly separated or directly on top of each
+other. The last set which comprises of all five sharp peaks and the broad
+feature shows that there is some correlated results that are not completely
+accounted for at around $6-7$\,mag. This is coming from the fact that the
+pWDLFs are very similar as the WDLFs evolve the slowest at these magnitudes as
+is obvious from the green and red curves in Fig.~\ref{fig:bursts_sfh}. We plan
+to address this issue in a future work~(see \ref{sec:conclusion}).
 
+\begin{figure}
+  \includegraphics[width=\columnwidth]{figures/fig_02_two_bursts_wdlf.png} 
+  \caption{The recovered SFH and reconstructed SFH of a set of mock stellar
+  populations with a dual-burst SFH, and the second set has an inverse profile
+  of the first set.}
+  \label{fig:bursts_sfh}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Application to the Early Gaia Data Release 3}
+The Early Data Release 3~(EDR3) of Gaia relies on 34 months of observations, it
+represents an improvement on all fronts over DR2, with parallax measurements
+being now on average 20-30 per cent more accurate and proper motion measurements
+twice as accurate as in the previous
+DRs~\citep{2021A&A...649A...1G, 2021A&A...649A...2L}. The Gaia Catalogue of
+Nearby Stars~(GCNS) contains 331\,312 objects within 100\,pc of the Sun, of
+which 21\,848 are white dwarfs~\citep{2021A&A...649A...6G}. However, this sample
+is not completeness corrected. The incompleteness is primarily at the brightest
+and the faintest absolute magnitudes where the astrometric solutions are the
+least reliable due their small number count intrinsic faintness. Furthermore,
+bright WDs are rare, they are found only at larger distances, there are very
+few of them in the local 100\,pc.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Magnitude bin size}
 \label{sec:magnitude_bin_size}
 Upon deriving an SFH from a WDLF, one of the most important unsolved problems
-is ``How much information can we obtain?''. We address in this work 
-how, as a first step, to achieve the maximal sampling in the magnitude
-space to extract as much information from a WDLF as possible while keeping
-the amplification of noise to the minimum. Any attempt in retrieving a signal
-at finer intervals than the resolution of the data is essentially amplifying
-noise. From the uncertainties in the photometric fitting for the bolometric
-magnitudes, we can determine the precision with which we can sample the WDLF.
-At the Nyquist sampling rate, there should be two sampling points in the
-space of one full-width at half maximum~(FWHM). Assuming the noise is Gaussian,
-one FWHM is equivalent to $2.355$ standard deviations ($\sigma$). Thus, the
-optimal sampling rate is $1.1775\sigma$ at the given magnitude.
+is ``How much information can we obtain?''. We address in this work how, as a
+first step, to achieve the maximal sampling in the magnitude space to extract
+as much information from a WDLF as possible while avoiding the amplification of
+noise. Any attempt in retrieving a signal at finer intervals than the resolution
+of the data is essentially amplifying random noise. From the uncertainties in
+the photometric fitting for the bolometric magnitudes, we can determine the
+precision with which we can sample the WDLF. At the Nyquist sampling rate,
+there should be two sampling points in the space of one full-width at half
+maximum~(FWHM). Assuming the noise is Gaussian, one FWHM is equivalent to
+$2.355$ standard deviations ($\sigma$). Thus, the optimal sampling rate is
+$1.1775\sigma$ at the given magnitude.
 
-In the case of the GCNS sample, the information blurring in the magnitude is
-not primarily affected by the accuracy in fitting the WD surface gravity,
-rather, it is limited by assuming a fixed surface gravity of $\log(g) = 8.0$
-for the entire population of WDs. Therefore, the uncertainty in the
-bolometric magnitude is not corresponding to the dispersion of the smoothing
-kernel. Instead, the dispersion of the bolometric magnitudes comes from the
-assumption of $\log(g) = 8.0$ in the photometric fitting governs how much
-information is smoothed and lost. Isolated WDs follow a narrow distribution
-of surface gravity with $\log(g)=7.998 \pm 0.011$ for
-DA~\citep{2021MNRAS.507.4646K}. \citet{2014ApJ...796..128G} reported that
-photometric fitting leads to a dispersion of $0.404$ in the $\log(g)$, which
-is the combined effect of the intrinsic dispersion and the precision. 
-The synthetic photometry also comes with uncertainties, we estimate the
-model uncertainty using the FWHM of the residuals in the SDSS filters
-reported in \citet{2006AJ....132.1221H}. We take the mean FWHM of in
-$u$, $g$ and $r$ as that of a proxy-$G_{BP}$, $u$, $g$, $r$, $i$ and $z$ as 
-proxy-$G$, and $r$, $i$ and $z$ as proxy-$G_{RP}$. Dividing by $2.355$
-gives us the dispersion that is added to the Gaia magnitude uncertainty
-in quadrature. The values used are found to be $\sigma_{G_{BP}}=0.0529$,
-$\sigma_{G}=0.0462$ and $\sigma{G_{RP}}=0.0343$\,mag. We refitted the entire 
-GCNS WD samples at $\log(g) = 8.0 \pm 0.404$ to obtain the central two
-standard deviations of the fitted bolometric magnitudes. We then define the
-dispersion as half the difference between those two fitted values. The use
-of WDLF relies on the assumption that WD at the same luminosity has highly
-similar properties. Based on such an underlying assumption, we measure the
-mean of these dispersions weighted by the $1/\mathrm{V}_{\mathrm{max}}$ as
-provided in the GCNS WD catalogue. Then they are fitted with a spline as a
-function of bolometric magnitudes~(see Fig.~\ref{fig:mbol_sigma} and
+Isolated WDs follow a narrow distribution of surface gravity with
+$\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}. However, the
+information blurring in the magnitude is not primarily affected by the accuracy
+in fitting the WD surface gravity, rather, it is limited by the assumption of a
+fixed surface gravity for the entire population of WDs. In other words, the
+uncertainty in the bolometric magnitude estimated from the minimisation
+function or an MCMC walk is not corresponding to the dispersion of the
+smoothing kernel. Instead, we are interested in finding how much information
+is smoothed and lost due to various approximations and assumptions.
+\citet{2014ApJ...796..128G} reported that photometric fitting leads to a
+dispersion of $\sigma_{\mathrm{log}_{g}} = 0.404$ in the $\log(g)$, which is
+the combined effect of the intrinsic dispersion and the precision. The
+synthetic photometry also comes with uncertainties, we estimate the model
+uncertainty using the FWHM of the residuals in the SDSS filters reported in
+\citet{2006AJ....132.1221H}. We take the mean FWHM of in $u$, $g$ and $r$ as
+the proxy of -$G_{BP}$; the mean of $u$, $g$, $r$, $i$ and $z$ as a proxy of
+$G$; and the mean of $r$, $i$ and $z$ as the proxy of $G_{RP}$. Dividing them
+by $2.355$ gives us the dispersion that is added to the Gaia magnitude
+uncertainty in quadrature. These values are found to be
+$\sigma_{G_{BP}}=0.0529$, $\sigma_{G}=0.0462$ and $\sigma{G_{RP}}=0.0343$\,mag.
+We refitted the entire GCNS WD samples at seven surface gravities to obtain
+the estimates of the uncertainties in the fitted bolometric magnitudes due to
+the assumption of fixed surface gravity. These seven values range from
+$\log(g) - 3\sigma_{\mathrm{log}_{g}}$ to $\log(g) + 3\sigma_{\mathrm{log}_{g}}$
+in an increment of one $\sigma_{\mathrm{log}_{g}}$. From the seven fitted
+bolometric magnitudes, we can approximate the dispersion with:
+\begin{equation}
+  \sigma_{M_{\mathrm{bol}}} = \sum_{i} M_{\mathrm{bol}}(i\sigma_{\mathrm{log}_{g}}) / i - M_{\mathrm{bol}, 0}
+\end{equation}
+where the $0$ denotes the unperturbed surface gravity at $7.998$.
+
+The use of WDLF relies on the assumption that WD share similar properties
+at the same luminosity. Based on such an underlying assumption, we measure
+the mean of these dispersions weighted by the $1/\mathrm{V}_{\mathrm{max}}$
+as provided in the GCNS WD catalogue. Then they are fitted with a spline as
+a function of bolometric magnitudes~(see Fig.~\ref{fig:mbol_sigma} and
 Table X in the appendix to reconstruct the spline) to get the average 
 uncertainty as a function of the bolometric magnitude.
 
@@ -455,10 +499,26 @@ The WDLFs with short burst of star formation are strongly peaked at a single
 magnitude (see, for example, the set of pWDLFs in Fig.~\ref{fig:basis_pwdlf}).
 Thus, adding the monotonically cooling nature of WDs, there is a one-to-one
 mapping of the age of the pouluation and the peak magnitude (see middle panel
-of Fig.~\ref{fig:magnitude_resolution}. Relating these two relations, we know
-the time resolution in which we can construct the set of the basis pWDLFs that
-would allow the extraction the star formation history at the maximum sampling
-rate without the amplification of noise.
+of Fig.~\ref{fig:magnitude_resolution}. Although at older ages, with the peak
+magnitude beyond $15$\,mag, a WDLF starts to show double peaks, there is always
+a double peak. Thus, we can reliably relate the two relations: peak
+magnitude--age and peak magnitude--magnitude-resolution. Where the magnitude
+has a one-to-one mapping to the age of the system, we can obtain the time
+resolution in which we construct the set of the basis pWDLFs that would allow
+the extraction the SFH at the maximum sampling rate without the amplification
+of noise.
+
+At the oldest age~(i.e.\ faintest magnitudes), the uncertainties of the bolometric
+magnitude is most likely underestimated as the value
+$\sigma_{\mathrm{log}_{g}} = 0.404$ from \citet{2014ApJ...796..128G} did not
+include WDs from the faint end. Additionally, from the recent calibration
+works~(Bergeron), it is known that the models
+are less accurate at the lowest temperature, and the bolometric magnitudes obtained
+by assuming DA or DB atmosphere are fainter than what mixed hydrogen-helium models
+would give~(Kilic). However, we cannot quantify these uncertainties so we
+only caution readers to pay attention is drawing conclusions from any information
+fainter than $\approx15.5$\,mag, which corresponds to a look back time of
+$\approx9$\,Gyr.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_04_magnitude_resoltuion.png}
@@ -472,7 +532,20 @@ rate without the amplification of noise.
     \label{fig:basis_pwdlf}
 \end{figure}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Star Formation History}
+
+By applying the set of basis function to the fitting method as described in
+section \textsection\ref{sec:model_fitting}. Because the set of pWDLFs are
+normalised the same way, the relative contribution directly translate to the
+relative SFH of the solar neighbourhood. The absolute normalisation can be found
+by matching the reconstructed WDLF to the integrated number density of the
+input WDLF. We have found multiple phases of enhanced star formation using this
+novel method, these bursts and lulls are all in good agreement with previous works
+found using other methods and stellar popluations~(see next section).
+As already pointed out in the previous section, we caution readers to pay
+particular attention in drawing conclusions for any information older than
+$\approx9$\,Gyr.
 
 \begin{figure*}
     \includegraphics[width=\textwidth]{figures/fig_06_gcns_reconstructed_wdlf_optimal_resolution_bin_optimal.png}
@@ -481,7 +554,7 @@ rate without the amplification of noise.
 \end{figure*}
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison with previous studies}
 
 WDs:
@@ -522,7 +595,9 @@ Subgiant:
 \citep{2022Natur.603..599X}
 
 
-\section{Conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions and Future Work}
+\label{sec:conclusion}
 By properly propagating the uncertainties in the
 systematics and measurements, this work has shown that it is
 possible to recover the star formation history with meaningful
@@ -540,32 +615,30 @@ facilities, we can retrieve complex signal from the given noisy
 data using well established mathematical tools and good knowledge
 of the optical system.
 
-
-
 \begin{figure}
   \dummyfig{Comparison} 
-  \caption{Compared against previous works. red hue dashed lines show the SFH based on WD. blue hur dotted lines show the SFH found using other stellar populations.}
+  \caption{Compared against previous works. red hue dashed lines show the SFH
+  based on WD. blue hur dotted lines show the SFH found using other stellar
+  populations.}
   \label{fig:dummy3}
 \end{figure}
 
+All the derivation of SFH from WDLFs of the solar neighbourhood were reported
+in the bolometric magnitudes. Thus, all works essentially made use of The
+WD-bolometric-LF. To address the problem of degeneracy and correlated signal
+in the solution, we will explore the use of colours, where we simultaneously
+fit multiple WDLFs~(in multiple filters) as we note that the pWDLFs evolve
+differently in different filters.
 
-\section{Conclusions and Future Work}
-Historically, all the luminosity functions of the solar neighbourhood were reported
-in the bolometric magnitudes. Essentially, all works were reporting the
-WD-Bolometric-LF. To address the problem of degeneracy in the solution, we explore
-the use of colour information from the luminosity function, where we are using
-the WDLF in multiple filters . 
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgements}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Data Availability}
 
 
-%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % The best way to enter references is to use BibTeX:
 
@@ -582,15 +655,15 @@ the WDLF in multiple filters .
 %Others S., 2012, Journal of Interesting Stuff, 17, 198
 %\end{thebibliography}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \appendix
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Some extra material}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % Don't change these lines
