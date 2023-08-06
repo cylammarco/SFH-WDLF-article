@@ -485,13 +485,60 @@ rate without the amplification of noise.
 \subsection{Comparison with previous studies}
 
 WDs:
-Rowell 13, Tremblay 13, Elena's 23
+\citep{2013MNRAS.434.1549R}
+\citep{2014ApJ...791...92T}
+\citep{2019ApJ...887..148F}
 
-CMD:
-Cigoni 10
+
+\citep{2023MNRAS.522.1643C} completely overlooks information and
+sampling theory (citation). In observation astronomy, using photometry as an
+example, optimal extraction based on a known point-spread function
+is a technique to maximise the signal-to-noise ratio~(King et al., ).
+It is possible
+because we have information of how a point appears on the detector
+plane after going through the optical system from the telescope
+mirror (or even the Earth's atmosphere is adaptive optics is used)
+to the detector plane. Very similar reasoning is used in
+image differencing~(hotpants, dia, zogy),
+spectroscopy~(horne89, marsh91, flat-optmial, Reduce),
+image reconstruction~(Lucy-Richardson, C06, R13),
+image deconvolution~(). Furthermore, the uncertainties in a cumulative
+distribution function is not merely the uncertainty in the given bin,
+the uncertainties accumulate to the successive bin(s) in a non-linear
+sense depending on how accurate the measurement can be made of the given
+variable, in this case the absolute magnitude in the $G$ band.
+
+
+MS stars:
+\citep{2007ApJ...665..767R} used the Hipparcos catalogue to calibrate
+bias in the \citep{2005ApJS..159..141V} volume-limited spectroscopic
+sample of 1039 FGK dwarfs in the solar neighbourhood with estimates of
+their age and metallicity.
+
+\citep{2006A&A...459..783C}
+\citep{2019A&A...624L...1M}
 
 Subgiant:
-Mao 12
+\citep{2022Natur.603..599X}
+
+
+\section{Conclusion}
+By properly propagating the uncertainties in the
+systematics and measurements, this work has shown that it is
+possible to recover the star formation history with meaningful
+uncertainties that encompass the uncertainties in the WD atmosphere
+models, the photometry and the consequence of assuming a fixed
+surface gravity in the detemination of the bolometric magnitude.
+Using the bin sizes that are representative of the data given the
+known effect of how the uncertainties limit the resolution of
+the signal, we have chosen a set of varying bin sizes such that
+it matches the Nyquist sampling rate where two sampling points are
+required for every FWHM. It is obvious from our careful treatment
+of uncertainties, along with the comparison from all other
+works, that with the currently available surveys and computing
+facilities, we can retrieve complex signal from the given noisy
+data using well established mathematical tools and good knowledge
+of the optical system.
 
 
 
