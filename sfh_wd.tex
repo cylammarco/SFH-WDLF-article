@@ -276,9 +276,7 @@ a WDLF is more sensitive to the time-dependency of the SFR than to the changes
 in the IMF. They have attributed the broad bump at $M_{\mathrm{bol}} \approx 10$
 to a recent burst of star formation happened at a look back time of 0.3\,Gyr.
 After a long hiatus, \citet{2013MNRAS.434.1549R} adopted the Richardson-Lucy
-deconvolution method to retrieve the SFH from a WDLF. Their ``image'' are the
-two-dimensional histograms in the progenitor mass -- formation time plane and 
-the WD mass -- luminosity plane. 
+deconvolution method to retrieve the SFH from a WDLF~(see more below).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Spectroscopic Volume Complete Sample}
@@ -297,23 +295,29 @@ $\approx7$\,Gyr.
 CFIS~\citep{2017ApJ...848..128I} and Pan-STARRS\,1 3$\uppi$
 survey~\citep{2016arXiv161205560C}. CFIS covers $10,000$\,deg$^2$ and
 $5000$\,deg$^2$ of the northern sky in u and r-band photometry to a depth of
-$24.2$ and $24.85$,AB\,mag, respectively. They fit the sample with a skewed
-Gaussian distribution that identified a peak SFH at $\approx8$\,Gyr.
+$24.2$ and $24.85$,AB\,mag, respectively. They fit the sample simultaneously
+with three skewed Gaussian distributions that represent the thin disk, thick
+disk and stellar halo population. They identified a peak SFH at $\approx8$\,Gyr
+which is dominated by their thick disk population.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mathematical Inversion}
 With a mathematical inversion method, it is possible to retrieve the SFH of a
-stellar population~\citep{2013MNRAS.434.1549R}. However, it is prone to amplify
-noise into enhanced star formation~\citep{2014ApJ...791...92T}. This is due to
-the large number of degenerate solutions that can yield the WDLF agree to
-within the uncertainty. Some forms of explicit regularization are necessary
-to ensure smoothness in the solution. For example, \citet{2013MNRAS.434.1549R}
-defines a convergence criterion (section~\textsection 2.1.4)
-as a $1\%$ change in the best fit $\chi^2$, beyond which they consider the
-improvement as overfitting. They have recovered a SFH in good agreement 
-with other works, including the peak at 0.3\,Gyr, and an enhanced star 
-formation peaking at around 2\,Gyr, a lull at 6 \,Gyr and a broad strong star 
-formation showing the combined thin and thick disks between 7 and 10\,Gyr.
+stellar population~\citep{2013MNRAS.434.1549R}. They adopt the Richardson-Lucy 
+deconvolution method that are typically used in image reconstruction. In this
+case, the ``images'' are the two-dimensional histograms in the
+progenitor mass -- formation time plane and the WD mass -- luminosity plane. 
+However, it is prone to amplify noise into enhanced star 
+formation~\citep{2014ApJ...791...92T}. This is due to the large number of
+degenerate solutions that can yield the WDLF agree to within the uncertainty.
+Some forms of explicit regularization are necessary to ensure smoothness in the
+solution. For example, \citet{2013MNRAS.434.1549R} defines a convergence
+criterion~(section~\textsection 2.1.4) as a $1\%$ change in the best fit
+$\chi^2$, beyond which they consider the improvement as overfitting. They have 
+recovered a SFH in good agreement with other works, including the peak at
+0.3\,Gyr, and an enhanced star formation peaking at around 2\,Gyr, a lull at
+6\,Gyr and a broad strong star formation showing the combined thin and thick
+disks between 7 and 10\,Gyr.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forward modelling of WDLFs}
@@ -552,8 +556,7 @@ time of $\approx9$\,Gyr.
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/fig_03_mbol_sigma_magnitude_resoltuion.png}
     \caption{Top: the total uncertainties in the bolometric magnitude as a 
-    function of bolometric magnitude~(blue). The moving median using the binning
-    as described in Table~\ref{tab:magnitude_uncertainties} Due to the small
+    function of bolometric magnitude~(blue). Due to the small
     number of data points, the weighted average at magnitudes fainter than
     $16.5$\,mag are not computed. At these magnitudes, the uncertainties at the
     last bin centred at $16.45$\,mag is used. Middle: the bolometric magnitude
@@ -588,8 +591,9 @@ the input WDLF. We have found multiple phases of enhanced star formation using
 this novel method, these bursts and lulls are all in good agreement with
 previous works found using other methods and stellar popluations~(see next
 section). As already pointed out in the previous section, we caution readers to
-pay particular attention in drawing conclusions for any information older than
-$\approx9$\,Gyr.
+pay particular attention in drawing conclusions from any information older than
+$\approx9$\,Gyr. The integrated SFR in the oldest bins is a representative
+value. However, the individual SFRs at those bins are most likely inaccurate.
 
 \begin{figure*}
     \includegraphics[width=\textwidth]{figures/fig_05_gcns_reconstructed_wdlf_optimal_resolution_bin_optimal.png}
@@ -608,14 +612,13 @@ $\approx9$\,Gyr.
 \section{Comparison and discussion}
 \subsection{WDLF}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2013MNRAS.434.1549R}
+\citet{2013MNRAS.434.1549R} applied the 
 
-\citet{2019ApJ...878L..11I} is included as it is a good option of lower bound
-of the number density.
 
 \subsection{Other methods using WDs}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2014ApJ...791...92T}
+\citet{2014ApJ...791...92T} reported the SFH using a 25\,pc volume-complete
+sample. 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -631,53 +634,109 @@ they occupy a different part of the velocity space? These are important
 questions to be addressed in future works.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2023MNRAS.522.1643C} found a constant star formation rate over the last
-10.5\,Gyr with the 40\.pc sample of WDs. Their recovery method overlooks
-information and sampling theory~\citep{1949IEEEP..37...10S} in extracting
-information from a given signal~(WDLF). In observation astronomy, using
-photometry as an example, optimal extraction based on a known point-spread
-function is a technique to maximise the signal-to-noise ratio in the 
-photometry~\citep{1980SPIE..264..171T, 1987PASP...99..191S}.
-It is possible because we have information on how a point appears on the
-detector plane after going through the optical system from the telescope
-mirror~(or even to model the Earth's atmosphere if adaptive optics is used) to
-the detector plane. Very similar reasoning is used in, and not limited to,
-image differencing~\citep{1998ApJ...503..325A, 2008MNRAS.386L..77B,
-2009MNRAS.397.2099A, 2016ApJ...830...27Z},
-spectroscopy~\citep{1986PASP...98..609H, 1989PASP..101.1032M,
-2003PASP..115..688K}, image reconstruction~\citep{1972JOSA...62...55R,
-1974AJ.....79..745L}, image deconfusion~\citep{2015A&A...582A..15M}.
-Furthermore, the uncertainties in a cumulative distribution function are not
-merely the uncertainty in that given bin, the uncertainties accumulate to the
-successive bin(s) non-linearly, depending on how accurate the measurement can
-be made on the observed variable, in this case, the absolute magnitude in the
-$G$ band.
+\citet{2023MNRAS.522.1643C} made use of a similar sample to this work and they
+found a constant star formation rate over the last 10.5\,Gyr with the 40\.pc
+sample of WDs. It is a simple flat line of a top hat function. Their recovery
+method overlooks information and sampling theory~\citep{1949IEEEP..37...10S}
+in extracting information from a given signal~(as we described in details in
+\ref{sec:magnitude_bin_size}). It is possible to identify an optimal bin size
+and the set of bin sizes determines the time resolution in which we can derive
+the SFH. In observation astronomy, using photometry as an example, optimal
+extraction based on a known point-spread function is a technique to maximise
+the signal-to-noise ratio in the photometry~\citep{1980SPIE..264..171T,
+1987PASP...99..191S}. It is possible because we have information on how a point
+appears on the detector plane after going through the optical system from the
+telescope mirror~(or even to model the Earth's atmosphere if adaptive optics
+is used) to the detector plane. Very similar reasoning is used in, and not
+limited to, image differencing where a point spread function is
+used~\citep{1998ApJ...503..325A, 2008MNRAS.386L..77B, 2009MNRAS.397.2099A,
+2016ApJ...830...27Z}, spectroscopy using a line spread
+function~\citep{1986PASP...98..609H, 1989PASP..101.1032M, 2003PASP..115..688K},
+image reconstruction where the smoother kernel is
+known~\citep{1972JOSA...62...55R, 1974AJ.....79..745L}, and image
+deconfusion where the position of two confused sources are known from an
+external source~\citep{2015A&A...582A..15M}.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Secondly, we attribute the main differences in our derived SFH to their
+use of chi-squared statistics in fitting cumulative distribution
+functions~(CDF). By fitting a CDF directly to the cumulative data, one would
+run into significant issues coming from strongly correlated values in the
+neighbouring values in the ordinal axis. The uncertainty of a data point on
+a CDF is not merely the uncertainty in that given bin, the uncertainties
+accumulate to the successive bin(s) non-linearly, depending on how accurate the
+measurement can be made on the observed variable, in this case, the absolute
+magnitude in the $G$ band.
+
+% expand on how adjacent bins are dependent on each other.
+% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Thirdly, the scale height they have adopted is much smaller than all other
+WDLF works where \citet{2006AJ....131..571H} found typically the minimum
+and maximum scale height of WD at difference bolometric magnitude span
+between 200 and 900\,pc.
+
+% 
+
+
+\citet{2019ApJ...878L..11I, 2021MNRAS.502.1753T}
+% hmmm, compare or not... they only work on the halo population
 
 \subsection{MS stars}
+There are a number of works concerning the SFH of the solar neighbourhood. We
+have selected the following three because their sample selections are similar
+to that of the GCNS sample little directional dependence.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2006A&A...459..783C}
+\citet{2006A&A...459..783C} used the Hipparcos catalogue of stars within 80\,pc
+of the Sun and brighter than $V=8$\,mag. The restrictive selection has
+significantly excluded the effects due to photometric or kinematic
+incompleteness. They computed the SFH by minimising the differences between the
+colour-magnitude diagram of the population from the Hipparcos data and the
+sum of the partial CMD~(the concept that inspired this work to use partial
+WDLFs). They recovered the strongest star formation at a lookback time of
+$\tau=2-3$\,Gyr, and a slowly decreasing SFH up to $\tau=6\,Gyr$ where there is
+a sharp drop in SFR until $\tau=10-12$\,Gyr
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \citet{2007ApJ...665..767R} used the Hipparcos catalogue to calibrate
 bias in the \citep{2005ApJS..159..141V} volume-limited spectroscopic
 sample of 1039 FGK dwarfs in the solar neighbourhood with estimates of
-their age and metallicity.
+their age and metallicity. They went through thorough selection criteria,
+which resulted in two samples. Each sample has limiting absolute magnitudes
+between $4$ and $\sim$6 mag, with a distance limit of $\sim$30\,PC, and MS mass
+in the range $\sim1.25$ to $\sim0.8$\,M$_{\sun}$. Their results are a direct
+number count of stars in a volume-limited survey that only include late F to
+early K stars, so their SFH as plotted in Fig.~\ref{fig:comparison} is a simple
+normalisation by multiplying by an arbitrary value to allow comparison of the
+\textit{shape}, particularly the peaks and troughs of the SFH. The most notable
+peaks from their work are at $2 \& 4$\,Gyr. Two narrow peaks at $6 \& 8$ are
+also present.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2019A&A...624L...1M}
+\citet{2019A&A...624L...1M} used the Gaia DR2 catalogue to recover the SFH
+using stars brighter than $G=12$\,mag. .............
 
 \subsection{Subgiants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2022Natur.603..599X}
+\citet{2022Natur.603..599X} uses subgiants to map the metallicity, angular
+momentum and SFH of the milky way. The distance they probe is much larger
+than this work so it is expected that the recovered SFH show different
+features. Nevertheless, they observe one dominant peak at 10.5\,Gyr and two
+small peaks at 2 and 4\,Gyr.
 
 
 \begin{figure}
-  \dummyfig{Comparison} 
-  \caption{Compared against previous works. red hue dashed lines show the SFH
-  based on WD. blue hur dotted lines show the SFH found using other stellar
-  populations.}
-  \label{fig:dummy3}
+  \includegraphics[width=\columnwidth]{figures/fig_06_compare_sfh.png}
+  \caption{Comparision of the recovered SFH against previous works.
+  Solid lines~(including this work)
+  are works reporting the SFH in the unit of number of stars formed per
+  unit time per unit volume. Dotted lines are works reported
+  in relative SFH renormalised to match with the total number of stars formed
+  as found in this work. The dot-dashed line reported the SFH in solar mass
+  formed per unit time per unit projected-area.}
+  \label{fig:comparison}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
