@@ -225,7 +225,7 @@ an old population.
 The integral for a WDLF when parameterised with bolometric magnitude (as
 opposed to luminosity) can be written as
 
-\begin{equation}
+\begin{equation} \label{eqn:wdlf}
     n(M_{\mathrm{bol}}) = \int_{\mathcal{M}_l}^{\mathcal{M}_u}
         \tau(M_\mathrm{bol}, \mathcal{M}_f)
         \psi(T_0, M_\mathrm{bol}, \mathcal{M}_i, m, Z)
@@ -308,9 +308,10 @@ which is dominated by their thick disk population.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mathematical Inversion}
+\label{sec:inversion}
 With a mathematical inversion method, it is possible to retrieve the SFH of a
 stellar population~\citep{2013MNRAS.434.1549R}. They adopt the Richardson-Lucy 
-deconvolution method that are typically used in image reconstruction. In this
+deconvolution method~\citep{1972JOSA...62...55R, 1974AJ.....79..745L} that are typically used in image reconstruction. In this
 case, the ``images'' are the two-dimensional histograms in the
 progenitor mass -- formation time plane and the WD mass -- luminosity plane. 
 However, it is prone to amplify noise into enhanced star 
@@ -632,9 +633,49 @@ inaccurate.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Comparison and discussion}
 \label{sec:comparison}
+
 \subsection{WDLF}
+\label{sec:inversion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2013MNRAS.434.1549R} applied the 
+In order to validate the method presented in this paper, we have compared the
+resulting star formation history with the equivalent result obtained from an
+independent method applied to the same input WDLF.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In \citet{2013MNRAS.434.1549R} an algorithm is derived that estimates the star
+formation history from the WDLF by a direct inversion of the integral equation
+presented in Equation~\ref{eqn:wdlf}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The method is based on the expectation-maximisation algorithm [CITATION?], which is
+similar in principle to Richardson-Lucy deconvolution and is used to obtain
+maximum-likelihood solutions to inverse problems in the presence of missing data---which
+in the present application is the unknown distribution of WD mass as a function
+of magnitude.
+
+
+SFH: Figure~\ref{fig:nr_sfr}
+
+Reconstructed WDLF and the residual: Figure~\ref{fig:nr_wdlf}
+
+
+\begin{figure}
+    \includegraphics[width=\columnwidth]{figures/nr_sfr.png}
+    \caption{Star formation rate obtained by inversion of the GCNS WDLF using the
+    algorithm presented in \citet{2013MNRAS.434.1549R} and described in 
+    section~\ref{sec:inversion}.}
+    \label{fig:nr_sfr}
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=\columnwidth]{figures/nr_wdlf.png}
+    \caption{Comparison between the observed (black points) and model (red line)
+    WDLF obtained from the inversion algorithm, and corresponding to the star
+    formation history presented in figure~\ref{fig:nr_sfr}.}
+    \label{fig:nr_wdlf}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsection{Other methods using WDs}
@@ -727,11 +768,11 @@ on the least reliable data. Specifically, the faintest WD has a perfect
 measurement because that is when the CDF has to converge to unity.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Thirdly, the scale height they have adopted (75\,pc) is much smaller than those
-adopted by all other WDLF works~(e.g.\ \citealt{2006AJ....131..571H,
+Thirdly, the scale height they have adopted~(75\,pc) is much smaller than those
+adopted by all other WDLF works~(e.g.\,\citealt{2006AJ....131..571H,
 2011MNRAS.417...93R, 2019MNRAS.482..715L}). Particularly,
 \citet{2006AJ....131..571H} found that the typical minimum and maximum scale
-height of WD at difference bolometric magnitudes span between 200 and 900\,pc.
+height of WD at different bolometric magnitudes span between 200 and 900\,pc.
 C23's choice of scaleheight is coming from young open clusters, which is not
 a representative population for the evolution of the galaxy. Given these open
 clusters remain open clusters by their self-gravity, this value can, at best,
@@ -762,10 +803,38 @@ truncation in the SFH can lead to the modelled CDF constantly smaller than the
 %SFH because the number density of a WDLF is highest at $\sim$15\,mag, which
 %requires WDs at least 7\,Gyr in cooling age 
 
-\citet{2019ApJ...878L..11I, 2021MNRAS.502.1753T}
-% they only work on the halo population, it is particularly important at the
-% faint end, write a lot more
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\citet{2019ApJ...878L..11I} performed an analysis by directly computing the
+star formation history of a population of massive WDs selected from
+\citet{2019Natur.565..202T}. The choice of using only massive WDs
+removes the degeneracy issues given rise from the choice of metallicity models
+of the progenitors; and the fact that massive WDs are remnants of the most
+massive stars that could have turned into WDs where their progenitor lifetime
+is short compared to the WD cooling age. They found an abrupt start of star
+formation at $\sim$7\,Gyr and an enhanced star formation around 2-3\,Gyr. They
+also note that they find a burst at $\sim$0.4\,Gyr when applying their method
+on the 25\,pc sample from~\citet{2017ASPC..509...59O}. This recent burst was not
+seen in all but one previous work -- R13's. Interestingly enough, we have
+recovered the same peak with the GCNS sample using the improved-R13 inverse
+modelling method (Section~\ref{sec:inversion}) and the pWDLF forward modelling
+method~(this work). 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\citet{2021MNRAS.502.1753T} analysed a 100\,pc sample WDs from
+Torres et al.~(2019) with a completeness of $91\%$ at 20.5\,mag. This sample
+contains 95 WDs that are disentangled into thin disk, thick disk and stellar
+halo components. The data with their selection criteria applied is commonly
+referred to as a high-velocity sample, but their treatment of the data
+selection is much more sophisticated making use of a supervised
+machine learning method based on Random Forest techniques in eight-dimensional
+space. They found a cut-off age of $12\pm0.5$\,Gyr where the peak of star
+formation happened at $\sim$11\,Gyr. The star formation continued for about
+4\,Gyr. $13\%$ of their WDs are younger than 7\,Gyr which is puzzling given
+their kinematic choice, spurious WDs from the thin and thick disk should not
+have attributed to such a fraction of contamination. They suggested that
+individual analysis will be required to unravel the origin of these objects.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{MS stars}
 There are a number of works concerning the SFH of the solar neighbourhood. We
 have selected the following three because their sample selections are similar
@@ -787,7 +856,7 @@ Section~\ref{sec:conclusion}).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \citet{2007ApJ...665..767R} used the Hipparcos catalogue to calibrate
 bias in the \citep{2005ApJS..159..141V} volume-limited spectroscopic
-sample of 1039 FGK dwarfs in the solar neighbourhood with estimates of
+sample of 1\,039 FGK dwarfs in the solar neighbourhood with estimates of
 their age and metallicity. They went through thorough selection criteria,
 which resulted in two samples. Each sample has limiting absolute magnitudes
 between $4$ and $\sim$6 mag, with a distance limit of $\sim$30\,PC, and MS mass
@@ -800,22 +869,35 @@ peaks from their work are at $2$ \& $4$\,Gyr. Two narrow peaks at $6$ \&
 $8$\,Gyr are also present.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2019A&A...624L...1M} used the Gaia DR2 catalogue to recover the SFH
-using stars brighter than $G=12$\,mag.
-% write more...
+\citet{2018IAUS..330..148B} used the TGAS data to perform an initial analysis
+with the technique of synthetic colour-magnitude diagram-fitting, they found
+a recent star burst at a lookback time of $\sim$2--3\,Gyr, an enhanced star
+formation $\sim$6--10\,Gyr. Figure~\ref{fig:comparison} shows their
+\textit{mildly corrected} solutions.
 
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\citet{2019A&A...624L...1M} selected from Gaia DR2 2\,890\,208 stars with mean
+G$_{\mathrm{DR2}}<12$, estimated to be $97\%$ complete. Only stars with
+proxy-absolute magnitude $G_{\pi}$ brighter than 10 mag are considered in their
+second filtering in order to remove all brown dwarfs and white dwarfs in their
+analysis. They applied a non-parametric method that uses an approximate
+Bayesian computation~\citep{2017A&C....19...16J} algorithm to compute their
+merit function by comparing the Gaia data against the Besancon Galaxy model
+fast approximation simulations~\citep{2018A&A...620A..79M}). They have found
+that their analysis is most affected by the thick disk modelling and the
+stellar evolution models. From their four choices of fitting configurations of
+the Gaia sample. They see a general trend of decreasing star formation from
+$\sim$10\,Gyr to 6\,Gyr, followed by an enhanced star formation of 4\,Gyr in
+duration with a peak at $\sim$2.5\,Gyr. They also found a sharp and fast drop
+in the star formation rate in the most recent 1\,Gyr.
 
 \subsection{Subgiants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \citet{2022Natur.603..599X} uses subgiants to map the metallicity, angular
-momentum and SFH of the milky way. The distance they probe is much larger
+momentum and SFH of the Milky Way. The distance they probe is much larger
 than this work so it is expected that the recovered SFH show different
 features. Nevertheless, they observe one dominant peak at 10.5\,Gyr and two
 small peaks at 2 and 4\,Gyr.
-% write more... Gaia etc.
-
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{figures/fig_06_compare_sfh.png}
@@ -847,20 +929,28 @@ facilities, we can retrieve complex signals from the given noisy data using
 well-established mathematical tools and good knowledge of the optical system.
 We outline the most imminent issues to be addressed as follows:
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Known issues}
 \begin{itemize}
     \item The GCNS sample is not incompleteness corrected, particularly, the
     kinematic selection can lead to a significant 
-    bias~\citep{2015MNRAS.450.4098L}. And how the parallax-related selection,
-    for example, the Lutz-Kelker bias~\citep{1973PASP...85..573L} would affect
-    the shape of the WDLF, hence the SFH.
+    bias~\citep{2015MNRAS.450.4098L}. Although not applicable to the GCNS
+    sample, the parallax-related selection usually lead to Lutz-Kelker 
+    bias~\citep{1973PASP...85..573L}, which would affect the shape of the
+    WDLF, hence the SFH.
     \item The model uncertainty in the synthetic photometry is considered,
     however, the treatment is not rigorous as the uncertainty should be as
     a function of the bolometric magnitude. Particularly, it is known that
     in the visible wavelengths, the errors are the largest at the coolest end.
     \item MS progenitors: the initial mass function, scaleheight evolution,
     metallicity evolution, initial-final mass relation, and the
-    binary/multiplicity fraction can lead to bias in the derived WDLF.
+    binary/multiplicity fraction can lead to bias in the derived WDLF. As
+    noted by \citet{2019ApJ...878L..11I}, the R13 method is sensitive to the
+    adopted metallicity and IMF models but not the DA/non-DA ratio and among
+    other choices of models. Although the pWDLF method does not suffer similar
+    convergence and regularisation issues, this method is also sensitive to
+    the choice of MS models, as would any method that requires MS lifetimes
+    in the analysis.
     \item WDs: the effects from the choice of cooling models, atmosphere
     models, synthetic photometric models, and unresolved binary WDs have to be
     taken into account.
@@ -878,7 +968,7 @@ We outline the most imminent issues to be addressed as follows:
     directional dependency of the WDLFs, the CFHS survey seems to reveal a
     WDLF more dissimilar to the WDLFs from SDSS, SuperCOSMOS and Gaia.
     \item The distance dependency should be investigated as well, the shape of
-    the SFHs from different work roughly agree to when the most recent strong
+    the SFHs from different works roughly agree to when the most recent strong
     star formation happened. However, the normalisation and the relative SFH
     vary quite strongly from work to work. This is likely due to not only the
     choice of stellar population being studied, but due to different
@@ -886,20 +976,31 @@ We outline the most imminent issues to be addressed as follows:
     into a different depth.
 \end{itemize}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 When comparing with the T14 sample, we realised that there is a striking 
 difference in the SFH from the 20\,pc and 100\,pc sample at the most recent
 time. This brings up three important points that should be investigated: first,
 an arbitrary selection of SFH reported from different work cannot draw
 meaningful comparison; second, even at the scale in the order of 10\,pc, we
-can observe variations of SFH; third, if the SFH is a strong function of distance
-from the Sun, then the directional dependency must be strong given the Sun is
-not located in the middle of the Galactic plane, and it is not located in a
-major arm of the Galaxy. The analysis should be more complex than simply
+can observe variations of SFH; third, if the SFH is a strong function of
+distance from the Sun, then the directional dependency must be strong given the
+Sun is not located in the middle of the Galactic plane, and it is not located
+in a major arm of the Galaxy. The analysis should be more complex than simply
 dividing the sample into zones of Galactic latitudes because, for example,
 looking into the length of the Orion-Cygnus arm where the Sun resides, should
 be different to looking into the inter-arm regions -- Perseus arm and
 Carina-Sagittarius arms are too far away for WD studies, so looking into their
 directions will only give us the WDs in the foreground.
+
+As pointed out in \citet{2019A&A...624L...1M} and \citet{2019ApJ...878L..11I},
+the decreasing SFR trend from $\sim$10 to 6\,Gyr is consistent with the
+onset of quenching observed in a cosmological context at a redshift of
+z$\sim$1.8~\citep[corresponds to a lookback time of
+$\sim$10\,Gyr, e.g.][]{2016MNRAS.461.1100R, 2017MNRAS.471.4155K}. It is
+also compatible with the evidence of the quenching of the Milky
+Way~\citep{2016A&A...589A..66H}. This is in line with the thick-disc formation
+scenario attributed to a major merger event at a lookback time of 
+$\sim$10\,Gyr~\citep{2018Natur.563...85H}.
 
 Beyond systematics and directional dependence, one obvious next step is to use
 the colour information. All the derivation of SFH from WDLFs of the solar 
