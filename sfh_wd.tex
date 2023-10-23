@@ -96,7 +96,7 @@ $^{2}$Institute for Astronomy, University of Edinburgh, Royal Observatory, Black
 \date{Accepted XXX. Received YYY; in original form ZZZ}
 
 % Enter the current year, for the copyright statements etc.
-\pubyear{2022}
+\pubyear{2023}
 
 % Don't change these lines
 \begin{document}
@@ -109,11 +109,11 @@ $^{2}$Institute for Astronomy, University of Edinburgh, Royal Observatory, Black
 % Abstract of the paper
 \begin{abstract}
 With the state-of-the-art Gaia astrometry, the number of confirmed white dwarfs
-has reached a few hundred thousands. We have reached the era that small features
-in the Galactic white dwarf luminosity function (WDLF) can be resolved. We
-demonstration how we can apply Markov chain Monte Carlo sampling on a set of
-pre-computed partial-WDLFs to derive the star formation history of their progenitor
-stellar population.
+has reached a few hundred thousand. We have reached the era where small features
+in the white dwarf luminosity function~(WDLF) of the solar neighbourhood can be
+resolved. We demonstrate how to apply Markov chain Monte Carlo sampling on a
+set of pre-computed partial-WDLFs to derive the star formation history of their
+progenitor stellar population.
 
 \end{abstract}
 
@@ -189,7 +189,7 @@ is not completeness corrected. The incompleteness is primarily at the brightest
 and the faintest absolute magnitudes where the astrometric solutions are the
 least reliable due their small number count intrinsic faintness. Furthermore,
 bright WDs are rare, they are found only at larger distances, there are very
-few of them in the local 100\,PC.
+few of them in the local 100\,pc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 This article is organized as follows: in Section~2, we go through the background
@@ -655,17 +655,13 @@ resulting star formation history with the equivalent result obtained from an
 independent method applied to the same input WDLF.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-In \citet{2013MNRAS.434.1549R} an algorithm is derived that estimates the star
-formation history from the WDLF by a direct inversion of the integral equation
-presented in Equation~\ref{eqn:wdlf}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The method is based on the expectation-maximization algorithm [CITATION?], which is
-similar in principle to Richardson-Lucy deconvolution and is used to obtain
-maximum-likelihood solutions to inverse problems in the presence of missing data---which
-in the present application is the unknown distribution of WD mass as a function
-of magnitude.
-
+\citet{2013MNRAS.434.1549R} presented a method to estimate the star formation
+history from WDLFs using an inversion algorithm on the integral 
+Equation~\ref{eqn:wdlf}. Their method is based on the expectation-maximization
+algorithm similar in principle to the Richardson-Lucy deconvolution, which is
+used to obtain maximum-likelihood solutions to inverse problems in the presence 
+of missing data -- which in the present application is the unknown distribution
+of WD mass as a function of magnitude.
 
 SFH: Figure~\ref{fig:nr_sfr}
 
@@ -797,15 +793,15 @@ with time. However, assuming both functions increase linearly with time as
 adopted in their work, the gradients of the two relations are not the same,
 doubling in $\sigma_W$ from 1 to 8\,Gyr~(Fig.~4 in their work) does not mean
 the scaleheight doubles over the same time. There is a missing multiplier
-that should be at least a factor of $\sim$2 to $\sim$3 judging from how other 
-works found a typical scale height of WDs $\sim$300\,pc. The effect of this 
-missing factor in a simulated population of WDs should lead to an over-density
-of the older WDs. This can explain the consistent trend of deviation starting
-at the brightest WD up to $\sim$13\,mag~(cooling time of $\sim$1\,Gyr) because
-the effect is strongest for the youngest WDs where the scaleheight is
-comparable to the distance limit of 40\,pc, particularly with there is an
-offset of 20\,pc of the Sun from the Galactic plane. Furthermore, as the
-boundary conditions of fitting CDF, the residual converges to 0.0 at the
+that should be at least a factor of $\sim$2 to $\sim$3 judging from how the
+aforementioned works found a typical scale height of $\sim$300\,pc. The
+effect of this missing factor in a simulated population of WDs should lead to
+an over-density of the older WDs. This can explain the consistent trend of 
+deviation starting at the brightest WD up to $\sim$13\,mag~(cooling time of
+$\sim$1\,Gyr) because the effect is strongest for the youngest WDs where the
+scaleheight is comparable to the distance limit of 40\,pc, particularly with 
+there is an offset of 20\,pc of the Sun from the Galactic plane. Furthermore,
+as the boundary conditions of fitting CDF, the residual converges to 0.0 at the
 brightest and faintest magnitudes. One should not read it as proof of the
 quality of the fit. As a consequence of such a requirement, the most effective
 way is to fix the overdensity is to, numerically, reduce the SFH, hence a
