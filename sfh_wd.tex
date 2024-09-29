@@ -233,8 +233,13 @@ tables. Particular care is needed to interpolate and integrate over the
 grids of WD evolutionary models, because they are both susceptible to
 significant rounding errors given the huge dynamic ranges the variables cover.
 For example, in the case of a simple starburst of $\mathcal{O}(10^6)$\,yrs, it
-requires a relative error tolerance of $10^{-10}$ in order to integrate properly
-for an old population.
+requires a relative error tolerance of
+$\texttt{epsabs} = \texttt{epsrel} = 10^{-10}$, a large number of breakpoints
+in the bounded integration interval ($\texttt{n\_points} = 10000$) and an 
+arbitrarily large number of upper bound on the number of subintervals for
+integration ($\texttt{limit} = 10^{6}$) in order to integrate properly for an
+old population with a short starburst\footnote{See Appendix for a more detailed
+description}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 When the function is \textit{properly} smoothed and weighted, and the
@@ -603,7 +608,7 @@ kernel as it increases the uncertainty.
 \label{sec:logg_photometric_fitting}
 \citet{2014ApJ...796..128G} reported that photometric fitting with a model
 grid of synthetic photometry leads to a dispersion of
-$\sigma_{\mathrm{log}_{g}} = 0.404$ in the $\log(g)$, which is the combined
+$\sigma_{\log(g)} = 0.404$ in the $\log(g)$, which is the combined
 effect of the intrinsic dispersion and the precision. This is the quantity
 required in this work because the GCNS sample of WDs was fitted assuming
 a fixed surface gravity.
@@ -613,21 +618,22 @@ In order to obtain the estimates of the uncertainties in the fitted bolometric
 magnitudes due to the assumption of fixed surface gravity. We used
 \textsc{WDPhotTools} to fit the GCNS WD samples in the three Gaia filters at
 seven surface gravities. These seven values range from
-$\log(g) - 3\sigma_{\mathrm{log}_{g}}$ to $\log(g) + 3\sigma_{\mathrm{log}_{g}}$
-in an increment of one $\sigma_{\mathrm{log}_{g}}$. The photometric
+$\log(g) - 3\sigma_{\log(g)}$ to $\log(g) + 3\sigma_{\log(g)}$
+in an increment of one $\sigma_{\log(g)}$. The photometric
 uncertainties in the $Gaia$ filters are the sum in quadrature of the given
 uncertainties in the photometry in each filter and the corresponding
 uncertainties in the synthetic photometry~(Section \ref{sec:propagation} and
-\ref{sec:synthetic_photometry}). While the $\sigma_{\mathrm{log}_{g}}$ is the
+\ref{sec:synthetic_photometry}). While the $\sigma_{\log(g)}$ is the
 sum in quadrature of the intrinsic distribution of surface gravity and the
 dispersion in surface gravity coming from photometric fitting~
 (Section~\ref{sec:logg_intrinsic_dispersion} and \ref{sec:logg_photometric_fitting}).
 
 From the seven fitted
 bolometric magnitudes, we can approximate the dispersion with:
-\begin{equation}
-  \sigma_{M_{\mathrm{bol}}} = \frac{1}{6}\sum_{-3 \leq i \leq 3, i \neq 0}\frac{M_{\mathrm{bol}}(7.998 + i\sigma_{\mathrm{log}_{g}})}{|i|} - M_{\mathrm{bol}}(7.998)
-\end{equation}
+\begin{multline}
+  \sigma_{M_{\mathrm{bol}}} = \frac{1}{6} \times \sum_{-3 \leq i \leq 3, i \neq 0} \Biggl\{ \frac{M_{\mathrm{bol}}(\log(g)=7.998 + i\sigma_{\log(g)})}{|i|} \\
+  - M_{\mathrm{bol}}(\log(g)=7.998) \Biggr\}
+\end{multline}
 .
 
 The Gaussian smoothing kernel is described by the sum of the fitting
@@ -669,7 +675,7 @@ size) without the amplification of noise.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 At the oldest age~(i.e.\ faintest magnitudes), the uncertainties of the
 bolometric magnitude is most likely underestimated as the value
-$\sigma_{\mathrm{log}_{g}} = 0.404$ from \citet{2014ApJ...796..128G} did not
+$\sigma_{\log(g)} = 0.404$ from \citet{2014ApJ...796..128G} did not
 include WDs from the faint end. Additionally, from the recent calibration
 works~(Bergeron), it is known that the models are less accurate at the lowest 
 temperature, and the bolometric magnitudes obtained by assuming DA or DB
@@ -1057,7 +1063,7 @@ The recovered SFHs agree particularly well at an intermediate age of 1-8\,Gyr.
 We outline the most imminent issues to be addressed as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{List of Known issues}
+\subsection*{Known issues}
 \begin{enumerate}
     \item The GCNS sample is not incompleteness corrected, particularly, the
     kinematic selection can lead to a significant 
@@ -1096,7 +1102,7 @@ We outline the most imminent issues to be addressed as follows:
     directional dependency of the WDLFs, the CFHS survey seems to reveal a
     WDLF more dissimilar to the WDLFs from SDSS, SuperCOSMOS and Gaia.
     \item The distance dependency should be investigated as well, the shape of
-    the SFHs from different works roughly agree to when the most recent strong
+    the SFHs from different works roughly agrees to when the most recent strong
     star formation happened. However, the normalisation and the relative SFH
     vary quite strongly from work to work. This is likely due to not only the
     choice of stellar population being studied, but due to different
@@ -1111,14 +1117,14 @@ time. This brings up three important points that should be investigated: first,
 an arbitrary selection of SFH reported from different work cannot draw
 meaningful comparison; second, even at the scale in the order of 10\,pc, we
 can observe variations of SFH; third, if the SFH is a strong function of
-distance from the Sun, then the directional dependency must be strong given the
-Sun is not located in the middle of the Galactic plane, and it is not located
-in a major arm of the Galaxy. The analysis should be more complex than simply
-dividing the sample into zones of Galactic latitudes because, for example,
-looking into the length of the Orion-Cygnus arm where the Sun resides, should
-be different to looking into the inter-arm regions -- Perseus arm and
-Carina-Sagittarius arms are too far away for WD studies, so looking into their
-directions will only give us the WDs in the foreground.
+distance from the Sun, then the directional dependency should also be strong
+given that the Sun is not located in the middle of the Galactic plane, and it
+is not located in a major arm of the Galaxy. The analysis should be more
+complex than simply dividing the sample into zones of Galactic latitudes
+because, for example, looking into the length of the Orion-Cygnus arm where
+the Sun resides, should be different to looking into the inter-arm
+regions; while Perseus arm and Carina-Sagittarius arms are too far away for WD
+studies, looking into their directions only gives us the WDs in the foreground.
 
 As pointed out in \citet{2019A&A...624L...1M} and \citet{2019ApJ...878L..11I},
 the decreasing SFR trend from $\sim$10 to 6\,Gyr is consistent with the
@@ -1133,10 +1139,10 @@ $\sim$10\,Gyr~\citep{2018Natur.563...85H}.
 Beyond systematics and directional dependence, one obvious next step is to use
 the colour information. All the derivation of SFH from WDLFs of the solar 
 neighbourhood were reported in the bolometric magnitudes/luminosities. Thus,
-all works essentially made use of The WD-bolometric-LF. To address the problem
-of degeneracy and correlated signal in the solution, fitting multiple WDLFs~(in 
-multiple filters) simultaneously may relieve some issues with degeneracy as the
-pWDLFs evolve differently in different filters.
+all works have essentially marginalized over the colour-space. To address the
+problem of degeneracy and correlated signal in the solution, simultaneously
+fitting multiple LFs in various filters may relieve some issues with degeneracy
+as the pWDLFs evolve at different rates in different wavelengths.
 
 In the forthcoming decade, the Simonyi Survey Telescope at the Vera C. Rubin
 Observatory will continue to discover more WDs at fainter magnitudes, but only
@@ -1161,7 +1167,12 @@ participating in the {\it Gaia} Multilateral Agreement.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Data Availability}
-The source code underlying this article, as well as all the data sufficient to reproduce all of the figures in this article are available on Github, at \url{https://github.com/cylammarco/SFH-WDLF-article}. Two tables are available in the appendix for the magnitude resolution~(Fig.~\ref{fig:magnitude_resolution}) and the WDLFs sampled at those magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
+The source code underlying this article, as well as all the data sufficient to
+reproduce all of the figures in this article are available on Github, at 
+\url{https://github.com/cylammarco/SFH-WDLF-article}. Two tables are available
+in the appendix for the magnitude
+resolution~(Fig.~\ref{fig:magnitude_resolution}) and the WDLFs sampled at those
+magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1188,6 +1199,7 @@ The source code underlying this article, as well as all the data sufficient to r
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Tabulated data for the bolometric magnitude resolution}
+\label{appexdix:magnitude-resolution}
 \begin{table}
     \centering
     \begin{tabular}{c|c}
@@ -1253,11 +1265,19 @@ The source code underlying this article, as well as all the data sufficient to r
         19.7620 & 0.1587\\
         19.9207 & 0.1587\\\hline
             \end{tabular}
-    \caption{The bin centres and bin size used as the magnitudes in the WDLFs as found in Fig.~\ref{fig:magnitude_resolution}. The bin sizes are already multiplied by the factor of $2.355 /2 = 1.1775$.}
+    \caption{The bin centres and bin size used as the magnitudes in the WDLFs
+    as found in Fig.~\ref{fig:magnitude_resolution}. The bin sizes are already 
+    multiplied by the factor of $2.355 /2 = 1.1775$.}
     \label{tab:magnitude_resolution}
 \end{table}
 
-\begin{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Tabulated Gaia and reconstructed WDLF}
+\label{appexdix:reconstructed-wdlf}
+
+\textcolor{red}{Add Gaia WDLFs.}
+
+\begin{table*}
     \centering
     \begin{tabular}{c|cccc}
          M$_{\mathrm{bol}}$ & $\Phi$ & $\sigma_{\Phi}$ & $\Phi_{20}$ & $\sigma_{\Phi_{20}}$ \\
@@ -1323,9 +1343,16 @@ The source code underlying this article, as well as all the data sufficient to r
 19.6033 & 3.043194e-8 & -- & 3.043194e-8 & --\\
 19.7620 & 2.567901e-8 & -- & 2.567901e-8 & --\\\hline
     \end{tabular}
-    \caption{The reconstructed WDLFs in Fig.~\ref{fig:sfh_optimal}. The uncertainties are only available at the magnitudes when there is observed data.}
+    \caption{The Gaia WDLFs and the reconstructed WDLFs in
+    Fig.~\ref{fig:sfh_optimal}. The uncertainties are only available at the
+    magnitudes when there is observed data. $\Phi_{20}$ refers to the WDLF of
+    the $20$\,PC subset.}
     \label{tab:my_label}
-\end{table}
+\end{table*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Integration precision requirement}
+\label{appexdix:integration-precision}
 
 % Don't change these lines
 \bsp	% typesetting comment
