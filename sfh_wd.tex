@@ -84,7 +84,7 @@
 %M. C. Lam$^{1\,\orcid{0000-0002-9347-2298}}$\thanks{Contact e-mail: \href{mailto:lam@mail.tau.ac.il}{lam@tau.ac.il}}
 %\\
 \author[M. C. Lam et al.]{
-M. C. Lam$^{1, 2}$\thanks{Contact e-mail: \href{mailto:mlam@roe.ac.uk}{mlam@roe.ac.uk}},
+M. C. Lam$^{1, 2\,\orcid{0000-0002-9347-2298}}$\thanks{Contact e-mail: \href{mailto:mlam@roe.ac.uk}{mlam@roe.ac.uk}},
 and N. Rowell$^{2}$
 \\
 % List of institutions
@@ -377,7 +377,7 @@ into various astronomical fitting techniques and found that it is possible to
 follow the mathematical construction of full spectrum fitting of galactic
 spectra, and the use of partial CMD to derive the SFH of a stellar
 population~\citep{2006A&A...459..783C}, to speed up the modelling significantly.
-In both of these methods, they derive various physical properties, e.g.\ SFH and
+In both of these methods, they derived various physical properties, e.g.\ SFH and
 metallicity, of the stellar population. In the case of WDLF inversion in this
 work, SFH is the only independent variable (function). Full spectrum fitting
 works by comparing the observed spectrum against a combination of basis model 
@@ -385,7 +385,7 @@ spectra of a set of pre-computed simple stellar populations. Because of the
 large possible number of degenerate solutions and noise can significantly alter
 the solution, regularization is necessary to avoid erroneously amplified
 solutions. For example, \texttt{pPXF}~\citep{2023MNRAS.526.3273C} implements an 
-explicit regularization  parameter, which can be interpreted as a convergence 
+explicit regularisation parameter, which can be interpreted as a convergence 
 criterion as in  \citet{2013MNRAS.434.1549R}. Alternatively, a Markov chain
 Monte-Carlo method can be used to mitigate ``overfitting'' (e.g.\ in 
 \texttt{Prospector},~\citealp{2021ApJS..254...22J}). This automatically comes with
@@ -731,12 +731,12 @@ star formation at $\sim$2, 4, 9 and 11\,Gyr~(see bottom panel of
 Fig.~\ref{fig:sfh_optimal})
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The 20\,pc subset\ shows the contribution of the
-WDs within the 20\,pc distance, it should \textit{not} be interpreted as a
-20\,pc sample where the maximum volume (upper integral limit) for each WD would
-be different to that of a 100\,pc sample, hence we have opted for the word
-``subset''. We show this subset for the purpose of a more meaningful comparison
-of other works that probed much smaller volumes~(see 
+The 20\,pc subset\ shows the contribution of the WDs within the 20\,pc distance,
+it should \textit{not} be interpreted as a 20\,pc sample where the maximum
+volume (upper integral limit) for each WD would be different to that of a
+100\,pc sample. We do not compute the maximum volume in this work, hence we have
+opted for the word ``subset''. We show this subset for the purpose of a more
+meaningful comparison of other works that probed much smaller volumes~(see 
 Section~\ref{sec:comparison}). As already pointed out in the previous section,
 we caution readers to pay particular attention in drawing conclusions from any 
 information older than $\sim$$9$\,Gyr due to, most likely, some correlated
@@ -745,17 +745,18 @@ signals unaccounted for.
 \begin{figure}
     \includegraphics[width=
     \columnwidth]{figures/fig_05_gcns_reconstructed_wdlf_optimal_resolution_bin_optimal.png}
-    \caption{Top: the reconstructed WDLF using the pWDLFs, the set of solutions
-    refined with a least square method shows marginal improvement. The 20\,pc
-    subset shows the contribution of the WDs within the 20\,pc distance, it
-    should \textit{not} be interpreted as a 20\,pc sample. The x-axis on
-    the top side shows only the cooling age WDs but not the total age. A
-    luminosity function has marginalised over the progenitor masses, so the total
-    age of WDs is not linearly mapped to the axis of this figure. Bottom: The
-    weights of the pWDLFs transformed to the unit of per billion year by dividing
-    by the bin widths, and by normalising with the number density to get the
-    unit of per cubic parsec. The raw weights are found from MCMC sampling
-    and finishing with a least-squares minimisation.}
+    \caption{Top: the reconstructed WDLF using MCMC method on the pWDLFs is
+    shown in blue, where the set of solution being further refined with a
+    least square method is shown in orange. The 20\,pc subset shows the
+    contribution of the WDs within the 20\,pc distance, it should \textit{not}
+    be interpreted as a 20\,pc sample. The x-axis on the top side shows only the
+    cooling age WDs but not the total age. A luminosity function has
+    marginalised over the progenitor masses, so the total age of WDs is not
+    linearly mapped to the axis of this figure. Bottom: The weights of the
+    pWDLFs transformed to the unit of per billion year by dividing by the bin
+    widths, and by normalising with the number density to get the unit of per
+    cubic parsec. The raw weights are found from MCMC sampling and finishing
+    with a least-squares minimisation.}
     \label{fig:sfh_optimal}
 \end{figure}
 
@@ -780,13 +781,11 @@ used to obtain maximum-likelihood solutions to inverse problems in the presence
 of missing data -- which in the present application is the unknown distribution
 of WD mass as a function of magnitude.
 
-They have recently updated the inversion algorithm........
-
-They have applied this new algorithm using an identical set of models to the
-GCNS dataset and have independently computed the SFH as shown in
-Figure~\ref{fig:nr_sfr}, with the accompanying reconstructed WDLF and residuals
-shown in Figure~\ref{fig:nr_wdlf}.
-
+They have recently updated the inversion algorithm and have applied it to an
+identical set of models to the GCNS dataset adopting the same bolometric
+magnitude binning to independently compute the SFH~(see Figure~\ref{fig:nr_sfr}).
+The corresponding reconstructed WDLF and residuals are shown in
+Figure~\ref{fig:nr_wdlf}.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/nr_sfr.png}
@@ -876,7 +875,7 @@ function~\citep{1986PASP...98..609H, 1989PASP..101.1032M, 2003PASP..115..688K},
 image reconstruction where the smoother kernel is
 known~\citep{1972JOSA...62...55R, 1974AJ.....79..745L}, and image
 deconfusion where the position of two confused sources are known from an
-external source~\citep{2015A&A...582A..15M}.
+external study~\citep{2015A&A...582A..15M}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Secondly, we attribute the main differences in our derived SFH to their
@@ -1208,7 +1207,7 @@ magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
         8.1014 & 1.4094\\
         9.3663 & 1.1204\\
         10.4145 & 0.9759\\
-        11.3062 & 0.8077\\
+        11.3062 & 0.8077\\\hline
         12.0220 & 0.6238\\
         12.5581 & 0.4485\\
         12.9453 & 0.3258\\
@@ -1218,7 +1217,7 @@ magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
         13.7680 & 0.1305\\
         13.8905 & 0.1146\\
         13.9983 & 0.1010\\
-        14.0934 & 0.0892\\
+        14.0934 & 0.0892\\\hline
         14.1793 & 0.0826\\
         14.2605 & 0.0799\\
         14.3388 & 0.0767\\
@@ -1228,7 +1227,7 @@ magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
         14.6385 & 0.0774\\
         14.7177 & 0.0811\\
         14.8009 & 0.0852\\
-        14.8885 & 0.0899\\
+        14.8885 & 0.0899\\\hline
         14.9809 & 0.0950\\
         15.0784 & 0.0999\\
         15.1809 & 0.1051\\
@@ -1238,7 +1237,7 @@ magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
         15.6323 & 0.1169\\
         15.7504 & 0.1193\\
         15.8719 & 0.1236\\
-        15.9967 & 0.1261\\
+        15.9967 & 0.1261\\\hline
         16.1279 & 0.1362\\
         16.2730 & 0.1541\\
         16.4294 & 0.1587\\
@@ -1248,22 +1247,7 @@ magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
         17.0642 & 0.1587\\
         17.2229 & 0.1587\\
         17.3816 & 0.1587\\
-        17.5403 & 0.1587\\
-        17.6990 & 0.1587\\
-        17.8577 & 0.1587\\
-        18.0164 & 0.1587\\
-        18.1750 & 0.1587\\
-        18.3337 & 0.1587\\\hline
-        18.4924 & 0.1587\\
-        18.6511 & 0.1587\\
-        18.8098 & 0.1587\\
-        18.9685 & 0.1587\\
-        19.1272 & 0.1587\\
-        19.2859 & 0.1587\\
-        19.4446 & 0.1587\\
-        19.6033 & 0.1587\\
-        19.7620 & 0.1587\\
-        19.9207 & 0.1587\\\hline
+        17.5403 & 0.1587\\\hline
             \end{tabular}
     \caption{The bin centres and bin size used as the magnitudes in the WDLFs
     as found in Fig.~\ref{fig:magnitude_resolution}. The bin sizes are already 
@@ -1275,79 +1259,120 @@ magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
 \section{Tabulated Gaia and reconstructed WDLF}
 \label{appexdix:reconstructed-wdlf}
 
-\textcolor{red}{Add Gaia WDLFs.}
+\begin{table*}
+    \centering
+    \begin{tabular}{c|cc|ccc}
+         M$_{\mathrm{bol}}$ & $\Phi_{\mathrm{GCNS}}$ & $\sigma_{\Phi_{\mathrm{GCNS}}}$ & $\Phi_{\mathrm{mcmc + lsq}}$ & $-\sigma_{\Phi}$ & $+\sigma_{\Phi}$ \\
+         {[mag]} & \multicolumn{2}{c|}{[N / Gyr / pc$^3$]} & \multicolumn{3}{c}{[N / Gyr / pc$^3$]} \\\hline\hline
+        5.798 & 2.523414e-06 & 4.554390e-07 & 2.915736e-06 & 0.000000e+00 & 0.000000e+00 \\ 
+        8.101 & 3.386410e-05 & 2.526061e-06 & 3.173625e-05 & 4.309751e-04 & 1.103847e-03 \\ 
+        9.366 & 9.520056e-05 & 4.740354e-06 & 9.604709e-05 & 5.185332e-03 & 7.100745e-03 \\ 
+        10.414 & 1.502980e-04 & 6.396270e-06 & 1.510770e-04 & 4.301908e-03 & 5.151344e-03 \\ 
+        11.306 & 2.300590e-04 & 8.687899e-06 & 2.303309e-04 & 1.847690e-03 & 2.222435e-03 \\ \hline
+        12.022 & 3.649259e-04 & 1.245546e-05 & 3.662165e-04 & 1.047091e-03 & 1.257641e-03 \\ 
+        12.558 & 5.036294e-04 & 1.743204e-05 & 5.046021e-04 & 1.370802e-03 & 1.588509e-03 \\ 
+        12.945 & 6.121816e-04 & 2.233322e-05 & 6.140492e-04 & 1.713488e-03 & 1.989712e-03 \\ 
+        13.231 & 7.119219e-04 & 2.774027e-05 & 7.133481e-04 & 1.328978e-03 & 1.730608e-03 \\ 
+        13.451 & 7.967154e-04 & 3.306716e-05 & 7.990812e-04 & 1.677853e-03 & 2.201390e-03 \\ \hline
+        13.625 & 9.372146e-04 & 4.005816e-05 & 9.370679e-04 & 1.131944e-03 & 1.860796e-03 \\ 
+        13.768 & 1.080471e-03 & 4.680300e-05 & 1.083305e-03 & 1.733897e-03 & 2.551980e-03 \\ 
+        13.891 & 1.194054e-03 & 5.259130e-05 & 1.193569e-03 & 2.107802e-03 & 2.816401e-03 \\ 
+        13.998 & 1.334793e-03 & 5.919526e-05 & 1.333824e-03 & 2.324533e-03 & 3.073292e-03 \\ 
+        14.093 & 1.383527e-03 & 6.413906e-05 & 1.397979e-03 & 3.177470e-03 & 4.093294e-03 \\ \hline
+        14.179 & 1.350647e-03 & 6.571475e-05 & 1.367460e-03 & 2.650060e-03 & 3.498381e-03 \\ 
+        14.261 & 1.388975e-03 & 6.859877e-05 & 1.398500e-03 & 2.497552e-03 & 3.212754e-03 \\ 
+        14.339 & 1.421546e-03 & 7.081691e-05 & 1.442193e-03 & 1.963955e-03 & 2.981955e-03 \\ 
+        14.414 & 1.471563e-03 & 7.353554e-05 & 1.482808e-03 & 1.479573e-03 & 2.787200e-03 \\ 
+        14.487 & 1.535507e-03 & 7.437741e-05 & 1.546505e-03 & 1.016226e-03 & 2.071977e-03 \\ \hline
+        14.562 & 1.662523e-03 & 7.679106e-05 & 1.647164e-03 & 9.457268e-04 & 1.309049e-03 \\ 
+        14.638 & 1.742285e-03 & 7.739816e-05 & 1.735380e-03 & 6.069240e-04 & 7.701937e-04 \\ 
+        14.718 & 1.852156e-03 & 7.792224e-05 & 1.825555e-03 & 1.319544e-04 & 2.827918e-04 \\ 
+        14.801 & 2.025200e-03 & 7.942008e-05 & 2.008011e-03 & 1.801493e-04 & 3.548753e-04 \\ 
+        14.888 & 2.027768e-03 & 7.744200e-05 & 2.016139e-03 & 1.010963e-04 & 2.329979e-04 \\ \hline
+        14.981 & 1.793493e-03 & 7.093499e-05 & 1.800859e-03 & 2.580019e-04 & 3.829521e-04 \\ 
+        15.078 & 1.593453e-03 & 6.572193e-05 & 1.608668e-03 & 5.457895e-04 & 7.040109e-04 \\ 
+        15.181 & 1.322591e-03 & 5.913300e-05 & 1.313423e-03 & 2.881408e-04 & 4.564123e-04 \\ 
+        15.289 & 9.722678e-04 & 5.107216e-05 & 9.760354e-04 & 8.235361e-04 & 1.050184e-03 \\ 
+        15.402 & 7.298879e-04 & 4.734546e-05 & 7.329364e-04 & 3.203850e-04 & 5.535021e-04 \\ \hline
+        15.516 & 6.049411e-04 & 4.613457e-05 & 5.839862e-04 & 1.965852e-04 & 4.448201e-04 \\ 
+        15.632 & 4.032579e-04 & 3.994824e-05 & 4.007261e-04 & 6.417822e-04 & 9.671050e-04 \\ 
+        15.750 & 2.381554e-04 & 3.277612e-05 & 2.409734e-04 & 6.978632e-04 & 9.651653e-04 \\ 
+        15.872 & 1.288113e-04 & 2.548382e-05 & 1.327989e-04 & 5.724355e-05 & 1.390353e-04 \\ 
+        15.997 & 8.843260e-05 & 2.335248e-05 & 8.186839e-05 & 2.741793e-05 & 6.911541e-05 \\ \hline
+        16.128 & 4.461156e-05 & 1.746933e-05 & 5.351029e-05 & 1.628604e-05 & 4.195098e-05 \\ 
+        16.273 & 3.757578e-05 & 1.596991e-05 & 3.762660e-05 & 9.469341e-06 & 2.404994e-05 \\ 
+        16.429 & 1.701715e-05 & 1.197352e-05 & 2.660023e-05 & 5.721878e-06 & 1.311169e-05 \\ 
+        16.588 & 2.609129e-05 & 1.725264e-05 & 2.154815e-05 & 5.227229e-06 & 1.349627e-05 \\ 
+        16.747 & 4.165517e-05 & 2.219290e-05 & 1.827147e-05 & 6.289489e-06 & 1.563853e-05 \\ \hline
+        16.906 & 3.137629e-05 & 2.436612e-05 & 1.520276e-05 & 1.340397e-05 & 3.276446e-05 \\ 
+        17.064 & 1.047112e-05 & 1.256871e-05 & 1.314954e-05 & 1.140362e-05 & 2.861901e-05 \\ 
+        17.223 & 1.666423e-05 & 1.818556e-05 & 1.081724e-05 & 2.701836e-05 & 6.968997e-05 \\ 
+        17.382 & 0.000000e+00 & 0.000000e+00 & 8.847148e-06 & 1.488918e-05 & 3.629019e-05 \\ 
+        17.540 & 8.376158e-07 & 5.922987e-06 & 7.699928e-06 & 0.000000e+00 & 0.000000e+00 \\ \hline
+    \end{tabular}
+    \caption{The Gaia WDLFs (left) and the reconstructed WDLFs (middle) in
+    Fig.~\ref{fig:sfh_optimal}. The uncertainties are only available at the
+    magnitudes when there is observed data. The solutions in bins without
+    observation come from the method fitting partial WDLFs that the faintest
+    WDs are in the model. For a given short period of star burst, the faintest
+    WDs that are unobserved should also be present given the model.}
+    \label{tab:reconstructed_wdlf}
+\end{table*}
+
 
 \begin{table*}
     \centering
-    \begin{tabular}{c|cccc}
-         M$_{\mathrm{bol}}$ & $\Phi$ & $\sigma_{\Phi}$ & $\Phi_{20}$ & $\sigma_{\Phi_{20}}$ \\
-         {[mag]} & \multicolumn{4}{c}{[N / Gyr / pc$^3$]}\\\hline\hline
-
-5.7983 & 2.007732e-8 & -- & 2.007732e-8 & --\\
-8.1014 & 1.807837e-7 & -- & 1.807837e-7 & --\\
-9.3663 & 5.942246e-7 & 7.002769e-7 & 5.942246e-7 & 7.002769e-7\\
-10.4145 & 1.074596e-6 & 1.562234e-6 & 1.074596e-6 & 1.562234e-6\\
-11.3062 & 1.651144e-6 & 1.628837e-6 & 1.651144e-6 & 1.628837e-6\\
-12.0220 & 2.364737e-6 & 2.115492e-6 & 2.364737e-6 & 2.115492e-6\\
-12.5581 & 3.491031e-6 & 4.684087e-6 & 3.491031e-6 & 4.684087e-6\\
-12.9453 & 3.983292e-6 & 3.129331e-6 & 3.983292e-6 & 3.129331e-6\\
-13.2311 & 4.478642e-6 & 6.557330e-6 & 4.478642e-6 & 6.557330e-6\\
-13.4506 & 5.348828e-6 & 2.866976e-6 & 5.348828e-6 & 2.866976e-6\\\hline
-13.6251 & 7.441908e-6 & 8.523870e-6 & 7.441908e-6 & 8.523870e-6\\
-13.7680 & 9.952250e-6 & 1.634726e-5 & 9.952250e-6 & 1.634726e-5\\
-13.8905 & 1.089165e-5 & 1.263226e-5 & 1.089165e-5 & 1.263226e-5\\
-13.9983 & 1.121752e-5 & 7.838850e-6 & 1.121752e-5 & 7.838850e-6\\
-14.0934 & 1.230887e-5 & 1.572319e-5 & 1.230887e-5 & 1.572319e-5\\
-14.1793 & 1.436594e-5 & 1.135261e-5 & 1.436594e-5 & 1.135261e-5\\
-14.2605 & 1.553531e-5 & 1.741245e-5 & 1.553531e-5 & 1.741245e-5\\
-14.3388 & 1.510069e-5 & 1.183223e-5 & 1.510069e-5 & 1.183223e-5\\
-14.4137 & 1.338648e-5 & 1.082799e-5 & 1.338648e-5 & 1.082799e-5\\
-14.4873 & 1.610712e-5 & 1.379686e-5 & 1.610712e-5 & 1.379686e-5\\\hline
-14.5621 & 1.653639e-5 & 2.037534e-5 & 1.653639e-5 & 2.037534e-5\\
-14.6385 & 1.657756e-5 & 1.158530e-5 & 1.657756e-5 & 1.158530e-5\\
-14.7177 & 1.625869e-5 & 1.278931e-5 & 1.625869e-5 & 1.278931e-5\\
-14.8009 & 1.617817e-5 & 2.804673e-5 & 1.617817e-5 & 2.804673e-5\\
-14.8885 & 1.144658e-5 & 8.501000e-6 & 1.144658e-5 & 8.501000e-6\\
-14.9809 & 8.636221e-6 & 7.415379e-6 & 8.636221e-6 & 7.415379e-6\\
-15.0784 & 7.650241e-6 & 6.693432e-6 & 7.650241e-6 & 6.693432e-6\\
-15.1809 & 7.330402e-6 & 6.575534e-6 & 7.330402e-6 & 6.575534e-6\\
-15.2893 & 7.064632e-6 & 1.240751e-5 & 7.064632e-6 & 1.240751e-5\\
-15.4018 & 6.805745e-6 & 3.033059e-6 & 6.805745e-6 & 3.033059e-6\\\hline
-15.5162 & 7.809561e-6 & 1.729959e-5 & 7.809561e-6 & 1.729959e-5\\
-15.6323 & 6.709865e-6 & 7.920514e-6 & 6.709865e-6 & 7.920514e-6\\
-15.7504 & 5.151937e-6 & 5.611557e-6 & 5.151937e-6 & 5.611557e-6\\
-15.8719 & 3.408383e-6 & -- & 3.408383e-6 & --\\
-15.9967 & 2.364423e-6 & -- & 2.364423e-6 & --\\
-16.1279 & 1.663172e-6 & -- & 1.663172e-6 & --\\
-16.2730 & 1.228900e-6 & -- & 1.228900e-6 & --\\
-16.4294 & 8.909201e-7 & -- & 8.909201e-7 & --\\
-16.5881 & 7.388255e-7 & -- & 7.388255e-7 & --\\
-16.7468 & 6.423828e-7 & -- & 6.423828e-7 & --\\\hline
-16.9055 & 5.502960e-7 & -- & 5.502960e-7 & --\\
-17.0642 & 5.069900e-7 & -- & 5.069900e-7 & --\\
-17.2229 & 4.075105e-7 & -- & 4.075105e-7 & --\\
-17.3816 & 2.902411e-7 & -- & 2.902411e-7 & --\\
-17.5403 & 2.400531e-7 & -- & 2.400531e-7 & --\\
-17.6990 & 1.989226e-7 & -- & 1.989226e-7 & --\\
-17.8577 & 1.601641e-7 & -- & 1.601641e-7 & --\\
-18.0164 & 1.327783e-7 & -- & 1.327783e-7 & --\\
-18.1750 & 1.150450e-7 & -- & 1.150450e-7 & --\\
-18.3337 & 1.016263e-7 & -- & 1.016263e-7 & --\\\hline
-18.4924 & 9.112423e-8 & -- & 9.112423e-8 & --\\
-18.6511 & 7.798597e-8 & -- & 7.798597e-8 & --\\
-18.8098 & 6.836055e-8 & -- & 6.836055e-8 & --\\
-18.9685 & 6.271392e-8 & -- & 6.271392e-8 & --\\
-19.1272 & 5.470978e-8 & -- & 5.470978e-8 & --\\
-19.2859 & 4.606494e-8 & -- & 4.606494e-8 & --\\
-19.4446 & 3.759299e-8 & -- & 3.759299e-8 & --\\
-19.6033 & 3.043194e-8 & -- & 3.043194e-8 & --\\
-19.7620 & 2.567901e-8 & -- & 2.567901e-8 & --\\\hline
+    \begin{tabular}{c|cc|ccc}
+         M$_{\mathrm{bol}}$ & $\Phi_{\mathrm{GCNS}, 20\mathrm{pc}}$ & $\sigma_{\Phi_{\mathrm{GCNS}, 20\mathrm{pc}}}$ & $\Phi_{\mathrm{mcmc + lsq}, 20\mathrm{pc}}$ & $-\sigma_{\Phi}, 20\mathrm{pc}$ & $+\sigma_{\Phi}, 20\mathrm{pc}$ \\
+         {[mag]} & \multicolumn{2}{c|}{[N / Gyr / pc$^3$]} & \multicolumn{3}{c}{[N / Gyr / pc$^3$]} \\\hline\hline
+        5.798 & 0.000000e+00 & 0.000000e+00 & 2.008714e-08 & 0.000000e+00 & 0.000000e+00 \\ 
+        8.101 & 0.000000e+00 & 0.000000e+00 & 1.808817e-07 & 1.032725e-05 & 2.613477e-05 \\ 
+        9.366 & 7.002769e-07 & 4.076263e-07 & 5.945359e-07 & 1.295753e-05 & 2.471377e-05 \\ 
+        10.414 & 1.562234e-06 & 6.421644e-07 & 1.075154e-06 & 8.517363e-06 & 1.877375e-05 \\ 
+        11.306 & 1.628837e-06 & 7.338286e-07 & 1.651998e-06 & 7.797393e-06 & 1.586568e-05 \\ \hline
+        12.022 & 2.115492e-06 & 9.516867e-07 & 2.365957e-06 & 6.177150e-06 & 1.291882e-05 \\ 
+        12.558 & 4.684087e-06 & 1.666852e-06 & 3.492876e-06 & 3.940791e-06 & 8.937519e-06 \\ 
+        12.945 & 3.129331e-06 & 1.576799e-06 & 3.985347e-06 & 6.834640e-06 & 1.559295e-05 \\ 
+        13.231 & 6.557330e-06 & 2.694735e-06 & 4.480917e-06 & 5.306174e-06 & 1.139134e-05 \\ 
+        13.451 & 2.866976e-06 & 2.038813e-06 & 5.351570e-06 & 4.998281e-06 & 9.365934e-06 \\ \hline
+        13.625 & 8.523870e-06 & 3.835587e-06 & 7.445907e-06 & 3.774940e-06 & 9.276724e-06 \\ 
+        13.768 & 1.634726e-05 & 5.817472e-06 & 9.957790e-06 & 5.336604e-06 & 1.068174e-05 \\ 
+        13.891 & 1.263226e-05 & 5.360104e-06 & 1.089772e-05 & 1.817502e-05 & 3.571634e-05 \\ 
+        13.998 & 7.838850e-06 & 4.553943e-06 & 1.122371e-05 & 1.526763e-05 & 2.962377e-05 \\ 
+        14.093 & 1.572319e-05 & 6.765451e-06 & 1.231565e-05 & 1.272365e-05 & 3.150949e-05 \\ \hline
+        14.179 & 1.135261e-05 & 6.098631e-06 & 1.437385e-05 & 1.507442e-05 & 2.918199e-05 \\ 
+        14.261 & 1.741245e-05 & 7.475021e-06 & 1.554368e-05 & 1.749560e-05 & 3.481641e-05 \\ 
+        14.339 & 1.183223e-05 & 6.367848e-06 & 1.510835e-05 & 2.103562e-05 & 4.188097e-05 \\ 
+        14.414 & 1.082799e-05 & 6.283162e-06 & 1.339249e-05 & 1.164923e-05 & 2.595493e-05 \\ 
+        14.487 & 1.379686e-05 & 6.950771e-06 & 1.611393e-05 & 8.305666e-06 & 1.743608e-05 \\ \hline
+        14.562 & 2.037534e-05 & 8.687685e-06 & 1.654213e-05 & 9.932924e-06 & 1.820051e-05 \\ 
+        14.638 & 1.158530e-05 & 6.314313e-06 & 1.658188e-05 & 4.943371e-06 & 1.116079e-05 \\ 
+        14.718 & 1.278931e-05 & 6.429679e-06 & 1.626148e-05 & 2.226694e-06 & 4.627630e-06 \\ 
+        14.801 & 2.804673e-05 & 9.286878e-06 & 1.618106e-05 & 3.684124e-06 & 7.442626e-06 \\ 
+        14.888 & 8.501000e-06 & 4.938071e-06 & 1.144772e-05 & 1.706969e-06 & 3.404797e-06 \\ \hline
+        14.981 & 7.415379e-06 & 4.502816e-06 & 8.636473e-06 & 1.432173e-06 & 2.876785e-06 \\ 
+        15.078 & 6.693432e-06 & 4.285507e-06 & 7.650171e-06 & 9.704362e-07 & 2.078141e-06 \\ 
+        15.181 & 6.575534e-06 & 4.163230e-06 & 7.330502e-06 & 1.610019e-06 & 3.396802e-06 \\ 
+        15.289 & 1.240751e-05 & 5.661147e-06 & 7.065039e-06 & 2.179104e-06 & 4.427521e-06 \\ 
+        15.402 & 3.033059e-06 & 3.048347e-06 & 6.806302e-06 & 2.087426e-06 & 4.959924e-06 \\ \hline
+        15.516 & 1.729959e-05 & 7.819954e-06 & 7.810787e-06 & 3.637352e-06 & 7.233835e-06 \\ 
+        15.632 & 7.920514e-06 & 5.749337e-06 & 6.710100e-06 & 3.683817e-06 & 7.783434e-06 \\ 
+        15.750 & 5.611557e-06 & 5.639829e-06 & 5.150729e-06 & 1.058384e-05 & 2.146752e-05 \\ 
+        15.872 & 0.000000e+00 & 0.000000e+00 & 3.406149e-06 & 3.756867e-06 & 8.432366e-06 \\ 
+        15.997 & 0.000000e+00 & 0.000000e+00 & 2.362102e-06 & 2.121897e-06 & 4.946986e-06 \\ \hline
+        16.128 & 0.000000e+00 & 0.000000e+00 & 1.660809e-06 & 1.659654e-06 & 3.398983e-06 \\ 
+        16.273 & 0.000000e+00 & 0.000000e+00 & 1.225689e-06 & 1.582272e-06 & 3.139145e-06 \\ 
+        16.429 & 0.000000e+00 & 0.000000e+00 & 8.862513e-07 & 5.786190e-07 & 1.190269e-06 \\ 
+        16.588 & 0.000000e+00 & 0.000000e+00 & 7.342508e-07 & 5.460554e-07 & 1.025725e-06 \\ 
+        16.747 & 0.000000e+00 & 0.000000e+00 & 6.372236e-07 & 4.740149e-07 & 9.158305e-07 \\ \hline
+        16.906 & 0.000000e+00 & 0.000000e+00 & 5.435278e-07 & 8.547697e-07 & 1.861049e-06 \\ 
+        17.064 & 0.000000e+00 & 0.000000e+00 & 4.980030e-07 & 7.937958e-07 & 1.677031e-06 \\ 
+        17.223 & 0.000000e+00 & 0.000000e+00 & 3.947699e-07 & 2.135516e-06 & 5.669458e-06 \\ 
+        17.382 & 0.000000e+00 & 0.000000e+00 & 2.825303e-07 & 7.703770e-07 & 1.566415e-06 \\ 
+        17.540 & 0.000000e+00 & 0.000000e+00 & 2.325782e-07 & 0.000000e+00 & 0.000000e+00 \\ \hline
     \end{tabular}
-    \caption{The Gaia WDLFs and the reconstructed WDLFs in
-    Fig.~\ref{fig:sfh_optimal}. The uncertainties are only available at the
-    magnitudes when there is observed data. $\Phi_{20}$ refers to the WDLF of
-    the $20$\,PC subset.}
-    \label{tab:my_label}
+    \caption{Same as the previous table for the $20$\,PC subset.}
+    \label{tab:reconstructed_wdlf_20pc_subset}
 \end{table*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1356,10 +1381,32 @@ magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
 
 \begin{figure*}
     \centering
-    \includegraphics[width=1.0\linewidth]{figures/fig_A_age_1000000000.png}
+    \begin{large}
+        100 Myr population
+    \end{large}
+    \includegraphics[width=1.0\linewidth]{figures/fig_A_age_1000000000.png} \\
+    \begin{large}
+        1 Gyr population 
+    \end{large}
     \includegraphics[width=1.0\linewidth]{figures/fig_A_age_10000000000.png}
-    \caption{Caption}
-    \label{fig:enter-label}
+    \caption{(Top: The upper row shows the fractional difference between each of
+    the 100 Myr WDLFs integrated using a relative tolerance of
+    \texttt{scipy.integrate.quad} of $10^{-5}$~(blue), $10^{-6}$~(orange),
+    $10^{-7}$~(green), $10^{-8}$~(red) and $10^{-9}$~(purple) against the WDLF
+    integrated using a relative tolerance of $10^{-9}$, combined with the use
+    of 10000~n$_{\mathrm{points}}$. They are repeated using three different
+    star formation period, at 1 Myr (left), 10 Myr (middle) and 100 Myr (right).
+    The fractional differences are typically smaller than $10^{-7}$ by using a
+    relative tolerance of $10^{-8}$. The lower row shows the 100 Myr WDLFs
+    integrated using a fixed relative tolerance of $10^{-9}$ and
+    n$_{\mathrm{points}} = 100, 200, 500, 1000, 5000$ and $10000$. It is clear
+    that a n$_{\mathrm{points}}$ of at least $500$ is required to compute a
+    WDLF properly. Bottom: Same as above for a 1 Gyr population. The main
+    difference is that for a 1 Myr burst ($0.1\%$ of the age of the population)
+    an n$_{\mathrm{points}}=5000$ is required to compute a smooth WDLF. Thus,
+    for the partial WDLF we pre-compute in this work, we use a fixed
+    n$_{\mathrm{points}}$ of 5000 and a relative tolerance of $10^{-9}$.}
+    \label{fig:integration-precision}
 \end{figure*}
 
 % Don't change these lines
