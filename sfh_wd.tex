@@ -110,7 +110,7 @@ small features in the white dwarf luminosity function~(WDLF) of the solar
 neighbourhood can be resolved. We demonstrate how to apply Markov chain Monte
 Carlo sampling on a set of pre-computed partial-WDLFs to derive the star
 formation history of their progenitor stellar populations. We compare the
-results against many well-accepted and established works using various types
+results against many \textcolor{green}{published} works using various types
 of stars, including white dwarfs, main sequence stars, sub-giants and 
 the entire stellar population. We find convincing
 agreements among most of the methods, particularly at the intermediate age
@@ -166,15 +166,18 @@ As most WDs have a similar broadband colour to main sequence stars, they cannot 
 identified using photometry alone. They are found from UV-excess, large
 proper motion and/or parallax. Because of the strongly peaked surface gravity
 distribution of WDs, photometric fitting for their intrinsic properties
-is possible by assuming a surface gravity. WDs fitted in such a way are useful
+is \textcolor{green}{usable} by assuming a surface gravity. WDs fitted in such a way are useful
 statistically provided that the sample is not strongly selection biased. This
-is demonstrated in various studies comparing photometric and spectroscopic
-solutions to calibrate the atmosphere
-model~\citep{2019ApJ...871..169G, 2019ApJ...882..106G}, as well as from the
-agreeing shapes of the WDLFs from spectroscopic and photometric samples. The
-\textit{Gaia} satellite provides parallactic measurements for over a billion point
+is demonstrated in various \textcolor{green}{pre-\textit{Gaia}-era studies without accurate parallaxes}
+comparing photometric and spectroscopic solutions to calibrate the atmosphere
+model~\citep{2019ApJ...871..169G, 2019ApJ...882..106G}. \textcolor{green}{However,
+this is no longer a preferred way since accurate \textit{Gaia} parallaxes allow
+much more accurate determination of WD properties~\citep[e.g.][hereafter, GF21]{2021MNRAS.508.3877G}. Though it was still used in the WD catalogues of the
+$Gaia$ Catalogue of Nearby Stars~(GCNS, see below).}
+
+The \textit{Gaia} satellite provides parallactic measurements for over a billion point
 sources~\citep{2021A&A...649A...1G, 2021AJ....161..147B} of which $359,000$
-are high confidence WD candidates~\citep[][hereafter, GF21]{2021MNRAS.508.3877G}.
+are high confidence WD candidates~(GF21).
 The availability of parallaxes allows much more accurate fitting, which is
 particularly important when the surface gravity is unknown for the photometric
 sample. This has completely revolutionized the field of WD sciences. 
@@ -326,23 +329,20 @@ uncertainty in the  measurements~\citep{2006AJ....131..571H,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Direct binning of age estimated from individual stars}
 \citet[][hereafter, T14]{2014ApJ...791...92T} reported the SFH using a
-spectroscopic sample of WDs complete to 40\,pc. They found two peaks of star
+spectroscopic sample of WDs complete to \textcolor{green}{20\,pc}. They found two peaks of star
 formation at around a look-back time of $\approx4.5$\,Gyr and at 
 $\approx8.5$\,Gyr. \citet{2019ApJ...878L..11I} uses accurate parallactic 
 measurements in \textit{Gaia} to study massive white dwarfs in the solar
 neighbourhood as reported in \citet{2019Natur.565..202T} to study the effect of
 crystallization. They found two peaks in the SFH from these massive WDs within
 the 100\,pc distance from us, one at $\approx2.5$\,Gyr and one at
-$\approx7$\,Gyr. \citet[][hereafter, C23]{2023MNRAS.522.1643C} found a constant
-star formation history from a lookback time of 0 to 10\,Gyr.
-This approach relies on the estimation of the age of each individual star, so
-it is only applicable to a relatively small sample with highly accurate
-parallactic measurements because of the mass-radius degeneracy in the
-solution.
+$\approx7$\,Gyr. This approach relies on the estimation of the age of each
+individual star, so it is only applicable to a relatively small sample with
+highly accurate parallactic measurements because of the mass-radius degeneracy
+in the solution. This
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Inversion of the WDLF}
-\label{sec:inversion}
 With a mathematical inversion method, it is possible to retrieve the SFH of a
 stellar population~\citep{2013MNRAS.434.1549R}. They adopt the Richardson-Lucy 
 deconvolution method~\citep{1972JOSA...62...55R, 1974AJ.....79..745L} that is 
@@ -370,6 +370,15 @@ $24.2$ and $24.85$ (AB\,mag) respectively. They fit the sample simultaneously
 with three skewed Gaussian distributions that represent the thin disk, thick
 disk and stellar halo population. They identified a peak SFH at $\approx8$\,Gyr
 which is dominated by their thick disk population.
+
+\textcolor{green}{\citet[][hereafter, C23]{2023MNRAS.522.1643C} performs simulations
+to evolve the stellar systems from zero age main sequence and dynamically evolve
+them to derive their WDLFs. They found a constant star formation history from a
+lookback time of 0 to 10\,Gyr. \citet{2025MNRAS.538.2548R} extended the work to
+study the systematic bias comprehensively and concluded that sharp features
+in the SFH derived from WDLFs are not statistically significant.
+}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forward modelling with non-parametric SFH~(this work)}
@@ -538,38 +547,46 @@ defines the lookback time bin sizes.
 
 \subsection{WDs from the GCNS}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The GCNS contains 21\,848 WDs within a 100\,pc distance from us. The most
-significant limitation from this sample is the uncorrected incompleteness. The
-incompleteness is primarily at the bright end where there are very few WDs, and
-in the faintest absolute magnitudes where the astrometric solutions are the
-least reliable due to the intrinsic faintness of these WDs. Furthermore, bright
-WDs are rare, they are found only at larger distances, there are very few of
-them in the local 100\,pc. The WDs are fitted with the pure hydrogen model from
-the Montreal group~\citep{2019ApJ...876...67B} ignoring the effects of varying
+The GCNS contains 21\,848 WDs within a 100\,pc distance from us, only
+\textcolor{green}{16\,087 are found in GF21, of which 15\,955 have \texttt{PWD} 
+larger than or equal to 0.75. The most significant limitations of the GCNS 
+sample come from the impure selection, as evidenced by cross-matching with GF21,
+and the uncorrected incompleteness.} The incompleteness is primarily at the
+bright end where there are very few WDs, and in the faintest absolute magnitudes
+where the astrometric solutions are the least reliable due to the intrinsic
+faintness of these WDs. Furthermore, bright WDs are rare, they are found only at
+larger distances, there are very few of them in the local 100\,pc. The WDs are
+fitted with the pure hydrogen model from the Montreal
+group~\citep{2019ApJ...876...67B} ignoring the effects of varying
 the H/He atmospheric composition and surface gravity. The GCNS work
 interpolated the model grid to look up $G$-band bolometric corrections as a
 function of ($G - G_{\mathrm{RP}}$) to map M$_\mathrm{G}$ to M$_{\mathrm{bol}}$,
 at a fixed surface gravity of $\log(g)=8.0$. Because of the different colour
 evolution as a function of the chemistry of the atmosphere, opting to fit a
 pure hydrogen atmosphere limits the accuracy of the estimation of the cooling
-ages as mixed hydrogen-helium atmosphere models give a shorter cooling age than
-the pure hydrogen model~\citep{2022ApJ...934...36B}. 
+ages as mixed hydrogen-helium atmosphere \textcolor{green}{model} give a
+shorter cooling age than the pure hydrogen model~\citep{2022ApJ...934...36B}.
+\textcolor{green}{Overall, this treatment can lead to an incorrect WD radius
+by as much as a factor of 2, hence, an incorrect luminosity by a factor
+$\sim$$4$, causing spurious features in the WDLF.}
 
 When computing the WDLF, the GCNS adopted a fixed scaleheight of 365\,pc, a
 value found from the GCNS itself. This choice can lead to significant effect
 on the volumetric correction based on the 1/V$_{\mathrm{max}}$ method for
 deriving the WDLF. Particularly, the scaleheight is increasing with time.
 However, such evolution is never studied with a completeness corrected sample
-of WDs~\citep{2006AJ....131..571H}, and previous works on empirical WDLFs all
-adopted a fixed scaleheight~\citep{2006AJ....131..571H, 2011MNRAS.417...93R,
-2019MNRAS.482..715L}.
+of WDs~\citep{2006AJ....131..571H}, and all \textcolor{green}{early works on empirical WDLFs 
+of the Galaxy adopted a fixed scaleheight~\citep{2006AJ....131..571H,
+2011MNRAS.417...93R, 2019MNRAS.482..715L}, until very recently with C23 and
+R25 who applied time-dependent scale height in their forward modelling.}
 
 This sample also assumed all WDs have come from isolated stellar evolution,
-which would be a good assumption given that their colour-absolute magnitude
-selection and the probability map in the colour-magnitude diagram would have removed
-WDs at unusually small and large surface gravities. These outliers are products
+\textcolor{green}{However, recent works suggested as much as 40\% of single
+WDs that have come from merger \citep{2020A&A...636A..31T, 2020ApJ...898...84K}.
+They are products
 of stars that had gone through stellar interactions in the progenitor
-systems~\citep[e.g.\ ][]{2013A&ARv..21...59I, 2023arXiv231117145H}.
+systems~\citep[e.g.\ ][]{2013A&ARv..21...59I, 2023arXiv231117145H}. We do not
+attempt to address this effect in this work.}
 
 The data available from the GCNS WDLF is a catalogue of WDs where instead of
 having each row corresponding to one object, each row contributes $1\%$ to the
@@ -609,33 +626,35 @@ We have identified four main contributions to the uncertainties in the
 bolometric magnitudes, with which we require to derive the size of the
 smoothing kernel as a function of the bolometric magnitude.
 
-\paragraph{Uncertainties in the synthetic photometry \hfill\\}
-\label{sec:synthetic_photometry}
-The synthetic photometry also comes with uncertainties, we estimate the model
-uncertainty using the FWHM of the residuals in the SDSS filters reported in
-\citet{2006AJ....132.1221H}. We take the mean FWHM of in $u$, $g$ and $r$ as
-the proxy of $G_{\mathrm{BP}}$; the mean FWHM of $u$, $g$, $r$, $i$ and $z$
-as a proxy of $G$; and the mean FWHM of $r$, $i$ and $z$ as the proxy of
-$G_{\mathrm{RP}}$. Dividing them by $2.355$ gives us the dispersion that is
-added to the \textit{Gaia} magnitude uncertainty in quadrature. These values are found
-to be $\sigma_{G_{\mathrm{BP}}}=0.0529$,
-$\sigma_{G}=0.0462$ and $\sigma_{G_{\mathrm{RP}}}=0.0343$\,mag.
+%\paragraph{Uncertainties in the synthetic photometry \hfill\\}
+%\label{sec:synthetic_photometry}
+%The synthetic photometry also comes with uncertainties, we estimate the model
+%uncertainty using the FWHM of the residuals in the SDSS filters reported in
+%\citet{2006AJ....132.1221H}. We take the mean FWHM of in $u$, $g$ and $r$ as
+%the proxy of $G_{\mathrm{BP}}$; the mean FWHM of $u$, $g$, $r$, $i$ and $z$
+%as a proxy of $G$; and the mean FWHM of $r$, $i$ and $z$ as the proxy of
+%$G_{\mathrm{RP}}$. Dividing them by $2.355$ gives us the dispersion that is
+%added to the \textit{Gaia} magnitude uncertainty in quadrature. These values are found
+%to be $\sigma_{G_{\mathrm{BP}}}=0.0529$,
+%$\sigma_{G}=0.0462$ and $\sigma_{G_{\mathrm{RP}}}=0.0343$\,mag.
 
 \paragraph{Intrinsic distribution of surface gravity \hfill\\}
 \label{sec:logg_intrinsic_dispersion}
-Singly evolved WDs follow a narrow distribution of surface gravity with
-$\log(g)=7.998 \pm 0.011$ for DA~\citep{2021MNRAS.507.4646K}. An assumption
-of a fixed surface gravity will lead to a small contribution to the smoothing
-kernel as it increases the uncertainty.
+\textcolor{green}{
+Given the simple treatment adopted in the GCNS sample selection, a representative
+``intrinsic'' distribution in the surface gravity should include non-DA WDs, we
+take the 40\,pc WDs from Table 1 of \citet{2024MNRAS.527.8687O} to get an average
+$\log(g)=8.0607$ with a dispersion of $0.2783$. An assumption of a fixed surface
+gravity leads to a significant contribution to the smoothing kernel.
+}
 
 \paragraph{Uncertainties in photometric fitting \hfill\\}
 \label{sec:logg_photometric_fitting}
-\citet{2014ApJ...796..128G} reported that photometric fitting with a model
-grid of synthetic photometry leads to a dispersion of
-$\sigma_{\log(g)} = 0.404$ in the $\log(g)$, which is the combined
-effect of the intrinsic dispersion and the precision. This is precisely the
-quantity required in this work because the GCNS sample of WDs was fitted
-assuming a fixed surface gravity.
+\textcolor{green}{
+From the lower panel of Fig.~14 of \citet{2021MNRAS.508.3877G}, the dispersion
+in the difference between spectroscopic surface gravities and the photometric ones
+is about 0.03~dex based on the width of the envelope.
+}
 
 \paragraph*{Total uncertainties and dispersion \hfill\\}
 In order to obtain the estimates of the uncertainties in the fitted bolometric
@@ -643,11 +662,7 @@ magnitudes due to the assumption of fixed surface gravity, we used
 \textsc{WDPhotTools} to fit the GCNS WD samples in the three \textit{Gaia} filters at
 seven surface gravities. These seven values range from
 $\log(g) - 3\sigma_{\log(g)}$ to $\log(g) + 3\sigma_{\log(g)}$
-in an increment of one $\sigma_{\log(g)}$. The photometric
-uncertainties in the \textit{Gaia} filters are the sum in quadrature of the given
-uncertainties in the photometry in each filter and the corresponding
-uncertainties in the synthetic photometry~(Section \ref{sec:synthetic_photometry} and
-\ref{sec:synthetic_photometry}). While the $\sigma_{\log(g)}$ is the
+in an increment of one $\sigma_{\log(g)}$. While the $\sigma_{\log(g)}$ is the
 sum in quadrature of the intrinsic distribution of surface gravity and the
 dispersion in surface gravity coming from photometric fitting~
 (Section~\ref{sec:logg_intrinsic_dispersion} and \ref{sec:logg_photometric_fitting}).
@@ -698,9 +713,8 @@ bin size) without the amplification of noise.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 At the oldest age~(i.e.\ faintest magnitudes), the uncertainties of the
-bolometric magnitude is most likely underestimated as the value
-$\sigma_{\log(g)} = 0.404$ from \citet{2014ApJ...796..128G} did not
-include WDs from the faint end. Additionally, from the recent calibration
+bolometric magnitude is most likely underestimated. Additionally, from the 
+recent calibration
 works~\citep{2022ApJ...934...36B}, it is known that the models are less
 accurate at the lowest  temperature, and the bolometric magnitudes obtained by
 assuming DA or DB atmosphere is fainter than what mixed hydrogen-helium models
@@ -1408,7 +1422,7 @@ associated uncertainties from this work; and (2) the same for the 20-pc subset.
         17.382 & 0.000000e+00 & 0.000000e+00 & 2.825303e-07 & 7.703770e-07 & 1.566415e-06 \\ 
         17.540 & 0.000000e+00 & 0.000000e+00 & 2.325782e-07 & 0.000000e+00 & 0.000000e+00 \\ \hline
     \end{tabular}
-    \caption{Same as the previous table for the $20$\,PC subset.}
+    \caption{Same as the previous table for the $20$\,pc subset.}
     \label{tab:reconstructed_wdlf_20pc_subset}
 \end{table*}
 
@@ -1426,11 +1440,11 @@ a given analysis using theoretical WDLFs.
     \begin{large}
         100 Myr population
     \end{large}
-    \includegraphics[width=1.0\linewidth]{figures/fig_A_age_1000000000.png} \\
+    \includegraphics[width=0.95\linewidth]{figures/fig_A_age_1000000000.png} \\
     \begin{large}
         1 Gyr population 
     \end{large}
-    \includegraphics[width=1.0\linewidth]{figures/fig_A_age_10000000000.png}
+    \includegraphics[width=0.95\linewidth]{figures/fig_A_age_10000000000.png}
     \caption{Top: The upper row shows the fractional difference between each of
     the 100\,Myr WDLFs integrated using \texttt{scipy.integrate.quad} with a
     relative tolerance of $10^{-5}$~(blue), $10^{-6}$~(orange),
