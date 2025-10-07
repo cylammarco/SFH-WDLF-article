@@ -35,6 +35,9 @@
 % Don't change these lines unless you know what you are doing
 \usepackage[T1]{fontenc}
 
+% NR: added to get strikethrough command \sout{} for removed text
+\usepackage[normalem]{ulem}
+
 % Allow "Thomas van Noord" and "Simon de Laguarde" and alike to be sorted by "N" and "L" etc. in the bibliography.
 % Write the name in the bibliography as "\VAN{Noord}{Van}{van} Noord, Thomas"
 \DeclareRobustCommand{\VAN}[3]{#2}
@@ -69,6 +72,10 @@
     \end{minipage}
   }
 }
+
+% Text color for NR's modifications
+\definecolor{nick}{HTML}{d95f02}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -374,9 +381,9 @@ which is dominated by their thick disk population.
 \textcolor{green}{\citet[][hereafter, C23]{2023MNRAS.522.1643C} performs simulations
 to evolve the stellar systems from zero age main sequence and dynamically evolve
 them to derive their WDLFs. They found a constant star formation history from a
-lookback time of 0 to 10\,Gyr. \citet{2025MNRAS.538.2548R} extended the work to
-study the systematic bias comprehensively and concluded that sharp features
-in the SFH derived from WDLFs are not statistically significant.
+lookback time of 0 to 10\,Gyr. \citet[][hereafter, R25]{2025MNRAS.538.2548R}
+extended the work to study the systematic bias comprehensively and concluded that
+sharp features in the SFH derived from WDLFs are not statistically significant.
 }
 
 
@@ -573,12 +580,29 @@ $\sim$$4$, causing spurious features in the WDLF.}
 When computing the WDLF, the GCNS adopted a fixed scaleheight of 365\,pc, a
 value found from the GCNS itself. This choice can lead to significant effect
 on the volumetric correction based on the 1/V$_{\mathrm{max}}$ method for
-deriving the WDLF. Particularly, the scaleheight is increasing with time.
+deriving the WDLF.
+%
+% \sout doesn't like citations, so need to avoid them
+\sout{Particularly, the scaleheight is increasing with time.
 However, such evolution is never studied with a completeness corrected sample
-of WDs~\citep{2006AJ....131..571H}, and all \textcolor{green}{early works on empirical WDLFs 
-of the Galaxy adopted a fixed scaleheight~\citep{2006AJ....131..571H,
-2011MNRAS.417...93R, 2019MNRAS.482..715L}, until very recently with C23 and
-R25 who applied time-dependent scale height in their forward modelling.}
+of WDs}~\citep{2006AJ....131..571H}\sout{, and all }\textcolor{green}{\sout{early works on empirical WDLFs 
+of the Galaxy adopted a fixed scaleheight}~\citep{2006AJ....131..571H,
+2011MNRAS.417...93R, 2019MNRAS.482..715L}\sout{, until very recently with C23 and
+R25 who applied time-dependent scale height in their forward modelling.}}
+% NR updated text:
+\textcolor{nick}{
+Specifically, the scaleheight increases with total stellar age, which will manifest
+as an increased average scaleheight for faint WDs and an overestimation of their
+spatial density if a fixed value is assumed. While \citet{2016MNRAS.461.2100T} found
+this to have a significant effect on the estimation of the WD mass distribution,
+the impact on the WDLF has not been studied in detail. Early works on empirical
+WDLFs for the disc also adopted a fixed scaleheight~\citep{2006AJ....131..571H,
+2011MNRAS.417...93R, 2019MNRAS.482..715L}. A time-varying scaleheight (or equivalently, 
+vertical velocity dispersion) has been adopted in T14, C23 and R25, although
+the sensitivity to different values has not been studied in detail (and see 
+Section~\ref{ssec:otherMethodsWds} for discussion of some possible shortcomings
+in their method).
+}
 
 This sample also assumed all WDs have come from isolated stellar evolution,
 \textcolor{green}{However, recent works suggested as much as 40\% of single
@@ -803,6 +827,12 @@ signals unaccounted for.
 The tabulated input and best-fit WDLFs from this work can be found in
 Appendix~\ref{appexdix:reconstructed-wdlf}.
 
+\textcolor{green}{
+
+\subsection{Bootstrapping}
+
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Comparison and discussion}
 \label{sec:comparison}
@@ -851,7 +881,7 @@ reconstructed WDLF and residuals are shown in Figure~\ref{fig:nr_wdlf}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{Other methods using WDs}
+\subsection{Other methods using WDs \label{ssec:otherMethodsWds}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 T14 reported the SFH using a 20\,pc volume-complete sample. They found roughly
 two broad bursts of SFH. The higher intensity one is in the last 5\,Gyr peaking
@@ -939,6 +969,31 @@ the least reliable data. Specifically, the faintest WD has a perfect measurement
 because a CDF has to converge to unity -- a necessary boundary condition.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{nick}{[NICK TO UPDATE SCALEHEIGHT CRITICISM]}
+% Marco: I'm leaving some notes commented out here while I work on this section.
+%
+% 1) They use an age-scaleheight relation that is anchored to 65pc at the zero-age
+%    end, and which increases linearly to 140pc for stars of 7Gyr before flattening
+%    out. This is largely based on the assumption that the vertical velocity
+%    dispersion sigma_W is proportional to the scaleheight.
+%
+%    In the Oort Limit there is a correspondence between the vertical velocity
+%    dispersion and the scaleheight, however this is not sigma_W propto h0 as
+%    assumed, but sigma_W^2 propto h0.
+%
+%    This is based on transformation of the age-velocity dispersion relation
+%    in the Oort Limit.
+%    While the scaleheight for the youngest members of the population
+%    is broadly in agreement with other estimates for young stars (CITATIONS),
+%    the value of 140pc for all stars older than 7Gyr is significantly lower than
+%    suggested by several major surveys (CITATIONS).
+%    This may be due to an error in their assumed relationship between the velocity
+%    dispersion and scaleheight, which is in fact the square of the velocity
+%    dispersion that is proportional to the scaleheight (see e.g. B and T ...)
+%
+%
+%
+%
 Thirdly, the scale height they have adopted~(75\,pc) is much smaller than those
 adopted by all other WDLF works~(e.g.\,\citealt{2006AJ....131..571H,
 2011MNRAS.417...93R, 2019MNRAS.482..715L}). Particularly,
