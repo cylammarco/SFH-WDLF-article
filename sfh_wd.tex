@@ -452,14 +452,14 @@ from the IMF and IFMR. This can be written as
 where the $w_j$ is the weight of the $j$-th pWDLF ($n_j$) with a short burst of
 star formation at time $t$.
 
-In this work, we fit with 45 pWDLFs~(see Section~\ref{sec:application}). The
-total number of steps was set to 0.25 million with a burn in of 10\%. The 31.73
-and 68.27 percentiles are computed as the upper and lower 1-sigma uncertainties
-of the solution. The solution is then fed into the \texttt{scipy.optimize.least\_squares}
-minimisation function to compare against the observed one with the \texttt{ftol},
-\texttt{xtol} and \texttt{gtol} set to \texttt{1E-12}. The refinement only leads
-to little change to the solution, but this guarantees the accuracy and 
-repeatability of the solution.
+In this work, we fit with \textcolor{green}{58} pWDLFs~(see Section~\ref{sec:application}). 
+The total number of steps was set to \textcolor{green}{1000000} with a burn-in of
+10\%. The 31.73 and 68.27 percentiles are computed as the upper and lower 1-sigma 
+uncertainties of the solution. The solution is then fed into the 
+\texttt{scipy.optimize.least\_squares} minimisation function to compare against
+the observed one with the \texttt{ftol}, \texttt{xtol} and \texttt{gtol} set to
+\texttt{1E-10}. The refinement only leads to little change to the solution, but
+this guarantees the accuracy and repeatability of the solution.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The likelihood function to be maximized is essentially minimizing the $\chi^2$
@@ -595,9 +595,10 @@ Specifically, the scaleheight increases with total stellar age, which will manif
 as an increased average scaleheight for faint WDs and an overestimation of their
 spatial density if a fixed value is assumed. While \citet{2016MNRAS.461.2100T} found
 this to have a significant effect on the estimation of the WD mass distribution,
-the impact on the WDLF has not been studied in detail. Early works on empirical
-WDLFs for the disc also adopted a fixed scaleheight~\citep{2006AJ....131..571H,
-2011MNRAS.417...93R, 2019MNRAS.482..715L}. A time-varying scaleheight (or equivalently, 
+the impact on the WDLF has not been studied in detail. Previous works on empirical
+WDLFs for the disc have also adopted a fixed scaleheight, typically of 250pc~\citep{2006AJ....131..571H,
+2011MNRAS.417...93R, 2019MNRAS.482..715L}.
+A time-varying scaleheight (or equivalently, 
 vertical velocity dispersion) has been adopted in T14, C23 and R25, although
 the sensitivity to different values has not been studied in detail (and see 
 Section~\ref{ssec:otherMethodsWds} for discussion of some possible shortcomings
@@ -780,7 +781,7 @@ look back time of $\approx9$\,Gyr.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Star Formation History}
-
+\label{sec:sfh}
 By applying the set of basis functions to the fitting method as described in
 section \textsection\ref{sec:fitting}, because the set of pWDLFs is
 normalized the same way, the relative contribution translates to the relative
@@ -789,31 +790,31 @@ matching the reconstructed WDLF to the integrated number density of the input
 WDLF, and correct for the irregular bin size. We have found multiple phases of
 enhanced star formation using this novel method, these bursts and lulls are all
 in good agreement with previous works found using other methods and stellar 
-populations~(see Fig.~\ref{fig:sfh_optimal} and the next section). We find a
-strong burst of star formation at $\sim$3\,Gyr, and some prominent enhanced
-star formation at $\sim$2, 4, 9 and 11\,Gyr~(see bottom panel of
-Fig.~\ref{fig:sfh_optimal})
+populations~(see Fig.~\ref{fig:sfh_optimal} and the next section).
+\textcolor{green}{We can see a broad feature of star formation at $0-5$\,Gyr,
+and another one at $6-11$\,Gyr. There are some prominent bursty star
+formations, see a more in-depth analysis in the next subsection to assess the
+presence of these peaks.
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The 20\,pc subset\ shows the contribution of the WDs within the 20\,pc distance,
-it should \textit{not} be interpreted as a 20\,pc sample where the maximum
-volume (upper integral limit) for each WD would be different to that of a
-100\,pc sample. We do not compute the maximum volume in this work, hence we have
-opted for the word ``subset''. We show this subset for a more
-meaningful comparison of other works that probed much smaller volumes~(see 
-Section~\ref{sec:comparison}). As already pointed out in the previous section,
-we caution readers to pay particular attention in drawing conclusions from any 
-information older than $\sim$$9$\,Gyr due to, most likely, some correlated
-signals unaccounted for.
+%The 20\,pc subset\ shows the contribution of the WDs within the 20\,pc distance,
+%it should \textit{not} be interpreted as a 20\,pc sample where the maximum
+%volume (upper integral limit) for each WD would be different to that of a
+%100\,pc sample. We do not compute the maximum volume in this work, hence we have
+%opted for the word ``subset''. We show this subset for a more
+%meaningful comparison of other works that probed much smaller volumes~(see 
+%Section~\ref{sec:comparison}). As already pointed out in the previous section,
+%we caution readers to pay particular attention in drawing conclusions from any 
+%information older than $\sim$$9$\,Gyr due to, most likely, some correlated
+%signals unaccounted for.
 
 \begin{figure}
     \includegraphics[width=
     \columnwidth]{figures/fig_05_gcns_reconstructed_wdlf_optimal_resolution_bin_optimal.png}
     \caption{Top: the reconstructed WDLF using MCMC method on the pWDLFs is
     shown in blue, where the set of solutions is being further refined with a
-    least-squares method is shown in orange. The 20\,pc subset shows the
-    contribution of the WDs within the 20\,pc distance, it should \textit{not}
-    be interpreted as a 20\,pc sample. The x-axis on the top side shows only the
+    least-squares method is shown in orange. The x-axis on the top side shows only the
     cooling age WDs but not the total age. A luminosity function has
     marginalized over the progenitor masses, so the total age of WDs is not
     linearly mapped to the axis of this figure. Bottom: The weights of the
@@ -827,11 +828,81 @@ signals unaccounted for.
 The tabulated input and best-fit WDLFs from this work can be found in
 Appendix~\ref{appexdix:reconstructed-wdlf}.
 
-\textcolor{green}{
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bootstrapping}
-
+\textcolor{green}{
+In order to assess whether the features in the computed SFH are significant, we
+perform a bootstrapping exercise following closely the recipe described in
+Section X of R25. We resample five input models of the construction of the
+pWDLFs: (1)~The exponent of the IMF ($2.3$) is resampled with a standard
+deviation of $0.1$~(e.g.\ in~\citet{2018ApJ...860L..17E, 2025MNRAS.538.2548R}.
+(2)~The MS lifetime is multiplied by a factor of $(1+p)$ where $p$ is drawn
+from a Gaussian distribution with a standard deviation of
+$0.048$~\citep{2000MNRAS.315..543H}. (3 \& 4)~The IFMR is a linear equation where
+the gradient has an uncertainty of $0.004$ and the constant has an uncertainty
+of $0.011$~\citep{2008MNRAS.387.1693C}. (5) The WD cooling time is multiplied
+by a factor of $(1+p)$ where $p$ is drawn from a Gaussian distribution with a
+standard deviation of $0.06$~\citep{2023MNRAS.522.1643C, 2024MNRAS.527.3602C}.
 }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{green}{
+We construct $1000$ sets of pWDLFs by drawing from those five distributions.
+These sets are computed in the same time and bolometric magnitude resolution
+as in the set used in Section~\ref{sec:sfh}. Each of these was fitted with
+the same procedure as done previously, except for shorter chains of length
+100000 and burn-in of 10000 steps, since we already have a good starting point
+by using the best-fit solution. The arithmetic means and standard deviations
+from the bootstrapping solutions are plotted in Figure~\ref{fig:bootstrap_mean}.
+It naturally presents smoother solutions than the best-fit solution where some
+of the peaks no longer appear in the bootstrapped average solution. In this
+analysis, we refer the narrow features of 1 to 2 bins in width as peaks.
+Whereas, the broader features are clearly visible after the smoothing and
+broadening of information in the time-axis by averaging all the bootstrapped
+solutions. From the $1000$ solutions, we perform a basic analysis on the
+persistence of these peaks. In Figure~\ref{fig:full_sample_peaks} and 
+\ref{fig:20pc_peaks}, they show the distributions of the difference in the
+number density (N pc$^{-3}$) between the peak and the neighbours. Six peaks
+from the full sample are selected, as marked in Figure~\ref{fig:bootstrap_mean}.
+Given that all WDs from the WDLF have to contribute to the total SFH, the
+bootstrapped solutions are mostly about shifting the real peaks back and forth
+in time rather than dampening the peaks. This makes the peaks broader in the
+averaged bootstrapped solutions. Henceforth, each peak is defined as the most
+prominent bin or two most prominent adjoining bins. The neighbours are the
+bins immediately before and after the peaks. The difference, $\Delta$, is the
+difference in the number densities from integrating over the time elapsed in
+the peaks and the average neighbours' SFH integrated over the same time elapsed
+by the peaks. The 1-bin and 2-bin cases are to cover both short bursts of star
+formation and the slightly more gradual ones.
+}
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_06_sfh_bootstrap_comparison.png}
+    \caption{Caption}
+    \label{fig:bootstrap_mean}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{The full GCNS sample}
+\textcolor{green}{
+In the case of the full sample, there are two clear broad features, one is
+in the range of $3-6$\,Gyr, while the other one is at $7-12$\, Gyr. There
+may be another broad feature in $1-3$\,Gyr, but it is heavily overlapping
+with the peaks and the next broad feature. For the peaks, we find the number
+of stars formed at $0.4$, $1.21$, $1.8$ and $8.7$\,Gyr higher than their
+neighouring bins over $90\%$ the time. The peaks at $0.4$, $1.21$ and
+$1.8$\,Gyr are showing much more prominence in the 2-bin case than the 1-bin.
+This is also obvious by eye from Figure~\ref{fig:bootstrap_mean} where
+gaps are clearly visible between those three peaks in the smoothed and
+broadened SFH. At $2.25$\,Gyr, there is a slightly better than random chance
+of having a peak. At $3.67$\,Gyr, the peak on top of the broad feature
+between three and $6$\,Gyr appears in around $78\%$ of the samples.
+}
+\begin{figure}
+    \centering
+    \includegraphics[width=\columnwidth]{figures/fig_07_sfh_peak_significance.png}
+    \caption{Caption}
+    \label{fig:full_sample_peaks}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Comparison and discussion}
@@ -896,16 +967,16 @@ Nevertheless, for a sample that does not require stringent selection
 criteria, for example, when studying high-velocity WDs only, the
 kinematic correction is small.
 
-Based on a comparison between T14 and R13, they pointed out a concern regarding
-the methods of mathematical inversion in the application SFH retrieval from a
-WDLF. We have shown in Fig.~\ref{fig:sfh_optimal} the contribution of SFH
-from the WDs within a distance of 20\,pc that the peak of star formation at a
-lookback time of about 0.3\,Gyr is almost completely disappeared and the SFH is
-dominated by the broad peak centered at just under 4\,Gyr, which is in good
-agreement with T14. A second broad feature between 8 and 12\,Gyr with a sharp
-peak at 11\,Gyr has some resemblance to their findings. The differences, which
-are mostly a translation and scaling in the direction of the lookback time, are
-likely to be coming from the adoption of different cooling models. 
+%Based on a comparison between T14 and R13, they pointed out a concern regarding
+%the methods of mathematical inversion in the application SFH retrieval from a
+%WDLF. We have shown in Fig.~\ref{fig:sfh_optimal} the contribution of SFH
+%from the WDs within a distance of 20\,pc that the peak of star formation at a
+%lookback time of about 0.3\,Gyr is almost completely disappeared and the SFH is
+%dominated by the broad peak centered at just under 4\,Gyr, which is in good
+%agreement with T14. A second broad feature between 8 and 12\,Gyr with a sharp
+%peak at 11\,Gyr has some resemblance to their findings. The differences, which
+%are mostly a translation and scaling in the direction of the lookback time, are
+%likely to be coming from the adoption of different cooling models. 
 \citet{2022RASTI...1...81L} has illustrated the effect of various models on 
 the shape of the WDLFs. Model combinations C \& D in Figure~12 of their work show how the 
 switching between the cooling models including phase separation can lead to
@@ -1119,12 +1190,11 @@ features. Nevertheless, they observe one dominant peak at 10.5\,Gyr and two
 small peaks at 2 and 4\,Gyr.
 
 \begin{figure}
-  \includegraphics[width=\columnwidth]{figures/fig_08_compare_sfh.png}
+  \includegraphics[width=\columnwidth]{figures/fig_10_compare_sfh.png}
   \caption{Comparision of the recovered SFH against previous works, see body
   text of Sec~\ref{sec:comparison} for details. Top: SFH retrieved with the
   pWDLF method, R13 results (with the H06 WDLF), and the SFH derived using the
-  R13 algorithm on the GCNS WDLF. The 20\,pc subset of the GCNS is
-  also plotted for comparison~(see body text for details). The SFH is reported
+  R13 algorithm on the GCNS WDLF. The SFH is reported
   in the unit of number of stars formed per unit time per unit volume.
   Middle: The SFH using four independent methods and samples reported in the
   unit of solar mass formed per unit time per unit volume~(solid line) or
@@ -1206,10 +1276,11 @@ addressed as follows:
 \end{enumerate}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-When comparing with the T14 sample, we realized that there is a striking 
-difference in the SFH from the 20\,pc and 100\,pc sample at the most recent
-time. This brings up three important points that should be investigated: first,
-arbitrary selection of SFHs reported from different works cannot draw
+%When comparing with the T14 sample, we realized that there is a striking 
+%difference in the SFH from the 20\,pc and 100\,pc sample at the most recent
+%time.
+\textcolor{green}{Three important points should be investigated in the future:}
+first, arbitrary selection of SFHs reported from different works cannot draw
 meaningful comparison; second, even at the scale in the order of 10\,pc, we
 can observe variations in the SFHs; third, if the SFH is a strong function of
 distance from the Sun, then the directional dependency should also be strong
