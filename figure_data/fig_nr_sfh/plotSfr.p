@@ -23,8 +23,8 @@ set style line 20 lc rgb '#ddccdd' lt 1 lw 1.5
 set style line 21 lc rgb '#ddccdd' lt 1 lw 0.5
 set grid xtics mxtics ytics mytics back ls 20, ls 21
 
-set output 'nr_sfr.png'
- 
-plot 'sfhPlotData.txt' u ($1/1E9):(($2+$3)*1e9):(($2-$3)*1e9) w filledcurves fillstyle transparent solid 0.5 ls 1 notitle,\
-     'sfhPlotData.txt' u ($1/1E9):($2*1e9) w l ls 2 notitle
+set output 'nr_sfr_bootstrap.png'
+
+plot 'MonteCarlo_sfhPlotData.txt' u ($1/1E9):(($3+$5)*1E9):(($3-$5)*1E9) w filledcurves fillstyle transparent solid 0.5 ls 1 notitle,\
+     'MonteCarlo_sfhPlotData.txt' u ($1/1E9):($3*1E9) w l ls 2 notitle
 

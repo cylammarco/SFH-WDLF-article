@@ -21,7 +21,7 @@ set grid xtics mxtics ytics mytics back ls 20, ls 21
 
 f(s,n) = (s-n>0) ? (s-n) : 9E-18
 
-set output 'nr_wdlf.png'
+set output 'nr_wdlf_bootstrap.png'
 
 set lmargin 13
 set bar 0.0
@@ -32,8 +32,8 @@ set multiplot
 set size 1.0,0.666
 set origin 0.0, 0.333
 
-plot 'modelWDLF.txt' u 1:(log10($3)) w l ls 1 notitle,\
-     'obsWDLF.txt' u 1:(log10($3)):(log10(f($3,$4))):(log10($3+$4)) w yerrorbars ls 2 notitle
+plot 'MonteCarlo_wdlf_mean.txt' u 1:(log10($3)) w l ls 1 notitle,\
+     'obsWDLF' u 1:(log10($3)):(log10(f($3,$4))):(log10($3+$4)) w yerrorbars ls 2 notitle
 
 # Lower panel
 set size 1.0,0.333
@@ -45,5 +45,5 @@ set ylabel "Δ{/Symbol F} [N Mag^{-1} pc^{-3}]" offset 1,0
 set yrange [-0.00013:0.00013]
 set ytics 0.0001 out nomirror
 
-plot '< paste obsWDLF.txt modelWDLF.txt' u 1:($3-$7):($3-$7-$4):($3-$7+$4) w yerrorbars ls 2 notitle
+plot '< paste obsWDLF MonteCarlo_wdlf_mean.txt' u 1:($3-$7):($3-$7-$4):($3-$7+$4) w yerrorbars ls 2 notitle
 
