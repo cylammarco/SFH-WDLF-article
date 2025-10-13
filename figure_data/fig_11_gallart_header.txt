@@ -1,0 +1,102 @@
+J/A+A/687/A168         Solution CMD ofr nearby stars            (Gallart+, 2024)
+================================================================================
+Chronology of our Galaxy from Gaia Colour-Magnitude Diagram-fitting (ChronoGal).
+I. The formation and evolution of the thin disk from the Gaia Catalogue of
+Nearby Stars.
+    Gallart C., Surot F., Cassisi S., Fernandez-Alvar E., Mirabal D.,
+    Rivero A., Ruiz-Lara T., Santos-Torres J., Aznar-Menargues G.,
+    Battaglia G., Queiroz A. B. A, Monelli M., Vasiliev E., Chiappini C.,
+    Helmi A., Hill V., Massari D., Thomas G. F.
+    <Astron. Astrophys. 687, A168 (2024)>
+    =2024A&A...687A.168G        (SIMBAD/NED BibCode)
+================================================================================
+ADC_Keywords: Models ; Photometry ; Optical ; Stars, ages ; Abundances, [Fe/H]
+Keywords: Hertzsprung-Russell and C-M diagrams - Galaxy: disk -
+          Galaxy: evolution - solar neighborhood - Galaxy: stellar content
+
+Abstract:
+    The study of the Milky Way is living a golden era thanks to the
+    enormous high-quality datasets delivered by Gaia, and space
+    asteroseismic and ground-based spectroscopic surveys. However, the
+    current major challenge to reconstructing the chronology of the Milky
+    Way is the difficulty to derive precise stellar ages for large samples
+    of stars. The colour-magnitude diagram (CMD) fitting technique
+    offers an alternative to individual age determinations to derive the
+    star formation history (SFH) of complex stellar populations.
+
+    Our aim is to obtain a detailed dynamically evolved SFH (deSFH) of the
+    solar neighbourhood, and the age and metallicity distributions that
+    result from it. We define deSFH as the amount of mass transformed into
+    stars, as a function of time and metallicity, in order to account for
+    the population of stars contained in a particular volume.
+
+    We present a new package to derive SFHs from CMD fitting tailored to
+    work with Gaia data, called CMDft.Gaia, and we use it to analyse the
+    CMD of the Gaia Catalogue of Nearby Stars (GCNS), which contains a
+    complete census of the (mostly thin disc) stars currently within
+    100pc of the Sun.
+
+    We present an unprecedentedly detailed view of the evolution of the
+    Milky Way disc at the solar radius. The bulk of star formation started
+    11-10.5Gyr ago at metallicity around solar, and continued with a
+    slightly decreasing metallicity trend until 6Gyr ago. Between 6 and
+    4Gyr ago, a notable break in the age-metallicity distribution is
+    observed, with three stellar populations with distinct metallicities
+    (sub-solar, solar, and super-solar), possibly indicating some dramatic
+    event in the life of our Galaxy. Star formation then resumed 4Gyr ago
+    with a somewhat bursty behaviour, metallicity near solar and average
+    star formation rate higher than in the period before 6Gyr ago. The
+    derived metallicity distribution closely matches precise spectroscopic
+    data, which also show stellar populations deviating from solar
+    metallicity. Interestingly, our results reveal the presence of
+    intermediate-age populations exhibiting both a metallicity typical of
+    the thick disc, approximately [M/H]=~-0.5, and super-solar
+    metallicity.
+
+    The many tests performed indicate that, with high-precision
+    photometric and distance data such as that provided by Gaia,
+    CMDft.Gaia is able to achieve a precision of ~10% and an accuracy
+    better than 6% in the dating of stellar populations, even at old ages.
+    A comparison with independent spectroscopic metallicity information
+    shows that metallicity distributions are also determined with high
+    precision, without imposing any a priori metallicity information in
+    the fitting process. This opens the door to obtaining detailed and
+    robust information on the evolution of the stellar populations of the
+    Milky Way over cosmic time. As an example, we provide in this paper an
+    unprecedentedly detailed view of the age and metallicity distributions
+    of the stars within 100 pc of the Sun.
+
+
+Description:
+    We deliver one file with the solution CMD obtained from the deSFH
+    derived from the synthetic mother CMD named q01b03\_120M\_MG5. The
+    file contains the (G_BP-G_RP) color, M_G magnitude, age and
+    metallicity of each synthetic star in the solution. The number of
+    stars in this solution CMD matches closely the number of stars in the
+    observed CMD inside the bundle. See the paper entitled above for
+    details.
+
+File Summary:
+--------------------------------------------------------------------------------
+ FileName      Lrecl  Records   Explanations
+--------------------------------------------------------------------------------
+ReadMe            80        .   This file
+table.dat         38    21254   Solution model CMD
+--------------------------------------------------------------------------------
+
+Byte-by-byte Description of file: table.dat
+--------------------------------------------------------------------------------
+   Bytes Format Units   Label     Explanations
+--------------------------------------------------------------------------------
+   1-  7  F7.4  mag     BP-RP     Model BP-RP Gaia color
+   9- 15  F7.4  mag     Gmag      Model G Gaia magnitude
+  17- 23  F7.4  Gyr     Age       Model age value
+  25- 30  F6.4  ---     Z         Model metall mass fraction
+  32- 38  F7.4  ---     [Fe/H]    Model [Fe/H]
+--------------------------------------------------------------------------------
+
+Acknowledgements:
+     Carme Gallart, carme.gallart-at-iac.es
+
+================================================================================
+(End) C. Gallart [Inst. Astrofisica de Canarias], P. Vannier [CDS]  15-Mar-2024
