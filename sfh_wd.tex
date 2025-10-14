@@ -1040,7 +1040,7 @@ population. This is explored in part in \citet{2013MNRAS.434.1549R}.}
 \textcolor{nick}{
 %
 Significant recent studies of the local star formation history using WDs have
-focused on the 40pc sample, which is now well characterised thanks to Gaia data
+focused on the 40pc sample, which is now well characterised thanks to $Gaia$ data
 \citep{2024MNRAS.527.8687O}.
 %
 C23 developed a novel approach to estimating the star formation history based on
@@ -1072,6 +1072,7 @@ other studies based both on legacy surveys
 (e.g.~\citealt{2006AJ....131..571H,2008ApJ...673..864J,2017ApJ...837..162K}) and the 
 latest Gaia data
 % 2019MNRAS.482.4570G (age-averaged WD scaleheight of 230pc)
+% 2019MNRAS.485.5573T (WD has a scaleheight of 200pc: Fig.9)
 % 2022MNRAS.511.3863E (260pc/693pc)
 % 023Galax..11...77V (\textasciitilde$280$pc/$800$pc)
 (e.g.~\citealp{2019MNRAS.482.4570G,2022MNRAS.511.3863E,2023Galax..11...77V}),
@@ -1177,7 +1178,7 @@ on the 25\,pc sample from~\citet{2017ASPC..509...59O}. This recent burst was not
 seen in all but one previous work -- R13's. Interestingly enough, we have
 recovered the same peak with the GCNS sample using the R13 inverse
 modelling method (Section~\ref{sec:inversion}) and the pWDLF forward modelling
-method~(this work). \textcolor{green}{However, this is a by-eye comparison,
+method~(this work). \textcolor{green}{However, this is only a by-eye comparison,
 the relative strength and the location of the peaks in the SFH have to be
 corrected for the larger merger fraction for higher mass stars~\citep{2020A&A...636A..31T, 2024ApJ...974...12J} as well as the large
 cooling anomaly~\citep{2019ApJ...886..100C, 2024Natur.627..286B}.
@@ -1255,6 +1256,18 @@ $\sim$10\,Gyr to 6\,Gyr, followed by an enhanced star formation of 4\,Gyr in
 duration with a peak at $\sim$2.5\,Gyr. They also found a sharp and fast drop
 in the star formation rate in the most recent 1\,Gyr.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\citet{2021MNRAS.501..302A}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\citet{2024A&A...687A.168G}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\citet{2025A&A...697A.128D}
+
+
 \subsection{Subgiants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \citet{2022Natur.603..599X} used subgiants to map the metallicity, angular
@@ -1263,19 +1276,22 @@ than this work so it is expected that the recovered SFH shows different
 features. Nevertheless, they observe one dominant peak at 10.5\,Gyr and two
 small peaks at 2 and 4\,Gyr.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\citet{2024ApJ...976...87N}
+
 \begin{figure}
   \includegraphics[width=\columnwidth]{figures/fig_10_compare_sfh.png}
-  \caption{Comparision of the recovered SFH against previous works, see body
+  \caption{Comparison of the recovered SFH against previous works, see body
   text of Sec~\ref{sec:comparison} for details. \textcolor{green}{The subplots are 
-  grouped by their units in reporting the SFH}. Top: SFH retrieved with the
-  pWDLF method, R13 results (with the H06 WDLF), and the SFH derived using the
-  R13 algorithm on the GCNS WDLF. The SFH is reported
+  grouped by their units in reporting the SFH. Top: SFH retrieved with the
+  pWDLF method and the updated R13 method from this work. The SFH is reported
   in the unit of number of stars formed per unit time per unit volume.
-  Middle: The SFH using four independent methods and samples reported in the
-  unit of solar mass formed per unit time per unit volume~(solid line) or
-  projected-area~(dashed line). Bottom: The SFHs that are derived from four
-  other independent methods and samples in the unit of number of stars formed
-  per arbitrary time and spatial unit.}
+  Second: The SFH using four independent methods and samples reported in the
+  unit of solar mass formed per unit time per unit volume. Third: The SFH using
+  two independent methods and samples reported in the unit of solar mass formed
+  per unit time per unit projected area. Bottom: The SFHs that are derived from
+  six other independent methods and samples in the unit of number of stars formed
+  per arbitrary time and spatial unit.}}
   \label{fig:comparison}
 \end{figure}
 
@@ -1354,25 +1370,38 @@ addressed as follows:
 %When comparing with the T14 sample, we realized that there is a striking 
 %difference in the SFH from the 20\,pc and 100\,pc sample at the most recent
 %time.
-\textcolor{green}{Three important points should be investigated in the future:}
-first, arbitrary selection of SFHs reported from different works cannot draw
-meaningful comparison; second, even at the scale in the order of 10\,pc, we
-can observe variations in the SFHs; third, if the SFH is a strong function of
-distance from the Sun, then the directional dependency should also be strong
-given that the Sun is not located in the middle of the Galactic plane.
-Furthermore, the Sun is not located in the middle of a major arm region of the
-Galaxy. The analysis should be more complex than simply dividing the sample into
-zones of Galactic latitudes because, for example, looking into the length of the
-Orion-Cygnus arm, where the Sun resides, should be different to looking into the
-inter-arm regions; while the Perseus arm and the Carina-Sagittarius arms are too far
-away for WD studies, looking into their directions only gives us the WDs in the
-foreground. In the recent work by \citet{2024MNRAS.535.3611Q}, they have
-found a much fainter truncation magnitude in the Galactic WDLF using one of the
-deepest proper-motion and photometry-selected samples to date. Their sample
-covers a sky area of 165\,deg$^2$ down to $i=24$\,mag. This may be an indication
-of incompleteness in all previous surveys that have not probed sufficiently
-deep -- methods for completeness correction are not useful when there are
-no detections at all. Alternatively, it could be due to their assumption that $\sim90$\% of the faintest WDs are members of the thin disc with an exponential scale height of 250\,pc, a figure too low for such an old population of stars. This will lead to an underestimation of the generalized survey volume and an overestimation in the spatial density, increased with respect to other surveys that have made similar assumptions due to their significantly increased survey depth.
+\textcolor{green}{Three important points should be investigated in the future
+Firstly, the GCNS sample of WDs has a low completeness and suffers from
+non-negligible contamination. The SFH derived in this work is preliminary
+at best, thorough selection with more recent catalogues~\citep[e.g.][]{2021MNRAS.508.3877G}
+should be used in conjunction with proper selection bias correction to maximize
+the potential of this method. Secondly, arbitrary selection of SFHs reported
+from different works cannot draw meaningful comparison, the by-eye comparison
+in this section should only be used for building further hypotheses in studying
+SFH of the solar neighbourhood. Corrections have to be applied differently to
+each of the methods to debias the results for valid comparison, particularly
+for comparison SFH derived from different stellar populations. Thirdly,} if the
+SFH is a strong function of distance from the Sun, then the directional
+dependency should also be strong given that the Sun is not located in the middle
+of the Galactic plane. Furthermore, the Sun is not located in the middle of a
+major arm region of the Galaxy. The analysis should be more complex than simply
+dividing the sample into zones of Galactic latitudes because, for example,
+looking into the length of the Orion-Cygnus arm, where the Sun resides, should
+be different to looking into the inter-arm regions; while the Perseus arm and
+the Carina-Sagittarius arms are too far away for WD studies, looking into their
+directions only gives us the WDs in the foreground. In the recent work by
+\citet{2024MNRAS.535.3611Q}, they have found a much fainter truncation
+magnitude in the Galactic WDLF using one of the deepest proper-motion and
+photometry-selected samples to date. Their sample covers a sky area of
+165\,deg$^2$ down to $i=24$\,mag. This may be an indication of incompleteness
+in all previous surveys that have not probed sufficiently deep -- methods for
+completeness correction are not useful when there are no detections at all.
+Alternatively, it could be due to their assumption that $\sim90$\% of the
+faintest WDs are members of the thin disc with an exponential scale height of
+250\,pc, a figure too low for such an old population of stars. This will lead
+to an underestimation of the generalized survey volume and an overestimation
+in the spatial density, increased with respect to other surveys that have made
+similar assumptions due to their significantly increased survey depth.
 
 As pointed out in \citet{2019A&A...624L...1M} and \citet{2019ApJ...878L..11I},
 the decreasing SFR trend from $\sim$10 to 6\,Gyr is consistent with the
