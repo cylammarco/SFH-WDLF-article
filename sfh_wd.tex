@@ -511,7 +511,7 @@ discrepancies within two standard deviations from the input values.
   of the population has an exponential constant of 3\,Gyr, the SFHs were
   truncated at a look-back time of 2, 4, 6, 8, and 10\,Gyr. See 
   Section~\ref{sec:magnitude_bin_size} for the explanation for the varying bin
-  size in the lookback time. Middle: the input SFHs. Bottom: The difference
+  size in the lookback time. Middle: the \textcolor{green}{input and reconstructed WDLFs}. Bottom: The difference
   in the number density between the lsq solution and the input.}
   \label{fig:exponential_sfh}
 \end{figure}
@@ -1207,7 +1207,7 @@ to that of the GCNS sample with little directional dependence.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \citet{2006A&A...459..783C} used the \textit{Hipparcos} catalogue of stars
-within 80\,PC of the Sun and brighter than $V=8$\,mag. The restrictive selection
+within 80\,pc of the Sun and brighter than $V=8$\,mag. The restrictive selection
 has significantly excluded the effects due to photometric or kinematic
 incompleteness. They computed the SFH by minimizing the differences between the
 colour-magnitude diagram of the population from the Hipparcos data and the
@@ -1257,15 +1257,17 @@ duration with a peak at $\sim$2.5\,Gyr. They also found a sharp and fast drop
 in the star formation rate in the most recent 1\,Gyr.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2021MNRAS.501..302A}
+\textcolor{green}{\citet{2021MNRAS.501..302A}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textcolor{green}{\citet{2024A&A...687A.168G}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2024A&A...687A.168G}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2025A&A...697A.128D}
+\textcolor{green}{\citet{2025A&A...697A.128D}
+}
 
 
 \subsection{Subgiants}
@@ -1277,20 +1279,23 @@ features. Nevertheless, they observe one dominant peak at 10.5\,Gyr and two
 small peaks at 2 and 4\,Gyr.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\citet{2024ApJ...976...87N}
+\textcolor{green}{\citet{2024ApJ...976...87N}
+}
+
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{figures/fig_10_compare_sfh.png}
   \caption{Comparison of the recovered SFH against previous works, see body
   text of Sec~\ref{sec:comparison} for details. \textcolor{green}{The subplots are 
-  grouped by their units in reporting the SFH. Top: SFH retrieved with the
+  grouped by their units in reporting the SFH, and the labelling is in
+  chronological order. Top: SFH retrieved with the
   pWDLF method and the updated R13 method from this work. The SFH is reported
   in the unit of number of stars formed per unit time per unit volume.
   Second: The SFH using four independent methods and samples reported in the
   unit of solar mass formed per unit time per unit volume. Third: The SFH using
   two independent methods and samples reported in the unit of solar mass formed
   per unit time per unit projected area. Bottom: The SFHs that are derived from
-  six other independent methods and samples in the unit of number of stars formed
+  five other independent methods and samples in the unit of number of stars formed
   per arbitrary time and spatial unit.}}
   \label{fig:comparison}
 \end{figure}
@@ -1415,8 +1420,8 @@ $\sim$10\,Gyr~\citep{2018Natur.563...85H}.
 
 Beyond systematics and directional dependence, one obvious next step is to use
 the colour information. All the derivation of SFH from WDLFs of the solar 
-neighbourhood were reported in the bolometric magnitudes/luminosities. Thus,
-all works have essentially marginalized over the colour-space. To address the
+neighbourhood were reported in \textcolor{green}{single photometric passband}.
+Thus, all works have essentially marginalized over the colour-space. To address the
 problem of degeneracy and correlated signal in the solution, simultaneously
 fitting multiple WDLFs in various filters may relieve some issues with degeneracy
 as the pWDLFs evolve at different rates in different wavelengths.
