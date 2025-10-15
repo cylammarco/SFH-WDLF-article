@@ -345,11 +345,11 @@ $\approx8.5$\,Gyr. \citet{2019ApJ...878L..11I} uses accurate parallactic
 measurements in \textit{Gaia} to study massive white dwarfs in the solar
 neighbourhood as reported in \citet{2019Natur.565..202T} to study the effect of
 crystallization. They found two peaks in the SFH from these massive WDs within
-the 100\,pc distance from us, one at $\approx2.5$\,Gyr and one at
+100\,pc, one at $\approx2.5$\,Gyr and one at
 $\approx7$\,Gyr. This approach relies on the estimation of the age of each
 individual star, so it is only applicable to a relatively small sample with
 highly accurate parallactic measurements because of the mass-radius degeneracy
-in the solution. This
+in the solution.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Inversion of the WDLF}
@@ -394,8 +394,7 @@ sharp features in the SFH derived from WDLFs are not statistically significant.
 \subsection{Forward modelling with non-parametric SFH~(this work)}
 Another option to work on a statistical sample is to match a theoretical
 WDLF based on an initial guess input SFH. However, a direct implementation to derive a
-non-parametric SFH is extremely computationally heavy. In view of this, we look
-into various astronomical fitting techniques and found that it is possible to
+non-parametric SFH is extremely computationally heavy. In view of this, we
 follow the mathematical construction of full spectrum fitting of galactic
 spectra, and the use of partial CMD to derive the SFH of a stellar
 population~\citep{2006A&A...459..783C}, to speed up the modelling significantly.
@@ -443,10 +442,13 @@ to the magnitude range above) would appear as a bump in the WDLF.
 The fitting for the SFH is done in two steps: the first one uses a Markov-Chain
 Monte Carlo method, and the second step refines the solution with a least-squares
 method. The free parameters to be fitted are the weights of the pWDLFs required 
-to compose a theoretical WDLF that matches the observed WDLF. The weight to
-each pWDLF in reconstructing the WDLF is directly proportional to the SFH,
-provided that the set of pWDLFs was computed using the same normalising factor
-from the IMF and IFMR. This can be written as
+to compose a theoretical WDLF that matches the observed WDLF. The weight of
+each pWDLF in reconstructing the WDLF is directly proportional to the SFH
+\textcolor{nick}{over the corresponding time range}.
+% NR: removed; not clear what it means
+\sout{provided that the set of pWDLFs was computed using the same normalising factor
+from the IMF and IFMR.}
+This can be written as
 
 \begin{equation}
     n(M_\mathrm{bol}) = \sum_j w_j \times n_j(t, M_\mathrm{bol})    
@@ -562,8 +564,9 @@ The GCNS contains 21\,848 WDs within a 100\,pc distance from us, only
 larger than or equal to 0.75. The most significant limitations of the GCNS 
 sample come from the impure selection, as evidenced by cross-matching with GF21,
 and the uncorrected incompleteness.} The incompleteness is primarily at the
-bright end where there are very few WDs, and in the faintest absolute magnitudes
-where the astrometric solutions are the least reliable due to the intrinsic
+bright end where there are very few WDs, and in the 
+faintest absolute magnitudes
+where the observations are the least reliable due to the intrinsic
 faintness of these WDs. Furthermore, bright WDs are rare, they are found only at
 larger distances, there are very few of them in the local 100\,pc. The WDs are
 fitted with the pure hydrogen model from the Montreal
@@ -607,11 +610,11 @@ vertical velocity dispersion) has been adopted in T14, C23 and R25, although
 the sensitivity to different values has not been studied in detail (and see 
 Section~\ref{ssec:otherMethodsWds} for discussion of some issues in their method).}
 
-This sample also assumed all WDs have come from isolated stellar evolution,
-\textcolor{green}{However, recent works suggested as much as 40\% of single
-WDs that have come from merger \citep{2020A&A...636A..31T, 2020ApJ...898...84K}.
+This sample also assumed all WDs have come from isolated stellar evolution.
+\textcolor{green}{However, recent works suggest that as much as 40\% of single
+WDs have come from mergers \citep{2020A&A...636A..31T, 2020ApJ...898...84K}.
 They are products
-of stars that had gone through stellar interactions in the progenitor
+of stars that have gone through stellar interactions in the progenitor
 systems~\citep[e.g.\ ][]{2013A&ARv..21...59I, 2023arXiv231117145H}. We do not
 attempt to address this effect in this work.}
 
@@ -629,7 +632,7 @@ total WDLF because directly adding the solution from each row will lead to an
 amplification of $\sim$$100$ times in the density. Similarly, the error bars
 would be $100$ times too small if uncorrected. Since the catalogue has retained
 enough information on the bolometric magnitude and distance, we can choose any
-bin size to present the GCNS WDLF as it is necessary to optimally extracting
+bin size to present the GCNS WDLF as required to optimally extract
 the SFH. However, one downside of the catalogue is that it does not come with
 the uncertainties of the derived bolometric magnitude, so we refit the photometry
 that has taken into account the photometric and parallactic uncertainties,
@@ -1324,7 +1327,7 @@ whole range of metallicity. This shows great similarity to
   unit of solar mass formed per unit time per unit volume. Third: The SFH using
   two independent methods and samples reported in the unit of solar mass formed
   per unit time per unit projected area. Bottom: The SFHs that are derived from
-  five other independent methods and samples in the unit of number of stars formed
+  six other independent methods and samples in the unit of number of stars formed
   per arbitrary time and spatial unit.}}
   \label{fig:comparison}
 \end{figure}
