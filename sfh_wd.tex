@@ -120,11 +120,11 @@ small features in the white dwarf luminosity function~(WDLF) of the solar
 neighbourhood can be resolved. We demonstrate how to apply Markov chain Monte
 Carlo sampling on a set of pre-computed partial-WDLFs to derive the star
 formation history of their progenitor stellar populations. We compare the
-results against many \textcolor{green}{published} works using various types
+results against many published works using various types
 of stars, including white dwarfs, main sequence stars, sub-giants and 
-the entire stellar population. We find convincing
-agreements among most of the methods, particularly at the intermediate age
-of 0.1-9\,Gyr.
+the entire stellar population. We find convincing agreements among most of the
+methods for the broad features in the star formation history,
+particularly at the intermediate age of 0.1-9\,Gyr.
 
 \end{abstract}
 
@@ -176,21 +176,21 @@ As most WDs have a similar broadband colour to main sequence stars, they cannot 
 identified using photometry alone. They are found from UV-excess, large
 proper motion and/or parallax. Because of the strongly peaked surface gravity
 distribution of WDs, photometric fitting for their intrinsic properties
-is \textcolor{green}{usable} by assuming a surface gravity. WDs fitted in such a way are useful
+is usable by assuming a surface gravity. WDs fitted in such a way are useful
 statistically provided that the sample is not strongly selection biased. This
-is demonstrated in various \textcolor{green}{pre-\textit{Gaia}-era studies without accurate parallaxes}
+is demonstrated in various pre-\textit{Gaia}-era studies without accurate parallaxes
 comparing photometric and spectroscopic solutions to calibrate the atmosphere
-model~\citep{2019ApJ...871..169G, 2019ApJ...882..106G}. \textcolor{green}{However,
+model~\citep{2019ApJ...871..169G, 2019ApJ...882..106G}. However,
 this is no longer a preferred way since accurate \textit{Gaia} parallaxes allow
 much more accurate determination of WD properties~\citep[e.g.][hereafter, GF21]{2021MNRAS.508.3877G}. Though it was still used in the WD catalogues of the
-$Gaia$ Catalogue of Nearby Stars~(GCNS, see below).}
+$Gaia$ Catalogue of Nearby Stars~(GCNS, see below).
 
 The \textit{Gaia} satellite provides parallactic measurements for over a billion point
 sources~\citep{2021A&A...649A...1G, 2021AJ....161..147B} of which $359,000$
 are high confidence WD candidates~(GF21).
 The availability of parallaxes allows much more accurate fitting, which is
 particularly important when the surface gravity is unknown for the photometric
-sample. This has completely revolutionized the field of WD sciences \textcolor{nick}{\citep{2024NewAR..9901705T}}. 
+sample. This has completely revolutionized the field of WD sciences \citep{2024NewAR..9901705T}. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The Early Data Release 3~(EDR3) of \textit{Gaia} relies on 34 months of observations, it
@@ -199,7 +199,9 @@ being now on average 20-30 per cent more accurate and proper motion measurements
 twice as accurate as in the previous
 DRs~\citep{2021A&A...649A...1G, 2021A&A...649A...2L}. The $Gaia$ Catalogue of
 Nearby Stars~(GCNS) contains 331\,312 objects within 100\,pc of the Sun, of
-which 21\,848 are white dwarfs~\citep{2021A&A...649A...6G}.
+which 21\,848 are white dwarfs~\citep[][\textcolor{green}{
+see Section~\ref{sec:gcns} for detailed description
+}]{2021A&A...649A...6G}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 This article is organized as follows: in Section~2, we go through the background
@@ -277,7 +279,10 @@ dependent variables: $M_\mathrm{bol}$ is the absolute bolometric
 magnitude, $\mathcal{M}_f$ is the WD mass, $t_0$ is the look-back time, $\mathcal{M}_i$ is
 the progenitor MS mass, $Z$ is the metallicity, $\mathcal{M}_l$ is the minimum
 progenitor MS mass that could have evolved in isolation into a WD in the given time,
-and $\mathcal{M}_u$ is the maximum progenitor MS mass.
+and $\mathcal{M}_u$ is the maximum progenitor MS mass. The
+normalisation of the IMF is set by integrating the IMF with the limits of $0.6$
+and $8.0$\,${M}_\odot$. Hence, the SFH from this work is representative of
+the stars with masses within that range.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The inverse cooling rate
@@ -292,8 +297,10 @@ this work, and is not included in the equation.
 
 The relative star formation rate is expressed as a function of look-back time,
 \begin{align}
+\begin{split}
     &\psi(t_0, M_\mathrm{bol}, \mathcal{M}_i, \mathcal{M}_f, Z) =\\
     &\qquad\psi\left[t_0 - t_{\mathrm{cool}}\left(M_\mathrm{bol}, \mathcal{M}_f\right) - t_{\mathrm{MS}}\left(\mathcal{M}_i, Z\right)\right]
+\end{split}
 \end{align}
 where $\psi$ is set to zero when $t_0$ exceeds the total time spent on the
 main sequence evolution and the WD cooling time~(i.e.\ the onset of star 
@@ -312,8 +319,8 @@ envelope~\citep{2007ApJ...671..761K}, there is insufficient empirical data
 to derive an IFMR at metallicity much lower or higher than solar abundance.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-All the calculations in this work adopt the following models: the IMF is that of
-\citet{2003PASP..115..763C}, MS lifetime and metallicity are those from
+All the calculations in this work adopt the following models: the IMF
+is that of \citet{2003PASP..115..763C}, MS lifetime and metallicity are those from
 PARSEC's solar metallicity model~\citep[Z=0.017, Y=0.279;][]{2012MNRAS.427..127B};
 the IFMR is from \citet{2008MNRAS.387.1693C} and the WD cooling models and their
 synthetic photometries with pure hydrogen atmosphere (DA) are from the Montreal
@@ -339,7 +346,7 @@ uncertainty in the  measurements~\citep{2006AJ....131..571H,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Direct binning of age estimated from individual stars}
 \citet[][hereafter, T14]{2014ApJ...791...92T} reported the SFH using a
-spectroscopic sample of WDs complete to \textcolor{green}{20\,pc}. They found two peaks of star
+spectroscopic sample of WDs complete to 20\,pc. They found two peaks of star
 formation at around a look-back time of $\approx4.5$\,Gyr and at 
 $\approx8.5$\,Gyr. \citet{2019ApJ...878L..11I} uses accurate parallactic 
 measurements in \textit{Gaia} to study massive white dwarfs in the solar
@@ -354,21 +361,21 @@ in the solution.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Inversion of the WDLF}
 With a mathematical inversion method, it is possible to retrieve the SFH of a
-stellar population~\citep{2013MNRAS.434.1549R}. They adopt the Richardson-Lucy 
+stellar population. \citet{2013MNRAS.434.1549R} adopts the Richardson-Lucy 
 deconvolution method~\citep{1972JOSA...62...55R, 1974AJ.....79..745L} that is 
 typically used in image reconstruction. In this case, the images are the
 two-dimensional histograms in the progenitor mass -- formation time plane and
-the WD mass -- luminosity plane. However, it is prone to amplify noise into
-enhanced star formation~(T14). This is due to the existence of degenerate
-solutions that can yield the same WDLF to within the uncertainty. Some forms
-of explicit regularization are necessary to ensure smoothness in the solution.
-For example, \citet{2013MNRAS.434.1549R} defines a convergence
-criterion~(section~\textsection 2.1.4) as a $1\%$ change in the best fit
-$\chi^2$, beyond which they consider the improvement as overfitting. They have 
-recovered a SFH in good agreement with other works, including the peak at
-0.3\,Gyr, and an enhanced star formation peaking at around 2\,Gyr, a lull at
-6\,Gyr and a broad strong star formation showing the combined thin and thick
-disks between 7 and 10\,Gyr.
+the WD mass -- luminosity plane. However, it is prone to the amplification of
+noise due to the existence of degenerate solutions that can yield the same
+WDLF to within the uncertainty. Some forms of explicit regularization are
+necessary to ensure smoothness in the solution. For example, 
+\citet{2013MNRAS.434.1549R} defines a convergence
+criterion~(section~\textsection 2.1.4) as a $1\%$ change in the
+best fit $\chi^2$, beyond which they consider the improvement as overfitting.
+They have  recovered a SFH in good agreement with other works, including the
+peak at 0.3\,Gyr, and an enhanced star formation peaking at around 2\,Gyr, a
+lull at 6\,Gyr and a broad strong star formation showing the combined thin and
+thick disks between 7 and 10\,Gyr.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forward modelling with parametric SFH}
@@ -381,14 +388,13 @@ with three skewed Gaussian distributions that represent the thin disk, thick
 disk and stellar halo population. They identified a peak SFH at $\approx8$\,Gyr
 which is dominated by their thick disk population.
 
-\textcolor{green}{\citet[][hereafter, C23]{2023MNRAS.522.1643C} performs simulations
+\citet[][hereafter, C23]{2023MNRAS.522.1643C} performs simulations
 to evolve the stellar systems from zero age main sequence and dynamically evolve
 them to derive their WDLFs. They found a constant star formation history from a
 lookback time of 0 to 10\,Gyr. \citet[][hereafter, R25]{2025MNRAS.538.2548R}
-extended the work to study the systematic bias comprehensively and concluded that
-sharp features in the SFH derived from WDLFs are not statistically significant.
-}
-
+extended the work to study the systematic \textcolor{green}{biases} comprehensively and concluded that
+sharp features in the SFH derived from WDLFs are not statistically significant,
+but there is a strongest period of star formation at around 3\,Gyr lookback time.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Forward modelling with non-parametric SFH~(this work)}
@@ -407,7 +413,7 @@ the large possible number of degenerate solutions and the sensitivity to noise,
 regularization is necessary to avoid erroneously amplified
 solutions. For example, \texttt{pPXF}~\citep{2023MNRAS.526.3273C} implements an 
 explicit regularisation parameter, which can be interpreted as a convergence 
-criterion as in  \citet{2013MNRAS.434.1549R}. Alternatively, a Markov chain
+criterion as in \citet{2013MNRAS.434.1549R}. Alternatively, a Markov chain
 Monte-Carlo method can be used to mitigate ``overfitting'' (e.g.\ in 
 \texttt{Prospector},~\citealp{2021ApJS..254...22J}). This automatically comes
 with the statistics of the solutions. This approach requires immense
@@ -416,7 +422,7 @@ computational power and, thus, it has not been explored in previous work.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 In order to apply the fitting method to compute the SFH from WDLFs, we introduce
 the partial WDLF~(pWDLF). It is inspired by the partial CMD designed
-in~\citep{2006A&A...459..783C}, we use these pWDLFs as basis models for fitting.
+in~\citet{2006A&A...459..783C}, we use these pWDLFs as basis models for fitting.
 Similar to their method, the word \textit{partial} refers to a view of the
 system over a small time range. In the context of this work, a pWDLF corresponds
 to a WDLF from a stellar population with an intense star formation at the given
@@ -444,10 +450,13 @@ Monte Carlo method, and the second step refines the solution with a least-square
 method. The free parameters to be fitted are the weights of the pWDLFs required 
 to compose a theoretical WDLF that matches the observed WDLF. The weight of
 each pWDLF in reconstructing the WDLF is directly proportional to the SFH
-\textcolor{nick}{over the corresponding time range}.
+over the corresponding time range.
+\begin{comment}
 % NR: removed; not clear what it means
 \sout{provided that the set of pWDLFs was computed using the same normalising factor
 from the IMF and IFMR.}
+\end{comment}
+
 This can be written as
 
 \begin{equation}
@@ -457,8 +466,8 @@ This can be written as
 where the $w_j$ is the weight of the $j$-th pWDLF ($n_j$) with a short burst of
 star formation at time $t$.
 
-In this work, we fit with \textcolor{green}{58} pWDLFs~(see Section~\ref{sec:application}). 
-The total number of steps was set to \textcolor{green}{1000000} with a burn-in of
+In this work, we fit with 58 pWDLFs~(see Section~\ref{sec:application}). 
+The total number of steps was set to 1\,000\,000 with a burn-in of
 10\%. The 31.73 and 68.27 percentiles are computed as the upper and lower 1-sigma 
 uncertainties of the solution. The solution is then fed into the 
 \texttt{scipy.optimize.least\_squares} minimisation function to compare against
@@ -514,7 +523,7 @@ discrepancies within two standard deviations from the input values.
   of the population has an exponential constant of 3\,Gyr, the SFHs were
   truncated at a look-back time of 2, 4, 6, 8, and 10\,Gyr. See 
   Section~\ref{sec:magnitude_bin_size} for the explanation for the varying bin
-  size in the lookback time. Middle: the \textcolor{green}{input and reconstructed WDLFs}. Bottom: The difference
+  size in the lookback time. Middle: the input and reconstructed WDLFs. Bottom: The difference
   in the number density between the lsq solution and the input.}
   \label{fig:exponential_sfh}
 \end{figure}
@@ -558,18 +567,47 @@ we define the optimal bin sizes in bolometric magnitude, and how this naturally
 defines the lookback time bin sizes.
 
 \subsection{WDs from the GCNS}
+\label{sec:gcns}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-The GCNS contains 21\,848 WDs within a 100\,pc distance from us, only
-\textcolor{green}{16\,087 are found in GF21, of which 15\,955 have \texttt{PWD} 
-larger than or equal to 0.75. The most significant limitations of the GCNS 
-sample come from the impure selection, as evidenced by cross-matching with GF21,
-and the uncorrected incompleteness.} The incompleteness is primarily at the
-bright end where there are very few WDs, and in the 
-faintest absolute magnitudes
-where the observations are the least reliable due to the intrinsic
-faintness of these WDs. Furthermore, bright WDs are rare, they are found only at
-larger distances, there are very few of them in the local 100\,pc. The WDs are
-fitted with the pure hydrogen model from the Montreal
+%
+% Comments on the completeness / contamination of the GCNS sample
+%
+
+The GCNS contains 21\,848 objects within 100\,pc that pass the survey selection
+criteria and are assigned a probability of being a WD ($P_{\text{WD}}$) higher
+than 0.5. Classification is based on a random forest method applied to the
+$Gaia$ proper motions,  parallaxes and integrated photometry ($G$,
+$G_{\text{BP}}$, $G_{\text{RP}}$), and trained on several different catalogues
+of known WDs \citep[see][section~5.8]{2021A&A...649A...6G}.
+%
+The nominal $Gaia$ G band magnitude limit of 20.7 implies that the 100\,pc
+sample is incomplete for WDs with absolute G$\gtrsim$15.7, which includes part
+of the local WD population slightly beyond the peak in the WDLF. This is
+accounted for in their WDLF by the use of the 1/V$_{\mathrm{max}}$ method.
+%
+\textcolor{green}{The magnitude completeness arising from the complex survey
+selection function is accounted for with the supplementary data available with
+GCNS\footnote{\textsc{maglim.dat.gz} from \url{https://cdsarc.u-strasbg.fr/viz-bin/cat?J/A+A/649/A6}}. 
+This selection is not applied to the main catalogue, but it is applied to the
+WD sample when deriving their WDLFs~(Hambly, 2025, priv. comm.). Hence, some
+of the 21\,848 sources are not included in the WDLF catalogue. This reduces
+the sample size to contain only 19\,113 unique sources. Furthermore, the GCNS
+WDLF catalogue contains all objects it classified as WDs that have more than
+1\% chance of lying within 100\,pc~(see the end of this subsection). Hence,
+most of the objects at a relatively large distance in the catalogue only have
+a fractional contribution to the statistics. Their weighted sum gives us an
+effective number of 16\,063.29 objects.
+% 
+Of the 19\,113 GCNS WDLF WDs, 18\,796 are matched to a GF21 WD within
+1~arcsec with parallax larger than 8\,mas, of which 15\,909 have parallax
+larger than 10\,mas.
+}
+%
+While the GCNS 100\,pc sample is certainly not as well understood as the
+40\,pc sample \citep{2024MNRAS.527.8687O}, it is nevertheless a useful
+catalogue for demonstrating our SFH recovery method.
+
+The WDs are fitted with the pure hydrogen model from the Montreal
 group~\citep{2019ApJ...876...67B} ignoring the effects of varying
 the H/He atmospheric composition and surface gravity. The GCNS work
 interpolated the model grid to look up $G$-band bolometric corrections as a
@@ -577,49 +615,45 @@ function of ($G - G_{\mathrm{RP}}$) to map M$_\mathrm{G}$ to M$_{\mathrm{bol}}$,
 at a fixed surface gravity of $\log(g)=8.0$. Because of the different colour
 evolution as a function of the chemistry of the atmosphere, opting to fit a
 pure hydrogen atmosphere limits the accuracy of the estimation of the cooling
-ages as mixed hydrogen-helium atmosphere \textcolor{green}{model} give a
+ages as mixed hydrogen-helium atmosphere model give a
 shorter cooling age than the pure hydrogen model~\citep{2022ApJ...934...36B}.
-\textcolor{green}{Overall, this treatment can lead to an incorrect WD radius
+\begin{comment}
+Overall, this treatment can lead to an incorrect WD radius
 by as much as a factor of 2, hence, an incorrect luminosity by a factor
-$\sim$$4$, causing spurious features in the WDLF.}
+$\sim$$4$, causing spurious features in the WDLF.
+\end{comment}
 
 When computing the WDLF, the GCNS adopted a fixed scaleheight of 365\,pc, a
 value found from the GCNS itself. This choice can lead to significant effect
 on the volumetric correction based on the 1/V$_{\mathrm{max}}$ method for
 deriving the WDLF.
 %
-% \sout doesn't like citations unless wrapped in \mbox{}
-% \sout doesn't like textcolor so need to split the command
-\sout{Particularly, the scaleheight is increasing with time.
-However, such evolution is never studied with a completeness corrected sample
-of WDs~\mbox{\citep{2006AJ....131..571H}}, and all }\textcolor{green}{\sout{early works on empirical WDLFs 
-of the Galaxy adopted a fixed scaleheight~\mbox{\citep{2006AJ....131..571H,
-2011MNRAS.417...93R, 2019MNRAS.482..715L}}, until very recently with C23 and
-R25 who applied time-dependent scale height in their forward modelling.}}
 % NR updated text:
-\textcolor{nick}{
-Specifically, the scaleheight increases with total stellar age, which will manifest
-as an increased average scaleheight for faint WDs and an overestimation of their
-spatial density if a fixed value is assumed. While \citet{2016MNRAS.461.2100T} found
-this to have a significant effect on the estimation of the WD mass distribution,
-the impact on the WDLF has not been studied in detail. Previous works on empirical
-WDLFs for the disc have also adopted a fixed scaleheight, typically of 250pc~\citep{2006AJ....131..571H,
-2011MNRAS.417...93R, 2019MNRAS.482..715L}.
-A time-varying scaleheight (or equivalently, 
-vertical velocity dispersion) has been adopted in T14, C23 and R25, although
+Specifically, the scaleheight (or equivalently, vertical velocity dispersion) increases
+with total stellar age \citep{2022A&A...658A..22R}, which manifests as an increased
+average scaleheight for faint WDs \citep{2019MNRAS.484.3544R}, resulting in an
+underestimate of their spatial density in the local volume if a fixed value is assumed.
+% While \citet{2016MNRAS.461.2100T} found this to have a significant effect on the
+% estimation of the WD mass distribution, the impact on the WDLF has not been studied in detail.
+Previous works on empirical
+WDLFs for the disc have generally adopted a fixed scaleheight, typically of 
+250pc~\citep{2006AJ....131..571H,2011MNRAS.417...93R, 2019MNRAS.482..715L}.
+An age-dependent scaleheight has been adopted in C23 and R25, although
 the sensitivity to different values has not been studied in detail (and see 
-Section~\ref{ssec:otherMethodsWds} for discussion of some issues in their method).}
+Section~\ref{ssec:otherMethodsWds} for discussion of some issues in their
+scaleheight).
 
 This sample also assumed all WDs have come from isolated stellar evolution.
-\textcolor{green}{However, recent works suggest that as much as 40\% of single
+However, recent works suggest that as much as 40\% of single
 WDs have come from mergers \citep{2020A&A...636A..31T, 2020ApJ...898...84K}.
 They are products
 of stars that have gone through stellar interactions in the progenitor
 systems~\citep[e.g.\ ][]{2013A&ARv..21...59I, 2023arXiv231117145H}. We do not
-attempt to address this effect in this work.}
+attempt to address this effect in this work.
 
 The data available from the GCNS WDLF is a catalogue of WDs where instead of
-having each row corresponding to one object, each row contributes $1\%$ to the
+having each row corresponding to one object, each row contributes
+\textcolor{green}{as} $1\%$ \textcolor{green}{of a WD} to the
 WDLF. When performing photometric fitting of the WDs, the posterior distribution
 of the distance of each WD is stored for each percentile. Each row represents
 a $1\%$ chance of the WD at that distance and bolometric magnitude. The catalogue
@@ -628,69 +662,57 @@ for each percentile for every WD. In some cases, the tail of the distribution
 exceeds 100\,pc~(the distance limit of GCNS), these WDs only contribute a small
 fraction of a WD to the total WDLF. The density normalization and the
 uncertainties in the WDLF have to be rescaled properly when summing for the
-total WDLF because directly adding the solution from each row will lead to an
-amplification of $\sim$$100$ times in the density. Similarly, the error bars
-would be $100$ times too small if uncorrected. Since the catalogue has retained
-enough information on the bolometric magnitude and distance, we can choose any
-bin size to present the GCNS WDLF as required to optimally extract
-the SFH. However, one downside of the catalogue is that it does not come with
-the uncertainties of the derived bolometric magnitude, so we refit the photometry
-that has taken into account the photometric and parallactic uncertainties,
-intrinsic distribution in the surface gravity and the accuracy in using
-synthetic photometry~(see below). In this work, we use the GCNS $M_\mathrm{bol}$
-and the refitted uncertainties.
+total WDLF because directly summing the solution from each
+row will lead to an amplification of $\sim$$100$ times in the density.
+Similarly, the error bars would be $100$ times too small if uncorrected. Since
+the catalogue has retained enough information on the bolometric magnitude and 
+distance, we can choose any bin size to present the GCNS WDLF as required to
+optimally extract the SFH. However, one downside of the catalogue is that it
+does not come with the uncertainties of the derived bolometric magnitude, so
+we refit the photometry that has taken into account the photometric and
+parallactic uncertainties, intrinsic distribution in the surface gravity and
+the accuracy in using synthetic photometry~(see below). In this work, we use
+the GCNS $M_\mathrm{bol}$ and the refitted uncertainties.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bin size}
 \label{sec:magnitude_bin_size}
-From the uncertainties in the photometric fitting for the bolometric magnitudes,
-we can determine the resolution with which we can sample the WDLF. At the Nyquist
-sampling rate~\citep{1949IEEEP..37...10S}, there should be two sampling points
-in the space of one full-width at half maximum~(FWHM). Assuming the noise is
-Gaussian, one FWHM is equivalent to $2.355$ standard deviations ($\sigma$).
-Thus, the optimal sampling rate is $1.1775\sigma$ at the given magnitude.
+At the Nyquist sampling rate~\citep{1949IEEEP..37...10S},
+there should be two sampling points in the space of one full-width at half
+maximum~(FWHM). Assuming the noise is Gaussian, one FWHM is equivalent to
+$2.355$ standard deviations ($\sigma$). Thus, the optimal sampling rate is
+$1.1775\sigma$ at the given magnitude.
+\textcolor{green}{The maximal information within a WDLF that can be extracted
+is thus limited by the level of uncertainties in the luminosity determination,
+in this work it is the bolometric magnitude. The uncertainty in the
+bolometric magnitudes from photometric fitting acts as the smoothing kernel
+that degrades the true signal. By constructing a one-to-one relation between
+the bolometric magnitude and its uncertainty, we can determine the resolution
+with which to retrieve true information from the WDLF.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Bolometric magnitude}
-We have identified four main contributions to the uncertainties in the
+We have identified \textcolor{green}{two} main contributions to the uncertainties in the
 bolometric magnitudes, with which we require to derive the size of the
 smoothing kernel as a function of the bolometric magnitude.
 
-%\paragraph{Uncertainties in the synthetic photometry \hfill\\}
-%\label{sec:synthetic_photometry}
-%The synthetic photometry also comes with uncertainties, we estimate the model
-%uncertainty using the FWHM of the residuals in the SDSS filters reported in
-%\citet{2006AJ....132.1221H}. We take the mean FWHM of in $u$, $g$ and $r$ as
-%the proxy of $G_{\mathrm{BP}}$; the mean FWHM of $u$, $g$, $r$, $i$ and $z$
-%as a proxy of $G$; and the mean FWHM of $r$, $i$ and $z$ as the proxy of
-%$G_{\mathrm{RP}}$. Dividing them by $2.355$ gives us the dispersion that is
-%added to the \textit{Gaia} magnitude uncertainty in quadrature. These values are found
-%to be $\sigma_{G_{\mathrm{BP}}}=0.0529$,
-%$\sigma_{G}=0.0462$ and $\sigma_{G_{\mathrm{RP}}}=0.0343$\,mag.
-
 \paragraph{Intrinsic distribution of surface gravity \hfill\\}
 \label{sec:logg_intrinsic_dispersion}
-\textcolor{green}{
 Given the simple treatment adopted in the GCNS sample selection, a representative
 ``intrinsic'' distribution in the surface gravity should include non-DA WDs, we
 take the 40\,pc WDs from Table 1 of \citet{2024MNRAS.527.8687O} to get an average
-$\log(g)=8.0607$ with a dispersion of $0.2783$. An assumption of a fixed surface
-gravity leads to a significant contribution to the smoothing kernel.
-}
+$\log(g)=8.0607$ with a dispersion of $0.2783$.
 
 \paragraph{Uncertainties in photometric fitting \hfill\\}
 \label{sec:logg_photometric_fitting}
-\textcolor{green}{
 From the lower panel of Fig.~14 of \citet{2021MNRAS.508.3877G}, the dispersion
 in the difference between spectroscopic surface gravities and the photometric ones
 is about 0.03~dex based on the width of the envelope.
-}
 
 \paragraph*{Total uncertainties and dispersion \hfill\\}
 In order to obtain the estimates of the uncertainties in the fitted bolometric
-magnitudes due to the assumption of fixed surface gravity, we used
-\textsc{WDPhotTools} to fit the GCNS WD samples in the three \textit{Gaia} filters at
-seven surface gravities. These seven values range from
+magnitudes, we used \textsc{WDPhotTools} to fit the GCNS WD samples in the
+three \textit{Gaia} filters at seven surface gravities. These seven values range from
 $\log(g) - 3\sigma_{\log(g)}$ to $\log(g) + 3\sigma_{\log(g)}$
 in an increment of one $\sigma_{\log(g)}$. While the $\sigma_{\log(g)}$ is the
 sum in quadrature of the intrinsic distribution of surface gravity and the
@@ -729,29 +751,17 @@ the average uncertainty as a function of the bolometric magnitude.
 \subsubsection{Lookback time}
 The WDLFs with short bursts of star formation are strongly peaked at a single
 magnitude (see, for example, the set of pWDLFs in Fig.~\ref{fig:basis_pwdlf}).
-Thus, adding the monotonically cooling nature of WDs, there is a one-to-one
-mapping of the cooling age of the population and the peak magnitude (see middle
-panel of Fig.~\ref{fig:magnitude_resolution}). Although at older ages, with the
-peak magnitude beyond $15$\,mag, a WDLF starts to show double peaks, there is
-always a dominant peak that is at least half an order of magnitude higher in
-the number density. Thus, we can reliably relate the two relations: peak
-magnitude--age and peak magnitude--magnitude-resolution. Since the peak
-magnitude has a one-to-one mapping to the age of the system, we can obtain the
-time resolution in which we construct the set of the basis pWDLFs that would
-allow the extraction of the SFH at the maximum sampling rate~(i.e.\ the minimum
-bin size) without the amplification of noise.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-At the oldest age~(i.e.\ faintest magnitudes), the uncertainties of the
-bolometric magnitude is most likely underestimated. Additionally, from the 
-recent calibration
-works~\citep{2022ApJ...934...36B}, it is known that the models are less
-accurate at the lowest  temperature, and the bolometric magnitudes obtained by
-assuming DA or DB atmosphere is fainter than what mixed hydrogen-helium models
-would give~\citep{2022ApJ...934...36B}. However, we cannot quantify these
-uncertainties, so we only caution readers to pay attention when drawing conclusions
-from any information fainter than $\approx15.5$\,mag, which corresponds to a
-look back time of $\approx9$\,Gyr.
+Thus, together with the monotonically cooling nature of WDs,
+there is a one-to-one mapping of the cooling age of the population and the peak
+magnitude (see middle panel of Fig.~\ref{fig:magnitude_resolution}). Although
+at older ages, with the peak magnitude beyond $15$\,mag, a WDLF starts to show
+double peaks, there is always a dominant peak that is at least half an order of
+magnitude higher in the number density. Thus, we can reliably relate the two
+relations: peak magnitude--age and peak magnitude--magnitude-resolution. Since
+the peak magnitude has a one-to-one mapping to the age of the system, we can
+obtain the time resolution in which we construct the set of the basis pWDLFs
+that would allow the extraction of the SFH at the maximum sampling
+rate~(i.e.\ the minimum bin size) without the amplification of noise.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{figure}
@@ -792,15 +802,14 @@ section \textsection\ref{sec:fitting}, because the set of pWDLFs is
 normalized the same way, the relative contribution translates to the relative
 SFH of the solar neighbourhood. The absolute normalization can be found by
 matching the reconstructed WDLF to the integrated number density of the input
-WDLF, and correct for the irregular bin size. We have found multiple phases of
+WDLF. We have found multiple phases of
 enhanced star formation using this novel method, these bursts and lulls are all
 in good agreement with previous works found using other methods and stellar 
 populations~(see Fig.~\ref{fig:sfh_optimal} and the next section).
-\textcolor{green}{We can see a broad feature of star formation at $0-5$\,Gyr,
-and another one at $6-11$\,Gyr. There are some prominent bursty star
+We can see a broad feature of star formation at $0-5$\,Gyr,
+and another one at $7-11$\,Gyr. There are some prominent bursty star
 formations, see a more in-depth analysis in the next subsection to assess the
 presence of these peaks.
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %The 20\,pc subset\ shows the contribution of the WDs within the 20\,pc distance,
@@ -835,10 +844,9 @@ Appendix~\ref{appexdix:reconstructed-wdlf}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bootstrapping}
-\textcolor{green}{
 In order to assess whether the features in the computed SFH are significant, we
 perform a bootstrapping exercise following closely the recipe described in
-Section X of R25. We resample five input models of the construction of the
+Section 4 of R25. We resample five input models of the construction of the
 pWDLFs: (1)~The exponent of the IMF ($2.3$) is resampled with a standard
 deviation of $0.1$~(e.g.\ in~\citet{2018ApJ...860L..17E, 2025MNRAS.538.2548R}.
 (2)~The MS lifetime is multiplied by a factor of $(1+p)$ where $p$ is drawn
@@ -848,9 +856,8 @@ the gradient has an uncertainty of $0.004$ and the constant has an uncertainty
 of $0.011$~\citep{2008MNRAS.387.1693C}. (5) The WD cooling time is multiplied
 by a factor of $(1+p)$ where $p$ is drawn from a Gaussian distribution with a
 standard deviation of $0.06$~\citep{2023MNRAS.522.1643C, 2024MNRAS.527.3602C}.
-}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{green}{
 We construct $1000$ sets of pWDLFs by drawing from those five distributions.
 These sets are computed in the same time and bolometric magnitude resolution
 as in the set used in Section~\ref{sec:sfh}. Each of these was fitted with
@@ -864,59 +871,55 @@ analysis, we refer the narrow features of 1 to 2 bins in width as peaks.
 Whereas, the broader features are clearly visible after the smoothing and
 broadening of information in the time-axis by averaging all the bootstrapped
 solutions. From the $1000$ solutions, we perform a basic analysis on the
-persistence of these peaks. In Figure~\ref{fig:full_sample_peaks} and 
-\ref{fig:20pc_peaks}, they show the distributions of the difference in the
-number density (N pc$^{-3}$) between the peak and the neighbours. Six peaks
-from the full sample are selected, as marked in Figure~\ref{fig:bootstrap_mean}.
-Given that all WDs from the WDLF have to contribute to the total SFH, the
-bootstrapped solutions are mostly about shifting the real peaks back and forth
-in time rather than dampening the peaks. This makes the peaks broader in the
-averaged bootstrapped solutions. Henceforth, each peak is defined as the most
-prominent bin or two most prominent adjoining bins. The neighbours are the
-bins immediately before and after the peaks. The difference, $\Delta$, is the
-difference in the number densities from integrating over the time elapsed in
-the peaks and the average neighbours' SFH integrated over the same time elapsed
-by the peaks. The 1-bin and 2-bin cases are to cover both short bursts of star
-formation and the slightly more gradual ones.
-}
+persistence of these peaks. In Figure~\ref{fig:full_sample_peaks}, it shows
+the distributions of the difference in the number density (N pc$^{-3}$)
+between the peak and the neighbours. Six peaks from the full sample are
+selected, as marked in Figure~\ref{fig:bootstrap_mean}. Given that all WDs
+from the WDLF have to contribute to the total SFH, the bootstrapped solutions
+are mostly about shifting the real peaks back and forth in time rather than
+dampening the peaks. This makes the peaks broader in the averaged bootstrapped
+solutions. Henceforth, each peak is defined as the most prominent bin or two
+most prominent adjoining bins. The neighbours are the bins immediately before
+and after the peaks. The difference, $\Delta$, is the difference in the number
+densities from integrating over the time elapsed in the peaks and the average
+neighbours' SFH integrated over the same time elapsed by the peaks. The 1-bin
+and 2-bin cases are to cover both short bursts of star formation and the
+slightly more gradual ones.
+
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{figures/fig_06_sfh_bootstrap_comparison.png}
     \caption{
-    \textcolor{green}{The mean SFR from the 1000 bootstrap solutions as a
+    The mean SFR from the 1000 bootstrap solutions as a
     function of lookback time. It shows very similar shape and feature to the
     best-fit solution, with many of the noisy features removed. The blue and
     grey bands show the $1\sigma$ and $2\sigma$ distribution of the bootstrap
     solutions. The six arrows mark the peaks of enhanced star formation at
     around $0.40$, $1.21$, $1.80$, $2.25$, $3.67$ and $8.7$\,Gyr. See more in
-    Figure~\ref{fig:full_sample_peaks}.}
+    Figure~\ref{fig:full_sample_peaks}.
     }
     \label{fig:bootstrap_mean}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{green}{
-In the case of the full sample, there are two clear broad features, one is
-in the range of $3-6$\,Gyr, while the other one is at $7-12$\, Gyr. There
-may be another broad feature in $1-3$\,Gyr, but it is heavily overlapping
-with the peaks and the next broad feature. For the peaks, we find the number
-of stars formed at $0.40$, $1.21$, $1.80$ and $8.7$\,Gyr higher than their
-neighouring bins over $90\%$ the time. The peaks at $0.40$, $1.21$ and
-$1.80$\,Gyr are showing much more prominence in the 2-bin case than the 1-bin.
-This is due to the peaks drifting back and forth in the time-axis in the
-bootstrapping process when the MS lifetime and WD cooling time are varied.
-Hence, the relatively broad features appear in only the 2-bin test but not the
-1-bin. This is also obvious by eye from Figure~\ref{fig:bootstrap_mean} where
-gaps are clearly visible between those three peaks in the smoothed and
-broadened SFH. At $2.25$\,Gyr, there is a slightly better than random chance
-of having a peak. At $3.67$\,Gyr, the peak on top of the broad feature
-between three and $6$\,Gyr appears in around $78\%$ of the samples.
-}
+There are two clear broad features, one is in the range of $0-6$\,Gyr, while the
+other one is at $7-12$\, Gyr. For the peaks, we find the number of stars formed
+at $0.40$, $1.21$, $1.80$ and $8.7$\,Gyr higher than their neighouring bins over
+$90\%$ the time. The peaks at $0.40$, $1.21$ and $1.80$\,Gyr are showing much
+more prominence in the 2-bin case than the 1-bin. This is due to the peaks
+drifting back and forth in the time-axis in the bootstrapping process when the
+MS lifetime and WD cooling time are varied. Hence, the relatively broad features
+appear in only the 2-bin test but not the 1-bin. This is also obvious by eye
+from Figure~\ref{fig:bootstrap_mean} where gaps are clearly visible between
+those three peaks in the smoothed and broadened SFH. At $2.25$\,Gyr, there is
+a slightly better than random chance of having a peak. At $3.67$\,Gyr, the peak
+on top of the broad feature between three and $6$\,Gyr appears in around $78\%$
+of the samples.
+
 \begin{figure}
     \centering
     \includegraphics[width=\columnwidth]{figures/fig_07_sfh_peak_significance.png}
     \caption{
-    \textcolor{green}{
     Each peak labelled in Figure~\ref{fig:bootstrap_mean} is analysed in a
     1-bin and 2-bin test. The peaks at $0.40$, $1.21$, $1.80$ and $8.7$\,Gyr have
     more stars formed per unit volume than their neighbours in over $90\%$ the
@@ -929,7 +932,6 @@ between three and $6$\,Gyr appears in around $78\%$ of the samples.
     the 1-bin. The peaks around $2.25$ and $3.67$\,Gyr only appear in
     $\sim$$75\%$ of the bootstrapped solutions, so they only have a slightly
     better than random chance to be present.
-    }
     }
     \label{fig:full_sample_peaks}
 \end{figure}
@@ -953,7 +955,7 @@ algorithm, which is similar in principle to Richardson-Lucy deconvolution and is
 used to obtain maximum-likelihood solutions to inverse problems in the presence 
 of missing data. In the present application, this is the unknown distribution
 of WD mass as a function of magnitude.
-\textcolor{nick}{
+%
 We applied their inversion algorithm to the GCNS dataset to compute the SFH using
 the same astrophysical inputs and bolometric magnitude binning. For improved
 characterisation of the statistical uncertainty we performed 200 inversions based
@@ -966,8 +968,7 @@ The uncertainty is known to be underestimated, due to degeneracies around rapid
 changes in the star formation rate. Systematic errors are also significant and arise
 from the choice of the inputs, particularly the WD cooling models, as well as
 unmodeled effects such as binarity and metallicity variations among the progenitor
-population. This is explored in part in \citet{2013MNRAS.434.1549R}.}
-
+population. This is explored in part in \citet{2013MNRAS.434.1549R}.
 
 \begin{figure}
     \includegraphics[width=\columnwidth]{figures/nr_sfr_bootstrap.png}
@@ -986,74 +987,29 @@ population. This is explored in part in \citet{2013MNRAS.434.1549R}.}
 \end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The result from this independent inversion method shows
+near-perfect agreement in the SFH over the entire cosmic timeline (see Figure~\ref{fig:comparison}). The four
+main broad features are all recovered at the same lookback time. Given the
+two recoveries use identical sets of MS lifetime model, WD cooling model, IMF,
+IFMR, the remarkably similar SFHs are a strong indication that the recovered
+signals are real.
+
 
 
 \subsection{Other methods using WDs \label{ssec:otherMethodsWds}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%T14 reported the SFH using a 20\,pc volume-complete sample. They found roughly
-%two broad bursts of SFH. The higher intensity one is in the last 5\,Gyr peaking
-%at 3.5\,Gyr, and a lower intensity one between 5 and 12\,Gyr with a peak at
-%8.5\,Gyr. They are reporting the SFH using the direct number count of WDs,
-%hence further bias corrections are required. The main-sequence bias as termed in
-%T14 is already handled when constructing the WDLF in our case. The kinematics
-%bias is uncorrected in the GCNS sample, and we have not attempted to correct it
-%because in order to perform the correction properly, it has to be computed 
-%together in the integral of the maximum volume~\citep{2015MNRAS.450.4098L}.
-%Nevertheless, for a sample that does not require stringent selection
-%criteria, for example, when studying high-velocity WDs only, the
-%kinematic correction is small.
-
-%Based on a comparison between T14 and R13, they pointed out a concern regarding
-%the methods of mathematical inversion in the application SFH retrieval from a
-%WDLF. We have shown in Fig.~\ref{fig:sfh_optimal} the contribution of SFH
-%from the WDs within a distance of 20\,pc that the peak of star formation at a
-%lookback time of about 0.3\,Gyr is almost completely disappeared and the SFH is
-%dominated by the broad peak centered at just under 4\,Gyr, which is in good
-%agreement with T14. A second broad feature between 8 and 12\,Gyr with a sharp
-%peak at 11\,Gyr has some resemblance to their findings. The differences, which
-%are mostly a translation and scaling in the direction of the lookback time, are
-%likely to be coming from the adoption of different cooling models. 
-%\citet{2022RASTI...1...81L} has illustrated the effect of various models on 
-%the shape of the WDLFs. Model combinations C \& D in Figure~12 of their work show how the T14 reported the SFH using a 20\,pc volume-complete sample. They found roughly
-%two broad bursts of SFH. The higher intensity one is in the last 5\,Gyr peaking
-%at 3.5\,Gyr, and a lower intensity one between 5 and 12\,Gyr with a peak at
-%8.5\,Gyr. They are reporting the SFH using the direct number count of WDs,
-%hence further bias corrections are required. The main-sequence bias as termed i
-%switching between the cooling models including phase separation can lead to
-%a 0.5\,mag difference in the position where WDs pile up (due to significant
-%slowdown of the cooling). From Fig.~\ref{fig:sfh_optimal}, it is clear from the
-%top axis that at these magnitudes, the cooling age is very sensitive to the
-%bolometric magnitude between 13 and 16\,mag, corresponding to a cooling age of
-%1.25 and 9.76\,Gyr, respectively, at the two limits.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\citet{2019ApJ...887..148F} computed the SFH from a deep proper motion survey,
-%however, their sample is only corrected for photometric incompleteness. The
-%untreated kinematic bias can lead to incompleteness in the sample
-%selection~\citep{2014ApJ...791...92T, 2015MNRAS.450.4098L}. Nevertheless, this
-%bias is unlikely to have a large impact on the thin disk population, yet in
-%their recovered SFH, a nearly-constant SFH was found. It brings up two immediate
-%questions: (1) is the recent burst that is seen in a few other works direction-
-%dependent? and (2) does the recent burst attributed to any major streaming that
-%occupies a different part of the velocity space? These are important
-%questions to be addressed in future works.
-
-% I am unable to recreate their plots with the values reported in their work.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{nick}{
 %
-Significant recent studies of the local star formation history using WDs have
+Significant recent studies of the local SFH using WDs have
 focused on the 40pc sample, which is now well characterised thanks to $Gaia$ data
 \citep{2024MNRAS.527.8687O}.
 %
-C23 developed a novel approach to estimating the star formation history based on
-modeling the cumulative distribution of absolute Gaia G magnitude, thus avoiding the
-binning of stars \textcolor{red}{[MARCO: ANY CRITIQUE TO ADD?]}.
+C23 developed a novel approach to estimating the SFH based on
+modeling the cumulative distribution of absolute G magnitude, thus avoiding the
+binning of stars.
 %
 % binarity and merger remnants, cooling delays due to crystallisation
 Their detailed analysis of systematics in the modeling inputs leads them to conclude
-that the star formation history within 40pc is consistent with uniform over the last
+that the SFH within 40pc is consistent with uniform over the last
 10.5 Gyr.
 %
 A similar conclusion is reached in the follow-up study of R25, which expanded the
@@ -1063,9 +1019,10 @@ history using WDs.
 Their direct age estimation avoids forward modeling using an assumed parametric
 SFH, although requires temperatures and masses for individual stars
 and thus is not suited to large photometric WD samples that lack spectra.
+The resulting SFH (reproduced in Figure~\ref{fig:comparison}) has a maximum at 2--4 Gyr, although their solution is consistent with a uniform SFH within 2$\sigma$.
 %
 Both C23 and R25 adopt a scaleheight versus age relation in their simulations that
-rises linearly before saturating at 140pc for all stars older than \textasciitilde7 Gyr.
+rises linearly before saturating at 140\,pc for all stars older than \textasciitilde7 Gyr.
 %
 This is based on a transformation of the observed vertical velocity dispersion versus age
 relation for their 40pc WD sample, but is nevertheless significantly at odds with many 
@@ -1078,95 +1035,10 @@ latest Gaia data
 % 2019MNRAS.482.4570G (age-averaged WD scaleheight of 230pc)
 % 2019MNRAS.485.5573T (WD has a scaleheight of 200pc: Fig.9)
 % 2022MNRAS.511.3863E (260pc/693pc)
-% 023Galax..11...77V (\textasciitilde$280$pc/$800$pc)
-(e.g.~\citealp{2019MNRAS.482.4570G,2022MNRAS.511.3863E,2023Galax..11...77V}),
-which find values around 250-300pc for the thin disc and 700-900pc for the thick disc.
-}
-% Marco: I'm leaving some notes commented out here while I work on this section.
-%
-% 1) They use an age-scaleheight relation that is anchored to 65pc at the zero-age
-%    end, and which increases linearly to 140pc for stars of 7Gyr before flattening
-%    out. This is based on the correspondence between the scaleheight and the vertical
-%    velocity dispersion,
-%
-%    While the scaleheight for the youngest members of the population
-%    is broadly in agreement with other estimates for young stars (CITATIONS),
-%    the value of 140pc for all stars older than 7Gyr is significantly lower than
-%    suggested by several major surveys (CITATIONS).
-%    This may be due to:
-%     - noisy sigma_w vs age relationship
-%     - assumption that it flattens beyond 7Gyr
-%     - exponent of scaleheight / sigma_w dependence being non-unity
-%
-\sout{
-C23 made use of a similar sample to this work, and they found a constant
-star formation rate over the last 10.5\,Gyr with the 40\,pc sample of WDs.
-Their recovery method overlooks methods available to optimally extract
-information from a given signal~(as we described in details in
-\ref{sec:magnitude_bin_size}). It is possible to identify an optimal bin size
-and the set of bin sizes determines the time resolution in which we can derive
-the SFH. In observational astronomy, using photometry as an example, optimal
-extraction based on a known point-spread function is a technique to maximise
-the signal-to-noise ratio in the photometry~\mbox{\citep{1980SPIE..264..171T, 
-1987PASP...99..191S}}. It is possible because we have information on the impulse
-response of the optical system, including detector effects (and possibly 
-atmospheric seeing). Very similar reasoning is used in, and not limited
-to, image differencing where a point spread function is
-used~\mbox{\citep{1998ApJ...503..325A, 2008MNRAS.386L..77B, 
-2009MNRAS.397.2099A, 2016ApJ...830...27Z}}, spectroscopy using a line spread
-function~\mbox{\citep{1986PASP...98..609H, 1989PASP..101.1032M, 2003PASP..115..688K}},
-image reconstruction where the smoother kernel is
-known~\mbox{\citep{1972JOSA...62...55R, 1974AJ.....79..745L}}, and image
-deconfusion where the position of the two confused sources is known from an
-external study~\mbox{\citep{2015A&A...582A..15M}}.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Secondly, we attribute the main differences in our derived SFH to their
-use of chi-squared statistics in fitting cumulative distribution
-functions~(CDF). By fitting a CDF directly to the cumulative data, one would
-run into significant issues coming from strongly correlated values in the
-neighbouring values in the ordinal axis. The uncertainty of a data point on
-a CDF is not merely the uncertainty in that given bin, the uncertainties
-accumulate to the successive bins non-linearly, depending on how accurate the
-measurement can be made on the observed variable. In this case, the measurement
-is the absolute magnitude in the $G$ band. A Poisson error can serve as the
-lower limit of the uncertainties at best. Specific to fitting a CDF of the
-bolometric magnitude of WDs, the faintest WDs are most poorly determined because
-of large uncertainties in both the measurement and in the models. Fitting such
-CDF with a $\chi^2$-minimisation method significantly puts too much weight on
-the least reliable data. Specifically, the faintest WD has a perfect measurement
-because a CDF has to converge to unity -- a necessary boundary condition.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Thirdly, the scale height they have adopted~(75\,pc) is much smaller than those
-adopted by all other WDLF works~(e.g.\,\mbox{\citealt{2006AJ....131..571H,
-2011MNRAS.417...93R, 2019MNRAS.482..715L}}). Particularly,
-\mbox{\citet{2006AJ....131..571H}} found that the typical minimum and maximum scale
-height of WD at different bolometric magnitudes span between 200 and 900\,pc.
-C23's choice of scaleheight is coming from young open clusters, which is not
-a representative population for the evolution of the galaxy. Given these open
-clusters remain open clusters by their self-gravity, this value can, at best,
-set the lower limit of the scaleheight as the progenitor clusters had to have
-dissolved by the time we observe these isolated WDs. We agree that the youngest
-WDs should have a smaller scaleheight, and both the scaleheight and
-$\sigma_W$~(velocity dispersion perpendicular to the Galactic plane) increase
-with time~\mbox{\citep{2019MNRAS.484.3544R}}. However, assuming both functions
-increase linearly with time as adopted in their work, the gradients of the two
-relations are not the same, doubling in $\sigma_W$ from 1 to 8\,Gyr~(Fig.~4 in
-their work) does not mean the scaleheight doubles over the same time. There is
-a missing multiplier that should be at least a factor of $\sim$2 to $\sim$3
-judging from how the aforementioned works found a typical scale height of
-$\sim$300\,pc. The effect of this missing factor in a simulated population of
-WDs should lead to an over-density of the older WDs. This can explain the
-consistent trend of deviation starting at the brightest WD up to
-$\sim$13\,mag~(cooling time of $\sim$1\,Gyr) because the effect is strongest
-for the youngest WDs where the scaleheight is comparable to the distance limit
-of 40\,pc, particularly, there is an offset of 20\,pc of the Sun from the
-Galactic plane. Furthermore, the necessary boundary conditions of fitting
-CDF requires the residuals to converge to 0.0 at the brightest and faintest
-magnitudes. One should not read it as proof of the quality of fit.
-}
+% 2023Galax..11...77V (\textasciitilde$280$pc/$800$pc)
+(e.g.~\citealp{2019MNRAS.482.4570G,2019MNRAS.485.5573T,2022MNRAS.511.3863E,2023Galax..11...77V}),
+which find age-averaged scaleheights around 200-300pc for the thin disc and
+700-900pc for the thick disc.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \citet{2019ApJ...878L..11I} performed an analysis by directly
@@ -1182,11 +1054,10 @@ on the 25\,pc sample from~\citet{2017ASPC..509...59O}. This recent burst was not
 seen in all but one previous work -- R13's. Interestingly enough, we have
 recovered the same peak with the GCNS sample using the R13 inverse
 modelling method (Section~\ref{sec:inversion}) and the pWDLF forward modelling
-method~(this work). \textcolor{green}{However, this is only a by-eye comparison,
+method~(this work). However, this is only a by-eye comparison,
 the relative strength and the location of the peaks in the SFH have to be
 corrected for the larger merger fraction for higher mass stars~\citep{2020A&A...636A..31T, 2024ApJ...974...12J} as well as the large
 cooling anomaly~\citep{2019ApJ...886..100C, 2024Natur.627..286B}.
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \citet{2021MNRAS.502.1753T} analysed a 100\,pc sample of WDs from
@@ -1261,37 +1132,32 @@ duration with a peak at $\sim$2.5\,Gyr. They also found a sharp and fast drop
 in the star formation rate in the most recent 1\,Gyr.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{green}{\citet{2021MNRAS.501..302A} uses stars brighter than $G = 15$
+\citet{2021MNRAS.501..302A} uses stars brighter than $G = 15$
 within 100 pc of the Sun from Gaia DR2, using parallaxes and photometry to
 reconstruct the age and metallicity distribution via a Bayesian hierarchical model. 
 They infer a primary peak of star formation about 10 Gyr\,ago, then a local
-minimum at around 8\,Gyr ago. It followed by a second peak of star fomration
+minimum at around 8\,Gyr ago. It followed by a second peak of star \textcolor{green}{formation}
 at $\sim$5\,Gyr, and thereafter a roughly constant star formation rate up to
 the present time.
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{green}{\citet{2024A&A...687A.168G} applied a CMD-fitting procedure on
+\citet{2024A&A...687A.168G} applied a CMD-fitting procedure on
 the GCNS sample to infer a dynamically evolved SFH, including effects of stellar
 evolution and selection. They found that there are a few bulks of star formation.
 The earliest one was at around $\sim$$10$\,Gyr ago, followed by another one
-at $\sim$$6-8$\,Gyr. THere is a local minimum at a lookback time of $\sim$$4$\,Gyr.
+at $\sim$$6-8$\,Gyr. There is a local minimum at a lookback time of $\sim$$4$\,Gyr.
 After that, there is a renewed bulk of star formation continuing to about half
 a billion years ago.
-}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{green}{\citet{2025A&A...697A.128D} used a forward modelling approach
+\citet{2025A&A...697A.128D} used a forward modelling approach
 to infer jointly the disc’s SFH and IMF. We take the SFH from the thin-disk
 solution of G13P-13 from Table 2 of their work for comparison. They found a
 strong star formation at a lookback time of $9-10$\,Gyr, which slowly ceased to
-a minimum at $6-7$\,Gyr. The SFR climbed back to a second period of star
-formation with the maximum at $3-4$\,Gyr and reached a minimum at the most
-recent time. It shows some similarity to \citep{2019A&A...624L...1M}, see the
-comparison between them in \citep{2025A&A...697A.128D}.
-}
-
+a minimum at $6-7$\,Gyr. The SFR climbed back to a second period of enhanced
+star formation with the maximum at $3-4$\,Gyr and reached a minimum at the most
+recent time. It shows some similarity to \citet{2019A&A...624L...1M}, see the
+comparison between them in \citet{2025A&A...697A.128D}.
 
 \subsection{Subgiants}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1302,23 +1168,21 @@ features. Nevertheless, they observe one dominant peak at 10.5\,Gyr and two
 small peaks at 2 and 4\,Gyr.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textcolor{green}{\citet{2024ApJ...976...87N}
-They derive accurate ages and metallicities for $\sim$$400,000$ subgiant branch
-stars in the solar neighbourhood using $Gaia$ and spectroscopy, building a
-catalogue of stellar ages that is self-consistent across the age–metallicity
-space. From this age catalogue, they decompose the SFH of the solar
-neighbourhood into contributions in ([Fe/H], age) space, effectively resolving
-multiple epochs of star formation corresponding to distinct metallicity regimes.
-Their SFH plotted in Figure~\ref{fig:comparison} is marginalised over the
-whole range of metallicity. This shows great similarity to
-\citet{2022Natur.603..599X}, but neither shows the most recent star formation.
-}
-
+\citet{2024ApJ...976...87N} derived accurate ages and metallicities for 
+$\sim$$400,000$ subgiant branch stars in the solar neighbourhood using $Gaia$
+and spectroscopy, building a catalogue of stellar ages that is self-consistent
+across the age–metallicity space. From this age catalogue, they decompose the
+SFH of the solar neighbourhood into contributions in ([Fe/H], age) space,
+effectively resolving multiple epochs of star formation corresponding to
+distinct metallicity regimes. Their SFH plotted in Figure~\ref{fig:comparison}
+is marginalized over the whole range of metallicity. This shows great
+similarity to \citet{2022Natur.603..599X}, but neither shows the most recent
+star formation.
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{figures/fig_10_compare_sfh.png}
   \caption{Comparison of the recovered SFH against previous works, see body
-  text of Sec~\ref{sec:comparison} for details. \textcolor{green}{The subplots are 
+  text of Sec~\ref{sec:comparison} for details. The subplots are 
   grouped by their units in reporting the SFH, and the labelling is in
   chronological order. Top: SFH retrieved with the
   pWDLF method and the updated R13 method from this work. The SFH is reported
@@ -1328,7 +1192,7 @@ whole range of metallicity. This shows great similarity to
   two independent methods and samples reported in the unit of solar mass formed
   per unit time per unit projected area. Bottom: The SFHs that are derived from
   six other independent methods and samples in the unit of number of stars formed
-  per arbitrary time and spatial unit.}}
+  per arbitrary time and spatial unit.}
   \label{fig:comparison}
 \end{figure}
 
@@ -1336,65 +1200,55 @@ whole range of metallicity. This shows great similarity to
 \section{Conclusions and Future Work}
 \label{sec:conclusion}
 By properly propagating the uncertainties in the systematics and measurements,
-this work has shown that it is possible to recover the SFH 
-from the WDLF with uncertainties that encompass the uncertainties in the WD
-atmosphere models, the photometry and the consequence of assuming a fixed
-surface gravity in the determination of the bolometric magnitude. We have chosen
-a set of varying bin sizes such that it matches the Nyquist sampling rate where
-two sampling points are required for every FWHM of the signal. In this case,
-the single is the shape of the WDLF, which ultimately comes from the SFH. From
-the comparisons with other works on the SFH of the solar neighbourhood, it is
-obvious that our new method can retrieve non-parametric SFH. This is achieved by
-carefully treating the uncertainties from noisy data using well-established
-mathematical tools. The recovered SFHs agree particularly well at an
-intermediate age of 0.1-9\,Gyr. We outline the most imminent issues to be
+this work has shown that it is possible to recover the SFH from the WDLF.
+\textcolor{green}{Using the uncertainties in bolometric magnitude arisen
+from photometric fitting and the various assumptions made in the GCNS WDLF
+catalogue, } we have chosen a set of varying bin sizes such that it matches the
+Nyquist sampling rate where two sampling points are required for every FWHM of
+the signal. In this case, the signal is the shape of the WDLF, which ultimately
+comes from the SFH. 
+\textcolor{green}{The modelling uncertainty is investigated through bootstrapping
+the input parameters 1000 times in constructing the pWDLFs.}
+From the comparisons with other works on the SFH of the solar 
+neighbourhood, it is obvious that our new method can retrieve non-parametric SFH.
+This is achieved by carefully treating the uncertainties from noisy data using
+well-established mathematical tools. The recovered SFHs agree particularly well
+at an intermediate age of 0.1-9\,Gyr. We outline the most imminent issues to be
 addressed as follows:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Known issues}
 \begin{enumerate}
-    \item The GCNS sample is not incompleteness corrected, particularly, the
-    kinematic selection can lead to a significant 
-    bias~\citep{2015MNRAS.450.4098L} in the analysis that
-    leads to underestimation in the number densities. Although not applicable to the GCNS
-    sample, the parallax-related selection usually leads to Lutz-Kelker 
-    bias~\citep{1973PASP...85..573L}, which would affect the shape of the
-    WDLF, hence the SFH.
-    \item The model uncertainty in the synthetic photometry is considered,
-    however, the treatment is not rigorous as the uncertainty should be
-    a function of the bolometric magnitude. Particularly, it is known that
-    in the visible wavelengths, the errors are the largest in the red end.
+    \item The GCNS WDLF has made several simplifying assumptions
+    about the constituent WDs, e.g.~all are processed assuming H atmospheres and single
+    star evolution. Contamination appears to be significant, and the sample is also 
+    uncorrected for the complex $Gaia$ selection function \citep{2021AJ....162..142R, 2023A&A...669A..55C}, leading to poorly quantified incompleteness.
     \item The properties of the Galaxy are assumed to be static, while in reality
     the scaleheights and metallicity of the disks and stellar halo have been
-    evolving through cosmic history.
+    evolving through cosmic history~\citep[e.g. in][]{2025MNRAS.538.2548R}.
+    There is bias in the bright end of the WDLF leading to the
+    underestimation of the density. Hot WDs can be seen from the largest
+    distance, so they should be the most complete in a 100\,pc sample. However,
+    the single scaleheight of 365\,pc used in the entire sample of GCNS WDs
+    would lead to a bias. Particularly, as pointed out in C23, the scaleheight
+    of the youngest WDs could be as low as 75\,pc.
     \item There are unaccounted uncertainties from the MS progenitors,
-    including their initial mass function, metallicity evolution,
-    initial-final mass relation, and the binary/multiplicity fraction. All
-    of them can lead to biases in the derived WDLF. As noted by
-    \citet{2019ApJ...878L..11I}, the \textcolor{green}{inversion} method is sensitive to the
-    adopted metallicity and IMF models but not the DA/non-DA ratio and among
-    other choices of models. Although the pWDLF method does not suffer similar
-    convergence and regularisation issues, this method is also sensitive to
-    the choice of MS models, as would any method that requires the progenitor
-    MS lifetimes in the analysis.
-    \item There are uncertainties from WD modelling that are not considered,
+    including their metallicity evolution and the
+    binary/multiplicity fraction. They can lead to biases in the derived WDLF.
+    As noted by \citet{2019ApJ...878L..11I}, the inversion
+    method is sensitive to the adopted metallicity and IMF models but not the
+    DA/non-DA ratio and among other choices of models. Although the pWDLF
+    method does not suffer similar convergence and regularisation issues,
+    this method is still sensitive to the choice of MS
+    models, as would any method that requires the progenitor MS lifetimes
+    in the analysis.
+    \item There are uncertainties from WD modelling~\citep{2022ApJ...934...36B, 2024MNRAS.527.8687O} that are not considered,
     for example, the effects from the choice of cooling models, atmosphere
     models, and synthetic photometric models. Statistical treatment for the
     bias due to unresolved binaries containing WDs should also be taken into
     account.
-    \item There is bias in the bright end of the WDLF leading to the
-    underestimation of the density. Hot WDs can be seen from the largest
-    distance, so they should be the most complete in a 100\,pc sample. However,
-    the single scaleheight of 250\,pc used in the entire sample of GCNS WDs
-    would lead to a bias. Particularly, as pointed out in C23, the scaleheight
-    of the youngest WDs could be as low as 75\,pc.
-    \item There is incompleteness in the faint end of the sample. It is
-    reported that \textit{Gaia} has a detection limit of $\sim$20.5\,mag.
-    At 100\,pc, which corresponds to a distance modulus of 5\,mag, an absolute
-    magnitude of $\sim$15.5\,mag in $G$ is a naive derivation of the
-    completeness limit. The GCNS contains WDs below this absolute magnitude.
     \item In the era of \textit{Gaia} astrometry, the sample size of WDs is large
-    enough that we should investigate the directional dependency of the WDLFs
+    enough that we should investigate the directional dependency of the WDLFs.
     The CFHS survey~\citep{2019ApJ...887..148F} and HSC
     survey~\citep{2024MNRAS.535.3611Q} seem to reveal a WDLF dissimilar to the
     WDLFs from SDSS, SuperCOSMOS and \textit{Gaia}. The distance dependency
@@ -1407,18 +1261,18 @@ addressed as follows:
 %When comparing with the T14 sample, we realized that there is a striking 
 %difference in the SFH from the 20\,pc and 100\,pc sample at the most recent
 %time.
-\textcolor{green}{Three important points should be investigated in the future
-Firstly, the GCNS sample of WDs has a low completeness and suffers from
-non-negligible contamination. The SFH derived in this work is preliminary
-at best, thorough selection with more recent catalogues~\citep[e.g.][]{2021MNRAS.508.3877G}
-should be used in conjunction with proper selection bias correction to maximize
-the potential of this method. Secondly, arbitrary selection of SFHs reported
-from different works cannot draw meaningful comparison, the by-eye comparison
-in this section should only be used for building further hypotheses in studying
-SFH of the solar neighbourhood. Corrections have to be applied differently to
-each of the methods to debias the results for valid comparison, particularly
-for comparison SFH derived from different stellar populations. Thirdly,} if the
-SFH is a strong function of distance from the Sun, then the directional
+Three important points should be investigated in the future.
+The issues with the GCNS discussed earlier imply that the SFH derived in this
+work is preliminary at best, and thorough selection with more recent
+catalogues~\citep[e.g.][]{2021MNRAS.508.3877G} should be used in conjunction
+with proper selection bias correction to maximize the potential of this method.
+Secondly, arbitrary selection of SFHs reported from different works cannot draw
+meaningful comparison, the by-eye comparison in \textcolor{green}{the previous} section should only be used
+for building further hypotheses in studying SFH of the solar neighbourhood.
+Corrections have to be applied differently to each of the methods to debias the
+results for valid comparison, particularly for \textcolor{green}{comparing} SFH derived from
+different stellar populations. Thirdly,
+if the SFH is a strong function of distance from the Sun, then the directional
 dependency should also be strong given that the Sun is not located in the middle
 of the Galactic plane. Furthermore, the Sun is not located in the middle of a
 major arm region of the Galaxy. The analysis should be more complex than simply
@@ -1452,7 +1306,7 @@ $\sim$10\,Gyr~\citep{2018Natur.563...85H}.
 
 Beyond systematics and directional dependence, one obvious next step is to use
 the colour information. All the derivation of SFH from WDLFs of the solar 
-neighbourhood were reported in \textcolor{green}{single photometric passband}.
+neighbourhood were reported in single photometric passband.
 Thus, all works have essentially marginalized over the colour-space. To address the
 problem of degeneracy and correlated signal in the solution, simultaneously
 fitting multiple WDLFs in various filters may relieve some issues with degeneracy
@@ -1481,10 +1335,10 @@ participating in the \textit{Gaia} Multilateral Agreement.
 \section*{Data Availability}
 The source code underlying this article, as well as all the data sufficient to
 reproduce all of the figures in this article are available on GitHub, at 
-\url{https://github.com/cylammarco/SFH-WDLF-article}. Two tables are available
+\url{https://github.com/cylammarco/SFH-WDLF-article}. Three tables are available
 in the appendix for the magnitude
-resolution~(Fig.~\ref{fig:magnitude_resolution}) and the WDLFs sampled at those
-magnitude bins~(Fig.~\ref{fig:sfh_optimal}).
+resolution~(Fig.~\ref{fig:magnitude_resolution}), the WDLFs sampled at those
+magnitude bins~(Fig.~\ref{fig:sfh_optimal}), and the SFHs~(Fig.~\ref{fig:sfh_optimal} \& \ref{fig:bootstrap_mean}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1655,8 +1509,8 @@ mean solutions and their uncertainties/standard deviations.
 17.101 & 1.713443e-05 & 1.939102e-05 & 2.162108e-05 & 7.439431e-06 & 1.039278e-05 \\
 17.189 & 2.731905e-05 & 4.685517e-05 & 2.039458e-05 & 7.169304e-06 & 9.750354e-06
     \end{tabular}
-    \caption{The \textcolor{green}{GCNS WDLFs and the reconstructed WDLFs in
-    Fig.~\ref{fig:sfh_optimal}.}}
+    \caption{The GCNS WDLFs and the reconstructed WDLFs in
+    Fig.~\ref{fig:sfh_optimal}.}
     \label{tab:reconstructed_wdlf}
 \end{table*}
 
@@ -1725,12 +1579,8 @@ mean solutions and their uncertainties/standard deviations.
     13.825 & 8.804379e-05 & 3.782637e-07 & 8.034392e-05 & 2.864236e-05 \\
     13.965 & 4.432244e-04 & 2.288005e-08 & 3.913583e-04 & 3.212227e-05
     \end{tabular}
-    \caption{\textcolor{green}{The best-fit and bootstrapped mean SFH from the lower panel of
-    Fig.~\ref{fig:sfh_optimal} and Fig.~\ref{fig:bootstrap_mean}. The uncertainties are only available at the
-    magnitudes when there is observed data. The solutions in bins without
-    observation come from the method fitting partial WDLFs that the faintest
-    WDs are in the model. For a given short period of star burst, the faintest
-    WDs that are unobserved should also be present given the model.}}
+    \caption{The best-fit and bootstrapped mean SFH from the lower panel of
+    Fig.~\ref{fig:sfh_optimal} and Fig.~\ref{fig:bootstrap_mean}.}
     \label{tab:sfh}
 \end{table*}
 
